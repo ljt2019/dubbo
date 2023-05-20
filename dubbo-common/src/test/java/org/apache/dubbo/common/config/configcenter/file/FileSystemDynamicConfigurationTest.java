@@ -64,7 +64,7 @@ class FileSystemDynamicConfigurationTest {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        URL url = valueOf("dubbo://127.0.0.1:20880").addParameter(CONFIG_CENTER_DIR_PARAM_NAME, rootDirectory.getAbsolutePath());
+        URL url = valueOf("dubbo://8.134.132.250:20880").addParameter(CONFIG_CENTER_DIR_PARAM_NAME, rootDirectory.getAbsolutePath());
         configuration = new FileSystemDynamicConfiguration(url);
     }
 

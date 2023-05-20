@@ -52,7 +52,7 @@ public class ConnectionTest {
     @BeforeAll
     public static void init() throws RemotingException {
         int port = NetUtils.getAvailablePort();
-        url = URL.valueOf("empty://127.0.0.1:" + port + "?foo=bar");
+        url = URL.valueOf("empty://8.134.132.250:" + port + "?foo=bar");
         ApplicationModel applicationModel = ApplicationModel.defaultModel();
         ApplicationConfig applicationConfig = new ApplicationConfig("provider-app");
         applicationConfig.setExecutorManagementMode(EXECUTOR_MANAGEMENT_MODE_DEFAULT);
@@ -125,7 +125,7 @@ public class ConnectionTest {
     @Test
     void connectSyncTest() throws RemotingException {
         int port = NetUtils.getAvailablePort();
-        URL url = URL.valueOf("empty://127.0.0.1:" + port + "?foo=bar");
+        URL url = URL.valueOf("empty://8.134.132.250:" + port + "?foo=bar");
         NettyPortUnificationServer nettyPortUnificationServer = new NettyPortUnificationServer(url, new DefaultPuHandler());
         nettyPortUnificationServer.bind();
         final AbstractConnectionClient connectionClient = connectionManager.connect(url, new DefaultPuHandler());

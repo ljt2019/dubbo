@@ -50,7 +50,7 @@ class NettyStringTest {
         applicationModel.getApplicationConfigManager().setApplication(applicationConfig);
         serverURL = serverURL.setScopeModel(applicationModel);
 
-        URL clientURL = URL.valueOf("telnet://127.0.0.1:" + port + "?client=netty3&codec=telnet");
+        URL clientURL = URL.valueOf("telnet://8.134.132.250:" + port + "?client=netty3&codec=telnet");
         clientURL = clientURL.setScopeModel(applicationModel);
         server = Exchangers.bind(serverURL, new TelnetServerHandler());
         client = Exchangers.connect(clientURL, new TelnetClientHandler());

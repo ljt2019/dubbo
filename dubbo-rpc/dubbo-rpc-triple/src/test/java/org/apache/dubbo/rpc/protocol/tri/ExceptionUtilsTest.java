@@ -91,7 +91,7 @@ class ExceptionUtilsTest {
         ApplicationModel applicationModel = ApplicationModel.defaultModel();
 
         URL providerUrl = URL.valueOf(
-            "tri://127.0.0.1:" + availablePort + "/" + IGreeter2.class.getName()).addParameter(CommonConstants.TIMEOUT_KEY, 10000);;
+            "tri://8.134.132.250:" + availablePort + "/" + IGreeter2.class.getName()).addParameter(CommonConstants.TIMEOUT_KEY, 10000);;
 
         ModuleServiceRepository serviceRepository = applicationModel.getDefaultModule()
             .getServiceRepository();
@@ -112,7 +112,7 @@ class ExceptionUtilsTest {
         Exporter<IGreeter2> export = protocol.export(invoker);
 
         URL consumerUrl = URL.valueOf(
-            "tri://127.0.0.1:" + availablePort + "/" + IGreeter2.class.getName()).addParameter(CommonConstants.TIMEOUT_KEY, 10000);
+            "tri://8.134.132.250:" + availablePort + "/" + IGreeter2.class.getName()).addParameter(CommonConstants.TIMEOUT_KEY, 10000);
 
         ConsumerModel consumerModel = new ConsumerModel(consumerUrl.getServiceKey(), null,
             serviceDescriptor, null,

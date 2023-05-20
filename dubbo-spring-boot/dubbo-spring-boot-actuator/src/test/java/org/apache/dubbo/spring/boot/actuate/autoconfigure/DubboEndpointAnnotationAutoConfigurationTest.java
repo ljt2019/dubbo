@@ -71,7 +71,7 @@ import java.util.function.Supplier;
                 "dubbo.protocol.name=dubbo",
                 "dubbo.protocol.port=20880",
                 "dubbo.provider.id=my-provider",
-                "dubbo.provider.host=127.0.0.1",
+                "dubbo.provider.host=8.134.132.250",
                 "dubbo.scan.basePackages = org.apache.dubbo.spring.boot.actuate.autoconfigure",
                 "management.endpoint.dubbo.enabled = true",
                 "management.endpoint.dubboshutdown.enabled = true",
@@ -108,7 +108,7 @@ class DubboEndpointAnnotationAutoConfigurationTest {
     @Autowired
     private ObjectMapper objectMapper;
 
-    @Value("http://127.0.0.1:${local.management.port}${management.endpoints.web.base-path:/actuator}")
+    @Value("http://8.134.132.250:${local.management.port}${management.endpoints.web.base-path:/actuator}")
     private String actuatorBaseURL;
 
     @BeforeEach
@@ -159,7 +159,7 @@ class DubboEndpointAnnotationAutoConfigurationTest {
         Assert.assertEquals("dubbo", beansMetadata.get("my-protocol").get("name"));
 
         beansMetadata = configsMap.get("ProviderConfig");
-        Assert.assertEquals("127.0.0.1", beansMetadata.get("my-provider").get("host"));
+        Assert.assertEquals("8.134.132.250", beansMetadata.get("my-provider").get("host"));
 
         beansMetadata = configsMap.get("ReferenceConfig");
         Assert.assertTrue(beansMetadata.isEmpty());
@@ -214,7 +214,7 @@ class DubboEndpointAnnotationAutoConfigurationTest {
         Assert.assertEquals("dubbo", properties.get("dubbo.protocol.name"));
         Assert.assertEquals("20880", properties.get("dubbo.protocol.port"));
         Assert.assertEquals("my-provider", properties.get("dubbo.provider.id"));
-        Assert.assertEquals("127.0.0.1", properties.get("dubbo.provider.host"));
+        Assert.assertEquals("8.134.132.250", properties.get("dubbo.provider.host"));
         Assert.assertEquals("org.apache.dubbo.spring.boot.actuate.autoconfigure", properties.get("dubbo.scan.basePackages"));
     }
 

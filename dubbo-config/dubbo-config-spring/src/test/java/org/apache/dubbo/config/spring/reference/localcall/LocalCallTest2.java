@@ -59,9 +59,9 @@ public class LocalCallTest2 {
     @Test
     public void testLocalCall() {
         // see also: org.apache.dubbo.rpc.protocol.injvm.InjvmInvoker.doInvoke
-        // InjvmInvoker set remote address to 127.0.0.1:0
+        // InjvmInvoker set remote address to 8.134.132.250:0
         String result = helloService.sayHello("world");
-        Assertions.assertEquals("Hello world, response from provider: " + InetSocketAddress.createUnresolved("127.0.0.1", 0), result);
+        Assertions.assertEquals("Hello world, response from provider: " + InetSocketAddress.createUnresolved("8.134.132.250", 0), result);
     }
 
 }

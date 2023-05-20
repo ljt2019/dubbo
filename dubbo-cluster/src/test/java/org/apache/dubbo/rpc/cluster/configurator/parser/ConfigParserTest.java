@@ -65,7 +65,7 @@ class ConfigParserTest {
             Assertions.assertNotNull(urls);
             Assertions.assertEquals(2, urls.size());
             URL url = urls.get(0);
-            Assertions.assertEquals("127.0.0.1:20880", url.getAddress());
+            Assertions.assertEquals("8.134.132.250:20880", url.getAddress());
             Assertions.assertEquals(222, url.getParameter(WEIGHT_KEY, 0));
         }
     }
@@ -89,7 +89,7 @@ class ConfigParserTest {
             Assertions.assertNotNull(urls);
             Assertions.assertEquals(4, urls.size());
             URL url = urls.get(0);
-            Assertions.assertEquals("127.0.0.1", url.getAddress());
+            Assertions.assertEquals("8.134.132.250", url.getAddress());
             Assertions.assertEquals(6666, url.getParameter(TIMEOUT_KEY, 0));
             Assertions.assertNotNull(url.getApplication());
         }
@@ -113,7 +113,7 @@ class ConfigParserTest {
             Assertions.assertNotNull(urls);
             Assertions.assertEquals(4, urls.size());
             URL url = urls.get(0);
-            Assertions.assertEquals("127.0.0.1", url.getAddress());
+            Assertions.assertEquals("8.134.132.250", url.getAddress());
             Assertions.assertEquals("service1", url.getServiceInterface());
             Assertions.assertEquals(6666, url.getParameter(TIMEOUT_KEY, 0));
             Assertions.assertEquals("random", url.getParameter(LOADBALANCE_KEY));
@@ -129,7 +129,7 @@ class ConfigParserTest {
             Assertions.assertNotNull(urls);
             Assertions.assertEquals(2, urls.size());
             URL url = urls.get(0);
-            Assertions.assertEquals("127.0.0.1", url.getAddress());
+            Assertions.assertEquals("8.134.132.250", url.getAddress());
             Assertions.assertEquals("*", url.getServiceInterface());
             Assertions.assertEquals(6666, url.getParameter(TIMEOUT_KEY, 0));
             Assertions.assertEquals("random", url.getParameter(LOADBALANCE_KEY));
@@ -144,7 +144,7 @@ class ConfigParserTest {
             Assertions.assertNotNull(urls);
             Assertions.assertEquals(1, urls.size());
             URL url = urls.get(0);
-            Assertions.assertEquals("127.0.0.1", url.getAddress());
+            Assertions.assertEquals("8.134.132.250", url.getAddress());
             Assertions.assertEquals("*", url.getServiceInterface());
             Assertions.assertEquals(6666, url.getParameter(TIMEOUT_KEY, 0));
             Assertions.assertEquals("random", url.getParameter(LOADBALANCE_KEY));
@@ -159,11 +159,11 @@ class ConfigParserTest {
             Assertions.assertNotNull(urls);
             Assertions.assertEquals(1, urls.size());
             URL url = urls.get(0);
-            Assertions.assertEquals("127.0.0.1", url.getAddress());
+            Assertions.assertEquals("8.134.132.250", url.getAddress());
             Assertions.assertEquals("*", url.getServiceInterface());
             Assertions.assertEquals(6666, url.getParameter(TIMEOUT_KEY, 0));
             Assertions.assertEquals("random", url.getParameter(LOADBALANCE_KEY));
-            Assertions.assertEquals("127.0.0.1:20880", url.getParameter(OVERRIDE_PROVIDERS_KEY));
+            Assertions.assertEquals("8.134.132.250:20880", url.getParameter(OVERRIDE_PROVIDERS_KEY));
             Assertions.assertEquals("demo-consumer", url.getApplication());
         }
     }

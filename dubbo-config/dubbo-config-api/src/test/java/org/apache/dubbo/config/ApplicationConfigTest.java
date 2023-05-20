@@ -319,7 +319,7 @@ class ApplicationConfigTest {
     void testOverrideConfigConvertCase() {
         SysProps.setProperty("dubbo.application.NAME", "demo-app");
         SysProps.setProperty("dubbo.application.qos-Enable", "false");
-        SysProps.setProperty("dubbo.application.qos_host", "127.0.0.1");
+        SysProps.setProperty("dubbo.application.qos_host", "8.134.132.250");
         SysProps.setProperty("dubbo.application.qosPort", "2345");
 
         DubboBootstrap.getInstance()
@@ -328,7 +328,7 @@ class ApplicationConfigTest {
         ApplicationConfig applicationConfig = DubboBootstrap.getInstance().getApplication();
 
         Assertions.assertEquals(false, applicationConfig.getQosEnable());
-        Assertions.assertEquals("127.0.0.1", applicationConfig.getQosHost());
+        Assertions.assertEquals("8.134.132.250", applicationConfig.getQosHost());
         Assertions.assertEquals(2345, applicationConfig.getQosPort());
         Assertions.assertEquals("demo-app", applicationConfig.getName());
 

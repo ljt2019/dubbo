@@ -75,7 +75,7 @@ class GenericServiceTest {
 
         ReferenceConfig<DemoService> reference = new ReferenceConfig<DemoService>();
         reference.setInterface(DemoService.class);
-        reference.setUrl("dubbo://127.0.0.1:29581?generic=true&timeout=3000");
+        reference.setUrl("dubbo://8.134.132.250:29581?generic=true&timeout=3000");
 
         DubboBootstrap bootstrap = DubboBootstrap.getInstance()
                 .application(new ApplicationConfig("generic-test"))
@@ -116,7 +116,7 @@ class GenericServiceTest {
 
         ReferenceConfig<GenericService> reference = new ReferenceConfig<GenericService>();
         reference.setInterface(DemoService.class);
-        reference.setUrl("dubbo://127.0.0.1:29581?scope=remote&timeout=3000");
+        reference.setUrl("dubbo://8.134.132.250:29581?scope=remote&timeout=3000");
         reference.setGeneric(true);
 
         DubboBootstrap bootstrap = DubboBootstrap.getInstance()
@@ -154,7 +154,7 @@ class GenericServiceTest {
 
         ReferenceConfig<GenericService> reference = new ReferenceConfig<GenericService>();
         reference.setInterface(DemoService.class);
-        reference.setUrl("dubbo://127.0.0.1:29581?scope=remote&timeout=3000");
+        reference.setUrl("dubbo://8.134.132.250:29581?scope=remote&timeout=3000");
         reference.setGeneric(GENERIC_SERIALIZATION_NATIVE_JAVA);
 
         DubboBootstrap bootstrap = DubboBootstrap.getInstance()
@@ -224,7 +224,7 @@ class GenericServiceTest {
 
         ReferenceConfig<GenericService> reference = new ReferenceConfig<GenericService>();
         reference.setInterface(DemoService.class);
-        reference.setUrl("dubbo://127.0.0.1:29581?scope=remote&timeout=3000");
+        reference.setUrl("dubbo://8.134.132.250:29581?scope=remote&timeout=3000");
         reference.setGeneric(GENERIC_SERIALIZATION_BEAN);
 
         DubboBootstrap bootstrap = DubboBootstrap.getInstance()
@@ -282,7 +282,7 @@ class GenericServiceTest {
         ReferenceConfig<DemoService> ref = null;
         ref = new ReferenceConfig<DemoService>();
         ref.setInterface(DemoService.class);
-        ref.setUrl("dubbo://127.0.0.1:29581?scope=remote&generic=bean&timeout=3000");
+        ref.setUrl("dubbo://8.134.132.250:29581?scope=remote&generic=bean&timeout=3000");
 
         DubboBootstrap bootstrap = DubboBootstrap.getInstance()
                 .application(new ApplicationConfig("generic-test"))

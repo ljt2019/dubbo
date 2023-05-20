@@ -53,8 +53,8 @@ import org.springframework.test.context.junit4.SpringRunner;
                 "dubbo.registry.address = zookeeper://192.168.99.100:32770",
                 "dubbo.protocol.name=dubbo",
                 "dubbo.protocol.port=20880",
-                "dubbo.monitor.address=zookeeper://127.0.0.1:32770",
-                "dubbo.provider.host=127.0.0.1",
+                "dubbo.monitor.address=zookeeper://8.134.132.250:32770",
+                "dubbo.provider.host=8.134.132.250",
                 "dubbo.consumer.client=netty"
         }
 )
@@ -125,7 +125,7 @@ public class DubboAutoConfigurationOnSingleConfigTest {
     @Test
     public void testMonitorConfig() {
 
-        Assert.assertEquals("zookeeper://127.0.0.1:32770", monitorConfig.getAddress());
+        Assert.assertEquals("zookeeper://8.134.132.250:32770", monitorConfig.getAddress());
 
     }
 
@@ -140,7 +140,7 @@ public class DubboAutoConfigurationOnSingleConfigTest {
     @Test
     public void testProviderConfig() {
 
-        Assert.assertEquals("127.0.0.1", providerConfig.getHost());
+        Assert.assertEquals("8.134.132.250", providerConfig.getHost());
 
     }
 

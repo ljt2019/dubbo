@@ -53,20 +53,20 @@ class RpcContextTest {
     @Test
     void testAddress() {
         RpcContext context = RpcContext.getServiceContext();
-        context.setLocalAddress("127.0.0.1", 20880);
+        context.setLocalAddress("8.134.132.250", 20880);
         Assertions.assertEquals(20880, context.getLocalAddress().getPort());
-        Assertions.assertEquals("127.0.0.1:20880", context.getLocalAddressString());
+        Assertions.assertEquals("8.134.132.250:20880", context.getLocalAddressString());
 
-        context.setRemoteAddress("127.0.0.1", 20880);
+        context.setRemoteAddress("8.134.132.250", 20880);
         Assertions.assertEquals(20880, context.getRemoteAddress().getPort());
-        Assertions.assertEquals("127.0.0.1:20880", context.getRemoteAddressString());
+        Assertions.assertEquals("8.134.132.250:20880", context.getRemoteAddressString());
 
-        context.setRemoteAddress("127.0.0.1", -1);
-        context.setLocalAddress("127.0.0.1", -1);
+        context.setRemoteAddress("8.134.132.250", -1);
+        context.setLocalAddress("8.134.132.250", -1);
         Assertions.assertEquals(0, context.getRemoteAddress().getPort());
         Assertions.assertEquals(0, context.getLocalAddress().getPort());
-        Assertions.assertEquals("127.0.0.1", context.getRemoteHostName());
-        Assertions.assertEquals("127.0.0.1", context.getLocalHostName());
+        Assertions.assertEquals("8.134.132.250", context.getRemoteHostName());
+        Assertions.assertEquals("8.134.132.250", context.getLocalHostName());
     }
 
     @Test

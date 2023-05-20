@@ -28,7 +28,7 @@ class StatusTelnetHandlerTest {
     @Test
     void test() {
         Channel channel = Mockito.mock(Channel.class);
-        Mockito.when(channel.getUrl()).thenReturn(URL.valueOf("dubbo://127.0.0.1:12345"));
+        Mockito.when(channel.getUrl()).thenReturn(URL.valueOf("dubbo://8.134.132.250:12345"));
 
         StatusTelnetHandler statusTelnetHandler = new StatusTelnetHandler();
         Assertions.assertNotNull(statusTelnetHandler.telnet(channel,""));
@@ -37,7 +37,7 @@ class StatusTelnetHandlerTest {
         String errorPrompt = "Unsupported parameter ";
         Assertions.assertTrue(statusTelnetHandler.telnet(channel,"other").contains(errorPrompt));
 
-        Mockito.when(channel.getUrl()).thenReturn(URL.valueOf("dubbo://127.0.0.1:12345?status=load,memory"));
+        Mockito.when(channel.getUrl()).thenReturn(URL.valueOf("dubbo://8.134.132.250:12345?status=load,memory"));
         Assertions.assertNotNull(statusTelnetHandler.telnet(channel,""));
         Assertions.assertNotNull(statusTelnetHandler.telnet(channel,"-l"));
     }

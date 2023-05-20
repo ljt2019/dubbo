@@ -106,7 +106,7 @@
 //
 //    public void initOrResetUrl(boolean isAsync) throws Exception {
 //        int port = NetUtils.getAvailablePort();
-//        consumerUrl = serviceURL = URL.valueOf("dubbo://127.0.0.1:" + port + "/" + IDemoService.class.getName() + "?group=" + System.nanoTime() + "&async=" + isAsync + "&timeout=100000&reference.filter=future");
+//        consumerUrl = serviceURL = URL.valueOf("dubbo://8.134.132.250:" + port + "/" + IDemoService.class.getName() + "?group=" + System.nanoTime() + "&async=" + isAsync + "&timeout=100000&reference.filter=future");
 //    }
 //
 //    public void initImplicitCallBackURL_onlyOnthrow() throws Exception {

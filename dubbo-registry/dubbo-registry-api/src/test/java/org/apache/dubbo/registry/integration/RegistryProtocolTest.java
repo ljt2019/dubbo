@@ -96,7 +96,7 @@ class RegistryProtocolTest {
 
         Map<String, Object> attributes = new HashMap<>();
         ServiceConfigURL serviceConfigURL = new ServiceConfigURL("registry",
-            "127.0.0.1",
+            "8.134.132.250",
             2181,
             "org.apache.dubbo.registry.RegistryService",
             parameters);
@@ -163,7 +163,7 @@ class RegistryProtocolTest {
         parameters.put(PROTOCOL_KEY, "tri");
         Map<String, Object> attributes = new HashMap<>();
         ServiceConfigURL serviceConfigURL = new ServiceConfigURL("registry",
-            "127.0.0.1",
+            "8.134.132.250",
             2181,
             "org.apache.dubbo.registry.RegistryService",
             parameters);
@@ -234,7 +234,7 @@ class RegistryProtocolTest {
 
         Map<String, Object> attributes = new HashMap<>();
         ServiceConfigURL serviceConfigURL = new ServiceConfigURL("registry",
-            "127.0.0.1",
+            "8.134.132.250",
             2181,
             "org.apache.dubbo.registry.RegistryService",
             parameters);
@@ -296,7 +296,7 @@ class RegistryProtocolTest {
         Map<String, Object> attributes = new HashMap<>();
         ServiceConfigURL serviceConfigURL = new ServiceConfigURL(
             "registry",
-            "127.0.0.1",
+            "8.134.132.250",
             2181,
             "org.apache.dubbo.registry.RegistryService",
             parameters);
@@ -362,7 +362,7 @@ class RegistryProtocolTest {
         Map<String, Object> attributes = new HashMap<>();
         ServiceConfigURL serviceConfigURL = new ServiceConfigURL(
             "registry",
-            "127.0.0.1",
+            "8.134.132.250",
             2181,
             "org.apache.dubbo.registry.RegistryService",
             parameters);
@@ -428,7 +428,7 @@ class RegistryProtocolTest {
         Map<String, Object> attributes = new HashMap<>();
         ServiceConfigURL serviceConfigURL = new ServiceConfigURL(
             "registry",
-            "127.0.0.1",
+            "8.134.132.250",
             2181,
             "org.apache.dubbo.registry.RegistryService",
             parameters);
@@ -490,7 +490,7 @@ class RegistryProtocolTest {
 
         Map<String, Object> attributes = new HashMap<>();
         ServiceConfigURL serviceConfigURL = new ServiceConfigURL("registry",
-            "127.0.0.1",
+            "8.134.132.250",
             2181,
             "org.apache.dubbo.registry.RegistryService",
             parameters);

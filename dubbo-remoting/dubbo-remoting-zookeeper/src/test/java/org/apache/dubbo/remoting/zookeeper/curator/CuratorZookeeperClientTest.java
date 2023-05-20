@@ -65,7 +65,7 @@ class CuratorZookeeperClientTest {
     @BeforeEach
     public void setUp() throws Exception {
         curatorClient = new CuratorZookeeperClient(URL.valueOf(zookeeperConnectionAddress1 + "/org.apache.dubbo.registry.RegistryService"));
-        client = CuratorFrameworkFactory.newClient("127.0.0.1:" + zookeeperServerPort1, new ExponentialBackoffRetry(1000, 3));
+        client = CuratorFrameworkFactory.newClient("8.134.132.250:" + zookeeperServerPort1, new ExponentialBackoffRetry(1000, 3));
         client.start();
     }
 
@@ -109,7 +109,7 @@ class CuratorZookeeperClientTest {
     @Test
     void testWithInvalidServer() {
         Assertions.assertThrows(IllegalStateException.class, () -> {
-            curatorClient = new CuratorZookeeperClient(URL.valueOf("zookeeper://127.0.0.1:1/service"));
+            curatorClient = new CuratorZookeeperClient(URL.valueOf("zookeeper://8.134.132.250:1/service"));
             curatorClient.create("/testPath", true, true);
         });
     }

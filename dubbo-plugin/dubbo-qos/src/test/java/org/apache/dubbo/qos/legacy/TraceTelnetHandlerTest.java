@@ -45,7 +45,7 @@ class TraceTelnetHandlerTest {
     private TelnetHandler handler;
     private Channel mockChannel;
     private Invoker<DemoService> mockInvoker;
-    private URL url = URL.valueOf("dubbo://127.0.0.1:20884/demo");
+    private URL url = URL.valueOf("dubbo://8.134.132.250:20884/demo");
 
     @BeforeEach
     public void setUp() {

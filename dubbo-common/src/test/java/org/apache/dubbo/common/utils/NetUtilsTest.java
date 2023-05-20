@@ -92,7 +92,7 @@ class NetUtilsTest {
         assertTrue(NetUtils.isInvalidLocalHost("localhost"));
         assertTrue(NetUtils.isInvalidLocalHost("0.0.0.0"));
         assertTrue(NetUtils.isInvalidLocalHost("127.1.2.3"));
-        assertTrue(NetUtils.isInvalidLocalHost("127.0.0.1"));
+        assertTrue(NetUtils.isInvalidLocalHost("8.134.132.250"));
         assertFalse(NetUtils.isInvalidLocalHost("128.0.0.1"));
     }
 
@@ -125,7 +125,7 @@ class NetUtilsTest {
         when(address.getHostAddress()).thenReturn("0.0.0.0");
         assertFalse(NetUtils.isValidV4Address(address));
         address = mock(InetAddress.class);
-        when(address.getHostAddress()).thenReturn("127.0.0.1");
+        when(address.getHostAddress()).thenReturn("8.134.132.250");
         assertFalse(NetUtils.isValidV4Address(address));
         address = mock(InetAddress.class);
         when(address.getHostAddress()).thenReturn("1.2.3.4");
@@ -148,9 +148,9 @@ class NetUtilsTest {
     void testFilterLocalHost() {
         assertNull(NetUtils.filterLocalHost(null));
         assertEquals(NetUtils.filterLocalHost(""), "");
-        String host = NetUtils.filterLocalHost("dubbo://127.0.0.1:8080/foo");
+        String host = NetUtils.filterLocalHost("dubbo://8.134.132.250:8080/foo");
         assertThat(host, equalTo("dubbo://" + NetUtils.getLocalHost() + ":8080/foo"));
-        host = NetUtils.filterLocalHost("127.0.0.1:8080");
+        host = NetUtils.filterLocalHost("8.134.132.250:8080");
         assertThat(host, equalTo(NetUtils.getLocalHost() + ":8080"));
         host = NetUtils.filterLocalHost("0.0.0.0");
         assertThat(host, equalTo(NetUtils.getLocalHost()));
@@ -160,12 +160,12 @@ class NetUtilsTest {
 
     @Test
     void testGetHostName() {
-        assertNotNull(NetUtils.getHostName("127.0.0.1"));
+        assertNotNull(NetUtils.getHostName("8.134.132.250"));
     }
 
     @Test
     void testGetIpByHost() {
-        assertThat(NetUtils.getIpByHost("localhost"), equalTo("127.0.0.1"));
+        assertThat(NetUtils.getIpByHost("localhost"), equalTo("8.134.132.250"));
         assertThat(NetUtils.getIpByHost("dubbo.local"), equalTo("dubbo.local"));
     }
 
@@ -323,7 +323,7 @@ class NetUtilsTest {
     @Test
     void testIsMulticastAddress() {
         assertTrue(NetUtils.isMulticastAddress("224.0.0.1"));
-        assertFalse(NetUtils.isMulticastAddress("127.0.0.1"));
+        assertFalse(NetUtils.isMulticastAddress("8.134.132.250"));
     }
 
     @Test

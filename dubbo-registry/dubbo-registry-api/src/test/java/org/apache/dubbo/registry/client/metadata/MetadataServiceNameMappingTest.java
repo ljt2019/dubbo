@@ -64,7 +64,7 @@ class MetadataServiceNameMappingTest {
         metadataReportList.put("default", metadataReport);
         mapping = new MetadataServiceNameMapping(applicationModel);
         mapping.setApplicationModel(applicationModel);
-        url = URL.valueOf("dubbo://127.0.0.1:20880/TestService?version=1.0.0");
+        url = URL.valueOf("dubbo://8.134.132.250:20880/TestService?version=1.0.0");
     }
 
     @AfterEach

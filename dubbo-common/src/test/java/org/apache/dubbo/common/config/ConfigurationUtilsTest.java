@@ -104,9 +104,9 @@ class ConfigurationUtilsTest {
 
     @Test
     void testEscapedNewLine() throws Exception {
-        String p1 = "dubbo.registry.address=zookeeper://127.0.0.1:2181\\\\ndubbo.protocol.port=20880";
+        String p1 = "dubbo.registry.address=zookeeper://8.134.132.250:2181\\\\ndubbo.protocol.port=20880";
         Map<String, String> result = ConfigurationUtils.parseProperties(p1);
         Assertions.assertEquals(1, result.size());
-        Assertions.assertEquals("zookeeper://127.0.0.1:2181\\ndubbo.protocol.port=20880", result.get("dubbo.registry.address"));
+        Assertions.assertEquals("zookeeper://8.134.132.250:2181\\ndubbo.protocol.port=20880", result.get("dubbo.registry.address"));
     }
 }

@@ -37,7 +37,7 @@ class URLStrParserTest {
     static {
         testCases.add("dubbo://192.168.1.1");
         testCases.add("dubbo://192.168.1.1?");
-        testCases.add("dubbo://127.0.0.1?test=中文测试");
+        testCases.add("dubbo://8.134.132.250?test=中文测试");
         testCases.add("dubbo://admin:admin123@192.168.1.41:28113/org.test.api.DemoService$Iface?anyhost=true&application=demo-service&dubbo=2.6.1&generic=false&interface=org.test.api.DemoService$Iface&methods=orbCompare,checkText,checkPicture&pid=65557&revision=1.4.17&service.filter=bootMetrics&side=provider&status=server&threads=200&timestamp=1583136298859&version=1.0.0");
         // super long text test
         testCases.add("dubbo://192.168.1.1/" + RandomString.make(10240));
@@ -45,8 +45,8 @@ class URLStrParserTest {
         testCases.add("dubbo://fe80:0:0:0:894:aeec:f37d:23e1%en0/path?abc=abc");
         testCases.add("dubbo://[fe80:0:0:0:894:aeec:f37d:23e1]:20880/path?abc=abc");
         testCases.add("nacos://192.168.1.1:8848?username=&password=");
-        testCases.add("dubbo://127.0.0.1?timeout=1234&default.timeout=5678");
-        testCases.add("dubbo://127.0.0.1?default.timeout=5678");
+        testCases.add("dubbo://8.134.132.250?timeout=1234&default.timeout=5678");
+        testCases.add("dubbo://8.134.132.250?default.timeout=5678");
 
         errorDecodedCases.add("dubbo:192.168.1.1");
         errorDecodedCases.add("://192.168.1.1");
@@ -85,11 +85,11 @@ class URLStrParserTest {
 
     @Test
     void testDefault() {
-        URL url1 = URLStrParser.parseEncodedStr(URL.encode("dubbo://127.0.0.1?timeout=1234&default.timeout=5678"));
+        URL url1 = URLStrParser.parseEncodedStr(URL.encode("dubbo://8.134.132.250?timeout=1234&default.timeout=5678"));
         assertThat(url1.getParameter("timeout"), equalTo("1234"));
         assertThat(url1.getParameter("default.timeout"), equalTo("5678"));
 
-        URL url2 = URLStrParser.parseEncodedStr(URL.encode("dubbo://127.0.0.1?default.timeout=5678"));
+        URL url2 = URLStrParser.parseEncodedStr(URL.encode("dubbo://8.134.132.250?default.timeout=5678"));
         assertThat(url2.getParameter("timeout"), equalTo("5678"));
         assertThat(url2.getParameter("default.timeout"), equalTo("5678"));
     }

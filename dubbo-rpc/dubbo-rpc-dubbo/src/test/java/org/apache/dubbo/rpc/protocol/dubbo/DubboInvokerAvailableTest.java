@@ -64,7 +64,7 @@ class DubboInvokerAvailableTest {
     @Test
     void test_Normal_available() {
         int port = NetUtils.getAvailablePort();
-        URL url = URL.valueOf("dubbo://127.0.0.1:" + port + "/org.apache.dubbo.rpc.protocol.dubbo.IDemoService");
+        URL url = URL.valueOf("dubbo://8.134.132.250:" + port + "/org.apache.dubbo.rpc.protocol.dubbo.IDemoService");
         ProtocolUtils.export(new DemoServiceImpl(), IDemoService.class, url);
 
         DubboInvoker<?> invoker = (DubboInvoker<?>) protocol.protocolBindingRefer(IDemoService.class, url);
@@ -76,7 +76,7 @@ class DubboInvokerAvailableTest {
     @Test
     void test_Normal_ChannelReadOnly() throws Exception {
         int port = NetUtils.getAvailablePort();
-        URL url = URL.valueOf("dubbo://127.0.0.1:" + port + "/org.apache.dubbo.rpc.protocol.dubbo.IDemoService");
+        URL url = URL.valueOf("dubbo://8.134.132.250:" + port + "/org.apache.dubbo.rpc.protocol.dubbo.IDemoService");
         ProtocolUtils.export(new DemoServiceImpl(), IDemoService.class, url);
 
         DubboInvoker<?> invoker = (DubboInvoker<?>) protocol.protocolBindingRefer(IDemoService.class, url);
@@ -94,7 +94,7 @@ class DubboInvokerAvailableTest {
     @Test
     void test_normal_channel_close_wait_gracefully() {
         int testPort = NetUtils.getAvailablePort();
-        URL url = URL.valueOf("dubbo://127.0.0.1:" + testPort + "/org.apache.dubbo.rpc.protocol.dubbo.IDemoService?scope=true&lazy=false");
+        URL url = URL.valueOf("dubbo://8.134.132.250:" + testPort + "/org.apache.dubbo.rpc.protocol.dubbo.IDemoService?scope=true&lazy=false");
         Exporter<IDemoService> exporter = ProtocolUtils.export(new DemoServiceImpl(), IDemoService.class, url);
         Exporter<IDemoService> exporter0 = ProtocolUtils.export(new DemoServiceImpl0(), IDemoService.class, url);
 
@@ -118,7 +118,7 @@ class DubboInvokerAvailableTest {
     @Test
     void test_NoInvokers() throws Exception {
         int port = NetUtils.getAvailablePort();
-        URL url = URL.valueOf("dubbo://127.0.0.1:" + port + "/org.apache.dubbo.rpc.protocol.dubbo.IDemoService?connections=1");
+        URL url = URL.valueOf("dubbo://8.134.132.250:" + port + "/org.apache.dubbo.rpc.protocol.dubbo.IDemoService?connections=1");
         ProtocolUtils.export(new DemoServiceImpl(), IDemoService.class, url);
 
         DubboInvoker<?> invoker = (DubboInvoker<?>) protocol.protocolBindingRefer(IDemoService.class, url);
@@ -132,7 +132,7 @@ class DubboInvokerAvailableTest {
     @Test
     void test_Lazy_ChannelReadOnly() throws Exception {
         int port = NetUtils.getAvailablePort();
-        URL url = URL.valueOf("dubbo://127.0.0.1:" + port + "/org.apache.dubbo.rpc.protocol.dubbo.IDemoService?lazy=true&connections=1&timeout=10000");
+        URL url = URL.valueOf("dubbo://8.134.132.250:" + port + "/org.apache.dubbo.rpc.protocol.dubbo.IDemoService?lazy=true&connections=1&timeout=10000");
         ProtocolUtils.export(new DemoServiceImpl(), IDemoService.class, url);
 
         Invoker<?> invoker = protocol.refer(IDemoService.class, url);
@@ -160,7 +160,7 @@ class DubboInvokerAvailableTest {
     @Test
     public void testPreferSerialization() throws Exception {
         int port = NetUtils.getAvailablePort();
-        URL url = URL.valueOf("dubbo://127.0.0.1:" + port + "/org.apache.dubbo.rpc.protocol.dubbo.IDemoService?lazy=true&connections=1&timeout=10000&serialization=fastjson&prefer_serialization=fastjson2,hessian2");
+        URL url = URL.valueOf("dubbo://8.134.132.250:" + port + "/org.apache.dubbo.rpc.protocol.dubbo.IDemoService?lazy=true&connections=1&timeout=10000&serialization=fastjson&prefer_serialization=fastjson2,hessian2");
         ProtocolUtils.export(new DemoServiceImpl(), IDemoService.class, url);
 
         Invoker<?> invoker = protocol.refer(IDemoService.class, url);

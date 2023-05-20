@@ -29,7 +29,7 @@ public class ConsulDubboServiceProviderBootstrap {
     public static void main(String[] args) {
         DubboBootstrap.getInstance()
                 .application("consul-dubbo-provider", app -> app.metadata(DEFAULT_METADATA_STORAGE_TYPE))
-                .registry(builder -> builder.address("consul://127.0.0.1:8500?registry-type=service")
+                .registry(builder -> builder.address("consul://8.134.132.250:8500?registry-type=service")
                         .useAsConfigCenter(true)
                         .useAsMetadataCenter(true))
                 .protocol("dubbo", builder -> builder.port(-1).name("dubbo"))

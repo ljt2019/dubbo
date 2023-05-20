@@ -25,11 +25,11 @@
     <dubbo:application name="demo-provider"/>
 
     <!-- registry center configuration -->
-    <dubbo:registry id="reg1" address="127.0.0.1:4545"/>
+    <dubbo:registry id="reg1" address="8.134.132.250:4545"/>
 
-    <dubbo:registry id="reg2" address="127.0.0.1:4546"/>
+    <dubbo:registry id="reg2" address="8.134.132.250:4546"/>
 
-    <dubbo:registry id="reg3" address="127.0.0.1:4547" default="false"/>
+    <dubbo:registry id="reg3" address="8.134.132.250:4547" default="false"/>
 
     <!-- protocol configuration -->
     <dubbo:protocol name="dubbo" port="20880"/>

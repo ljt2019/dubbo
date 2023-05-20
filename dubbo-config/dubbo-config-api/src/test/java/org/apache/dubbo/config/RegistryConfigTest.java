@@ -208,7 +208,7 @@ class RegistryConfigTest {
         RegistryConfig registry1 = new RegistryConfig();
         RegistryConfig registry2 = new RegistryConfig();
         registry1.setAddress(ZookeeperRegistryCenterConfig.getConnectionAddress2());
-        registry2.setAddress("zookeeper://127.0.0.1:2183");
+        registry2.setAddress("zookeeper://8.134.132.250:2183");
         Assertions.assertNotEquals(registry1, registry2);
     }
 

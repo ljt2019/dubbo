@@ -24,7 +24,7 @@ scope: application
 key: demo-consumer
 configs:
 - addresses:
-  - 127.0.0.1
+  - 8.134.132.250
   parameters:
     loadbalance: random
     cluster: failfast

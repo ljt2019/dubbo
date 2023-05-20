@@ -76,7 +76,7 @@ public abstract class AbstractZookeeperTransporter implements ZookeeperTransport
     /**
      * @param url the url that will create zookeeper connection .
      *            The url in AbstractZookeeperTransporter#connect parameter is rewritten by this one.
-     *            such as: zookeeper://127.0.0.1:2181/org.apache.dubbo.remoting.zookeeper.ZookeeperTransporter
+     *            such as: zookeeper://8.134.132.250:2181/org.apache.dubbo.remoting.zookeeper.ZookeeperTransporter
      * @return
      */
     protected abstract ZookeeperClient createZookeeperClient(URL url);
@@ -104,10 +104,10 @@ public abstract class AbstractZookeeperTransporter implements ZookeeperTransport
     }
 
     /**
-     * get all zookeeper urls (such as zookeeper://127.0.0.1:2181?backup=127.0.0.1:8989,127.0.0.1:9999)
+     * get all zookeeper urls (such as zookeeper://8.134.132.250:2181?backup=8.134.132.250:8989,8.134.132.250:9999)
      *
-     * @param url such as zookeeper://127.0.0.1:2181?backup=127.0.0.1:8989,127.0.0.1:9999
-     * @return such as 127.0.0.1:2181,127.0.0.1:8989,127.0.0.1:9999
+     * @param url such as zookeeper://8.134.132.250:2181?backup=8.134.132.250:8989,8.134.132.250:9999
+     * @return such as 8.134.132.250:2181,8.134.132.250:8989,8.134.132.250:9999
      */
     public List<String> getURLBackupAddress(URL url) {
         List<String> addressList = new ArrayList<>();

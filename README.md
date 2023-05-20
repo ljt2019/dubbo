@@ -103,7 +103,7 @@ import org.apache.dubbo.samples.api.GreetingsService;
 import java.util.concurrent.CountDownLatch;
 
 public class Application {
-    private static String zookeeperHost = System.getProperty("zookeeper.address", "127.0.0.1");
+    private static String zookeeperHost = System.getProperty("zookeeper.address", "8.134.132.250");
 
     public static void main(String[] args) throws Exception {
         ServiceConfig<GreetingsService> service = new ServiceConfig<>();
@@ -140,7 +140,7 @@ import org.apache.dubbo.config.RegistryConfig;
 import org.apache.dubbo.samples.api.GreetingsService;
 
 public class Application {
-    private static String zookeeperHost = System.getProperty("zookeeper.address", "127.0.0.1");
+    private static String zookeeperHost = System.getProperty("zookeeper.address", "8.134.132.250");
 
     public static void main(String[] args) {
         ReferenceConfig<GreetingsService> reference = new ReferenceConfig<>();

@@ -40,7 +40,7 @@ class AbstractServiceNameMappingTest {
     private MockServiceNameMapping mapping = new MockServiceNameMapping(ApplicationModel.defaultModel());
     private MockServiceNameMapping2 mapping2 = new MockServiceNameMapping2(ApplicationModel.defaultModel());
 
-    URL url = URL.valueOf("dubbo://127.0.0.1:21880/" + AbstractServiceNameMappingTest.class.getName());
+    URL url = URL.valueOf("dubbo://8.134.132.250:21880/" + AbstractServiceNameMappingTest.class.getName());
 
     @BeforeEach
     public void setUp() throws Exception {
@@ -71,7 +71,7 @@ class AbstractServiceNameMappingTest {
 
     @Test
     void testGetAndListener() {
-        URL registryURL = URL.valueOf("registry://127.0.0.1:7777/test");
+        URL registryURL = URL.valueOf("registry://8.134.132.250:7777/test");
         registryURL = registryURL.addParameter(SUBSCRIBED_SERVICE_NAMES_KEY, "registry-app1");
 
         Set<String> services = mapping2.getAndListen(registryURL, url, null);

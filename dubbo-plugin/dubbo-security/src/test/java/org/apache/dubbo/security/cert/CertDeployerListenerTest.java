@@ -82,7 +82,7 @@ class CertDeployerListenerTest {
             ApplicationModel applicationModel = frameworkModel.newApplication();
             applicationModel.getApplicationConfigManager().setApplication(new ApplicationConfig("test"));
             SslConfig sslConfig = new SslConfig();
-            sslConfig.setCaAddress("127.0.0.1:30060");
+            sslConfig.setCaAddress("8.134.132.250:30060");
             applicationModel.getApplicationConfigManager().setSsl(sslConfig);
 
             applicationModel.getDeployer().start();
@@ -106,7 +106,7 @@ class CertDeployerListenerTest {
             ApplicationModel applicationModel = frameworkModel.newApplication();
             applicationModel.getApplicationConfigManager().setApplication(new ApplicationConfig("test"));
             SslConfig sslConfig = new SslConfig();
-            sslConfig.setCaAddress("127.0.0.1:30060");
+            sslConfig.setCaAddress("8.134.132.250:30060");
             applicationModel.getApplicationConfigManager().setSsl(sslConfig);
             applicationModel.getApplicationConfigManager().addMetadataReport(new MetadataReportConfig("absent"));
 
@@ -141,7 +141,7 @@ class CertDeployerListenerTest {
             ApplicationModel applicationModel = frameworkModel.newApplication();
             applicationModel.getApplicationConfigManager().setApplication(new ApplicationConfig("test"));
             SslConfig sslConfig = new SslConfig();
-            sslConfig.setCaAddress("127.0.0.1:30060");
+            sslConfig.setCaAddress("8.134.132.250:30060");
             applicationModel.getApplicationConfigManager().setSsl(sslConfig);
 
             applicationModel.getDeployer().start();
@@ -173,7 +173,7 @@ class CertDeployerListenerTest {
             ApplicationModel applicationModel = frameworkModel.newApplication();
             applicationModel.getApplicationConfigManager().setApplication(new ApplicationConfig("test"));
             SslConfig sslConfig = new SslConfig();
-            sslConfig.setCaAddress("127.0.0.1:30060");
+            sslConfig.setCaAddress("8.134.132.250:30060");
             applicationModel.getApplicationConfigManager().setSsl(sslConfig);
 
             applicationModel.getDeployer().start();
@@ -195,7 +195,7 @@ class CertDeployerListenerTest {
             ApplicationModel applicationModel = frameworkModel.newApplication();
             applicationModel.getApplicationConfigManager().setApplication(new ApplicationConfig("test"));
             SslConfig sslConfig = new SslConfig();
-            sslConfig.setCaAddress("127.0.0.1:30060");
+            sslConfig.setCaAddress("8.134.132.250:30060");
             sslConfig.setCaCertPath("certs/ca.crt");
             sslConfig.setOidcTokenPath("token");
             sslConfig.setEnvType("test");
@@ -203,7 +203,7 @@ class CertDeployerListenerTest {
 
             applicationModel.getDeployer().start();
             Mockito.verify(reference.get(), Mockito.times(1))
-                .connect(new CertConfig("127.0.0.1:30060", "test", "certs/ca.crt", "token"));
+                .connect(new CertConfig("8.134.132.250:30060", "test", "certs/ca.crt", "token"));
             applicationModel.getDeployer().stop();
             Mockito.verify(reference.get(), Mockito.atLeast(1))
                 .disConnect();
@@ -219,7 +219,7 @@ class CertDeployerListenerTest {
                  Mockito.mockConstruction(DubboCertManager.class, (mock, context) -> {
                      reference.set(mock);
                  })) {
-            System.setProperty("dubbo.ssl.ca-address", "127.0.0.1:30060");
+            System.setProperty("dubbo.ssl.ca-address", "8.134.132.250:30060");
             System.setProperty("dubbo.ssl.ca-cert-path", "certs/ca.crt");
             System.setProperty("dubbo.ssl.oidc-token-path", "token");
             System.setProperty("dubbo.ssl.env-type", "test");
@@ -229,7 +229,7 @@ class CertDeployerListenerTest {
 
             applicationModel.getDeployer().start();
             Mockito.verify(reference.get(), Mockito.times(1))
-                .connect(new CertConfig("127.0.0.1:30060", "test", "certs/ca.crt", "token"));
+                .connect(new CertConfig("8.134.132.250:30060", "test", "certs/ca.crt", "token"));
             applicationModel.getDeployer().stop();
             Mockito.verify(reference.get(), Mockito.atLeast(1)).disConnect();
             frameworkModel.destroy();

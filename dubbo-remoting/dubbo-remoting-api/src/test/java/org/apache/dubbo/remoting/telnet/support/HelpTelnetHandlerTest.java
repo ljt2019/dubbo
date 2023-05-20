@@ -29,7 +29,7 @@ class HelpTelnetHandlerTest {
     @Test
     void test() {
         Channel channel = Mockito.mock(Channel.class);
-        Mockito.when(channel.getUrl()).thenReturn(URL.valueOf("dubbo://127.0.0.1:12345"));
+        Mockito.when(channel.getUrl()).thenReturn(URL.valueOf("dubbo://8.134.132.250:12345"));
 
         HelpTelnetHandler helpTelnetHandler = new HelpTelnetHandler(FrameworkModel.defaultModel());
         // default output

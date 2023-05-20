@@ -69,8 +69,8 @@ class ServiceDiscoveryRegistryTest {
     private static AbstractServiceNameMapping mapping = mock(AbstractServiceNameMapping.class);
     private static Lock lock = new ReentrantLock();
 
-    private static URL registryURL = URL.valueOf("zookeeper://127.0.0.1:2181/org.apache.dubbo.registry.RegistryService");
-    private static URL url = URL.valueOf("consumer://127.0.0.1/TestService?interface=TestService1&check=false&protocol=dubbo");
+    private static URL registryURL = URL.valueOf("zookeeper://8.134.132.250:2181/org.apache.dubbo.registry.RegistryService");
+    private static URL url = URL.valueOf("consumer://8.134.132.250/TestService?interface=TestService1&check=false&protocol=dubbo");
     private static NotifyListener testServiceListener = mock(NotifyListener.class);
 
     private static List<ServiceInstance> instanceList1 = new ArrayList<>();
@@ -199,7 +199,7 @@ class ServiceDiscoveryRegistryTest {
         MockServiceInstancesChangedListener multiAppsInstanceListener = spy(new MockServiceInstancesChangedListener(multiApps, serviceDiscovery));
         doNothing().when(multiAppsInstanceListener).onEvent(any());
         List<URL> urls = new ArrayList<>();
-        urls.add(URL.valueOf("dubbo://127.0.0.1:20880/TestService"));
+        urls.add(URL.valueOf("dubbo://8.134.132.250:20880/TestService"));
         doReturn(urls).when(multiAppsInstanceListener).getAddresses(any(), any());
         when(serviceDiscovery.createListener(multiApps)).thenReturn(multiAppsInstanceListener);
         when(serviceDiscovery.getInstances(APP_NAME1)).thenReturn(instanceList1);
@@ -219,7 +219,7 @@ class ServiceDiscoveryRegistryTest {
 
         // different interface mapping to the same apps
         NotifyListener testServiceListener2 = mock(NotifyListener.class);
-        URL url2 = URL.valueOf("tri://127.0.0.1/TestService2?interface=TestService2&check=false&protocol=tri");
+        URL url2 = URL.valueOf("tri://8.134.132.250/TestService2?interface=TestService2&check=false&protocol=tri");
         when(testServiceListener2.getConsumerUrl()).thenReturn(url2);
         serviceDiscoveryRegistry.subscribeURLs(url2, testServiceListener2, multiApps);
         // check instance listeners not changed, methods not called
@@ -252,7 +252,7 @@ class ServiceDiscoveryRegistryTest {
         multiApps.add(APP_NAME1);
         multiApps.add(APP_NAME2);
         NotifyListener testServiceListener2 = mock(NotifyListener.class);
-        URL url2 = URL.valueOf("consumer://127.0.0.1/TestService2?interface=TestService1&check=false&protocol=tri");
+        URL url2 = URL.valueOf("consumer://8.134.132.250/TestService2?interface=TestService1&check=false&protocol=tri");
         when(testServiceListener2.getConsumerUrl()).thenReturn(url2);
         serviceDiscoveryRegistry.subscribeURLs(url, testServiceListener, multiApps);
         serviceDiscoveryRegistry.subscribeURLs(url2, testServiceListener2, multiApps);

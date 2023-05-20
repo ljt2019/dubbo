@@ -47,7 +47,7 @@ class TraceFilterTest {
 
     @BeforeEach
     public void setUp() {
-        URL url = URL.valueOf("dubbo://127.0.0.1:20884/demo");
+        URL url = URL.valueOf("dubbo://8.134.132.250:20884/demo");
         mockChannel = new MockChannel(url);
     }
 

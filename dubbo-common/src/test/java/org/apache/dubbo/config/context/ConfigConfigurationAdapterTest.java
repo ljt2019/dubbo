@@ -29,13 +29,13 @@ class ConfigConfigurationAdapterTest {
     @Test
     void test() {
         RegistryConfig registryConfig = new RegistryConfig();
-        registryConfig.setAddress("127.0.0.1");
+        registryConfig.setAddress("8.134.132.250");
         registryConfig.setPort(2181);
 
         String prefix = "dubbo.registry";
         ConfigConfigurationAdapter configConfigurationAdapter = new ConfigConfigurationAdapter(registryConfig, prefix);
 
-        Assertions.assertEquals(configConfigurationAdapter.getInternalProperty(prefix + "." + "address"), "127.0.0.1");
+        Assertions.assertEquals(configConfigurationAdapter.getInternalProperty(prefix + "." + "address"), "8.134.132.250");
         Assertions.assertEquals(configConfigurationAdapter.getInternalProperty(prefix + "." + "port"), "2181");
     }
 }

@@ -81,7 +81,7 @@ class ClientReconnectTest {
 
 
     public Client startClient(int port, int heartbeat) throws RemotingException {
-        URL url = URL.valueOf("exchange://127.0.0.1:" + port + "/client.reconnect.test?client=netty4&check=false&" + Constants.HEARTBEAT_KEY + "=" + heartbeat);
+        URL url = URL.valueOf("exchange://8.134.132.250:" + port + "/client.reconnect.test?client=netty4&check=false&" + Constants.HEARTBEAT_KEY + "=" + heartbeat);
         FrameworkModel frameworkModel = new FrameworkModel();
         ApplicationModel applicationModel = frameworkModel.newApplication();
         ApplicationConfig applicationConfig = new ApplicationConfig("provider-app");
@@ -95,7 +95,7 @@ class ClientReconnectTest {
     }
 
     public RemotingServer startServer(int port) throws RemotingException {
-        URL url = URL.valueOf("exchange://127.0.0.1:" + port + "/client.reconnect.test?server=netty4");
+        URL url = URL.valueOf("exchange://8.134.132.250:" + port + "/client.reconnect.test?server=netty4");
         FrameworkModel frameworkModel = new FrameworkModel();
         ApplicationModel applicationModel = frameworkModel.newApplication();
         ApplicationConfig applicationConfig = new ApplicationConfig("provider-app");

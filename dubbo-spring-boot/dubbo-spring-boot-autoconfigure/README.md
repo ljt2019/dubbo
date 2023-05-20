@@ -144,10 +144,10 @@ dubbo.protocol.name = dubbo
 dubbo.protocol.port = 20880
 
 ## MonitorConfig
-dubbo.monitor.address = zookeeper://127.0.0.1:32770
+dubbo.monitor.address = zookeeper://8.134.132.250:32770
 
 ## ProviderConfig
-dubbo.provider.host = 127.0.0.1
+dubbo.provider.host = 8.134.132.250
 
 ## ConsumerConfig
 dubbo.consumer.client = netty
@@ -196,8 +196,8 @@ dubbo.modules.module1.name = dubbo-demo-module
 dubbo.registries.registry1.address = zookeeper://192.168.99.100:32770
 dubbo.protocols.protocol1.name = dubbo
 dubbo.protocols.protocol1.port = 20880
-dubbo.monitors.monitor1.address = zookeeper://127.0.0.1:32770
-dubbo.providers.provider1.host = 127.0.0.1
+dubbo.monitors.monitor1.address = zookeeper://8.134.132.250:32770
+dubbo.providers.provider1.host = 8.134.132.250
 dubbo.consumers.consumer1.client = netty
 ```
 

@@ -322,13 +322,13 @@ class AbstractConfigTest {
     void testRefreshAll() {
         try {
             OverrideConfig overrideConfig = new OverrideConfig();
-            overrideConfig.setAddress("override-config://127.0.0.1:2181");
+            overrideConfig.setAddress("override-config://8.134.132.250:2181");
             overrideConfig.setProtocol("override-config");
             overrideConfig.setEscape("override-config://");
             overrideConfig.setExclude("override-config");
 
             Map<String, String> external = new HashMap<>();
-            external.put("dubbo.override.address", "external://127.0.0.1:2181");
+            external.put("dubbo.override.address", "external://8.134.132.250:2181");
             // @Parameter(exclude=true)
             external.put("dubbo.override.exclude", "external");
             // @Parameter(key="key1", useKeyAsProperty=false)
@@ -338,7 +338,7 @@ class AbstractConfigTest {
             ApplicationModel.defaultModel().getModelEnvironment().initialize();
             ApplicationModel.defaultModel().getModelEnvironment().setExternalConfigMap(external);
 
-            SysProps.setProperty("dubbo.override.address", "system://127.0.0.1:2181");
+            SysProps.setProperty("dubbo.override.address", "system://8.134.132.250:2181");
             SysProps.setProperty("dubbo.override.protocol", "system");
             // this will not override, use 'key' instead, @Parameter(key="key1", useKeyAsProperty=false)
             SysProps.setProperty("dubbo.override.key1", "system");
@@ -347,7 +347,7 @@ class AbstractConfigTest {
             // Load configuration from  system properties -> externalConfiguration -> RegistryConfig -> dubbo.properties
             overrideConfig.refresh();
 
-            Assertions.assertEquals("system://127.0.0.1:2181", overrideConfig.getAddress());
+            Assertions.assertEquals("system://8.134.132.250:2181", overrideConfig.getAddress());
             Assertions.assertEquals("system", overrideConfig.getProtocol());
             Assertions.assertEquals("override-config://", overrideConfig.getEscape());
             Assertions.assertEquals("external", overrideConfig.getKey());
@@ -361,18 +361,18 @@ class AbstractConfigTest {
     void testRefreshSystem() {
         try {
             OverrideConfig overrideConfig = new OverrideConfig();
-            overrideConfig.setAddress("override-config://127.0.0.1:2181");
+            overrideConfig.setAddress("override-config://8.134.132.250:2181");
             overrideConfig.setProtocol("override-config");
             overrideConfig.setEscape("override-config://");
             overrideConfig.setExclude("override-config");
 
-            SysProps.setProperty("dubbo.override.address", "system://127.0.0.1:2181");
+            SysProps.setProperty("dubbo.override.address", "system://8.134.132.250:2181");
             SysProps.setProperty("dubbo.override.protocol", "system");
             SysProps.setProperty("dubbo.override.key", "system");
 
             overrideConfig.refresh();
 
-            Assertions.assertEquals("system://127.0.0.1:2181", overrideConfig.getAddress());
+            Assertions.assertEquals("system://8.134.132.250:2181", overrideConfig.getAddress());
             Assertions.assertEquals("system", overrideConfig.getProtocol());
             Assertions.assertEquals("override-config://", overrideConfig.getEscape());
             Assertions.assertEquals("system", overrideConfig.getKey());
@@ -386,7 +386,7 @@ class AbstractConfigTest {
         try {
             ApplicationModel.defaultModel().getModelEnvironment().setExternalConfigMap(new HashMap<>());
             OverrideConfig overrideConfig = new OverrideConfig();
-            overrideConfig.setAddress("override-config://127.0.0.1:2181");
+            overrideConfig.setAddress("override-config://8.134.132.250:2181");
             overrideConfig.setProtocol("override-config");
             overrideConfig.setEscape("override-config://");
 
@@ -396,7 +396,7 @@ class AbstractConfigTest {
 
             overrideConfig.refresh();
 
-            Assertions.assertEquals("override-config://127.0.0.1:2181", overrideConfig.getAddress());
+            Assertions.assertEquals("override-config://8.134.132.250:2181", overrideConfig.getAddress());
             Assertions.assertEquals("override-config", overrideConfig.getProtocol());
             Assertions.assertEquals("override-config://", overrideConfig.getEscape());
             Assertions.assertEquals("properties", overrideConfig.getKey2());
@@ -410,13 +410,13 @@ class AbstractConfigTest {
     void testRefreshExternal() {
         try {
             OverrideConfig overrideConfig = new OverrideConfig();
-            overrideConfig.setAddress("override-config://127.0.0.1:2181");
+            overrideConfig.setAddress("override-config://8.134.132.250:2181");
             overrideConfig.setProtocol("override-config");
             overrideConfig.setEscape("override-config://");
             overrideConfig.setExclude("override-config");
 
             Map<String, String> external = new HashMap<>();
-            external.put("dubbo.override.address", "external://127.0.0.1:2181");
+            external.put("dubbo.override.address", "external://8.134.132.250:2181");
             external.put("dubbo.override.protocol", "external");
             external.put("dubbo.override.escape", "external://");
             // @Parameter(exclude=true)
@@ -430,7 +430,7 @@ class AbstractConfigTest {
 
             overrideConfig.refresh();
 
-            Assertions.assertEquals("external://127.0.0.1:2181", overrideConfig.getAddress());
+            Assertions.assertEquals("external://8.134.132.250:2181", overrideConfig.getAddress());
             Assertions.assertEquals("external", overrideConfig.getProtocol());
             Assertions.assertEquals("external://", overrideConfig.getEscape());
             Assertions.assertEquals("external", overrideConfig.getExclude());
@@ -446,16 +446,16 @@ class AbstractConfigTest {
         try {
             OverrideConfig overrideConfig = new OverrideConfig();
             overrideConfig.setId("override-id");
-            overrideConfig.setAddress("override-config://127.0.0.1:2181");
+            overrideConfig.setAddress("override-config://8.134.132.250:2181");
             overrideConfig.setProtocol("override-config");
             overrideConfig.setEscape("override-config://");
             overrideConfig.setExclude("override-config");
 
             Map<String, String> external = new HashMap<>();
-            external.put("dubbo.overrides.override-id.address", "external-override-id://127.0.0.1:2181");
+            external.put("dubbo.overrides.override-id.address", "external-override-id://8.134.132.250:2181");
             external.put("dubbo.overrides.override-id.key", "external");
             external.put("dubbo.overrides.override-id.key2", "external");
-            external.put("dubbo.override.address", "external://127.0.0.1:2181");
+            external.put("dubbo.override.address", "external://8.134.132.250:2181");
             external.put("dubbo.override.exclude", "external");
             ApplicationModel.defaultModel().getModelEnvironment().initialize();
             ApplicationModel.defaultModel().getModelEnvironment().setExternalConfigMap(external);
@@ -463,7 +463,7 @@ class AbstractConfigTest {
             // refresh config
             overrideConfig.refresh();
 
-            Assertions.assertEquals("external-override-id://127.0.0.1:2181", overrideConfig.getAddress());
+            Assertions.assertEquals("external-override-id://8.134.132.250:2181", overrideConfig.getAddress());
             Assertions.assertEquals("override-config", overrideConfig.getProtocol());
             Assertions.assertEquals("override-config://", overrideConfig.getEscape());
             Assertions.assertEquals("external", overrideConfig.getKey());
@@ -525,13 +525,13 @@ class AbstractConfigTest {
             // test OVERRIDE_ALL configMode
             {
                 SysProps.setProperty(ConfigKeys.DUBBO_CONFIG_MODE, ConfigMode.OVERRIDE_ALL.name());
-                SysProps.setProperty("dubbo.override.address", "system://127.0.0.1:2181");
+                SysProps.setProperty("dubbo.override.address", "system://8.134.132.250:2181");
                 SysProps.setProperty("dubbo.override.protocol", "system");
                 SysProps.setProperty("dubbo.override.parameters", "[{key1:systemValue1},{key2:systemValue2}]");
 
                 ApplicationModel applicationModel1 = frameworkModel.newApplication();
                 OverrideConfig overrideConfig = new OverrideConfig(applicationModel1);
-                overrideConfig.setAddress("override-config://127.0.0.1:2181");
+                overrideConfig.setAddress("override-config://8.134.132.250:2181");
                 overrideConfig.setProtocol("override-config");
                 Map<String, String> parameters = new HashMap<>();
                 parameters.put("key1", "value1");
@@ -540,7 +540,7 @@ class AbstractConfigTest {
 
                 // overrideConfig's config is overridden by system config
                 overrideConfig.refresh();
-                Assertions.assertEquals(overrideConfig.getAddress(), "system://127.0.0.1:2181");
+                Assertions.assertEquals(overrideConfig.getAddress(), "system://8.134.132.250:2181");
                 Assertions.assertEquals(overrideConfig.getProtocol(), "system");
                 Assertions.assertEquals(overrideConfig.getParameters(),
                     StringUtils.parseParameters("[{key1:systemValue1},{key2:systemValue2},{key3:value3}]"));
@@ -549,14 +549,14 @@ class AbstractConfigTest {
             // test OVERRIDE_IF_ABSENT configMode
             {
                 SysProps.setProperty(ConfigKeys.DUBBO_CONFIG_MODE, ConfigMode.OVERRIDE_IF_ABSENT.name());
-                SysProps.setProperty("dubbo.override.address", "system://127.0.0.1:2181");
+                SysProps.setProperty("dubbo.override.address", "system://8.134.132.250:2181");
                 SysProps.setProperty("dubbo.override.protocol", "system");
                 SysProps.setProperty("dubbo.override.parameters", "[{key1:systemValue1},{key2:systemValue2}]");
                 SysProps.setProperty("dubbo.override.key", "systemKey");
 
                 ApplicationModel applicationModel = frameworkModel.newApplication();
                 OverrideConfig overrideConfig = new OverrideConfig(applicationModel);
-                overrideConfig.setAddress("override-config://127.0.0.1:2181");
+                overrideConfig.setAddress("override-config://8.134.132.250:2181");
                 overrideConfig.setProtocol("override-config");
                 Map<String, String> parameters = new HashMap<>();
                 parameters.put("key1", "value1");
@@ -565,7 +565,7 @@ class AbstractConfigTest {
 
                 // overrideConfig's config is overridden/set by system config only when the overrideConfig's config is absent/empty
                 overrideConfig.refresh();
-                Assertions.assertEquals(overrideConfig.getAddress(), "override-config://127.0.0.1:2181");
+                Assertions.assertEquals(overrideConfig.getAddress(), "override-config://8.134.132.250:2181");
                 Assertions.assertEquals(overrideConfig.getProtocol(), "override-config");
                 Assertions.assertEquals(overrideConfig.getKey(), "systemKey");
                 Assertions.assertEquals(overrideConfig.getParameters(),
@@ -603,13 +603,13 @@ class AbstractConfigTest {
     void tetMetaData() {
         OverrideConfig overrideConfig = new OverrideConfig();
         overrideConfig.setId("override-id");
-        overrideConfig.setAddress("override-config://127.0.0.1:2181");
+        overrideConfig.setAddress("override-config://8.134.132.250:2181");
         overrideConfig.setProtocol("override-config");
         overrideConfig.setEscape("override-config://");
         overrideConfig.setExclude("override-config");
 
         Map<String, String> metaData = overrideConfig.getMetaData();
-        Assertions.assertEquals("override-config://127.0.0.1:2181", metaData.get("address"));
+        Assertions.assertEquals("override-config://8.134.132.250:2181", metaData.get("address"));
         Assertions.assertEquals("override-config", metaData.get("protocol"));
         Assertions.assertEquals("override-config://", metaData.get("escape"));
         Assertions.assertEquals("override-config", metaData.get("exclude"));
@@ -618,7 +618,7 @@ class AbstractConfigTest {
 
         // with prefix
         Map<String, String> prefixMetadata = overrideConfig.getMetaData(OverrideConfig.getTypePrefix(OverrideConfig.class));
-        Assertions.assertEquals("override-config://127.0.0.1:2181", prefixMetadata.get("dubbo.override.address"));
+        Assertions.assertEquals("override-config://8.134.132.250:2181", prefixMetadata.get("dubbo.override.address"));
         Assertions.assertEquals("override-config", prefixMetadata.get("dubbo.override.protocol"));
         Assertions.assertEquals("override-config://", prefixMetadata.get("dubbo.override.escape"));
         Assertions.assertEquals("override-config", prefixMetadata.get("dubbo.override.exclude"));

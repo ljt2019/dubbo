@@ -52,12 +52,12 @@ class AbstractClusterTest {
         parameters.put("registry", "zookeeper");
         parameters.put(REFERENCE_FILTER_KEY, "demo");
         ServiceConfigURL url = new ServiceConfigURL("registry",
-            "127.0.0.1",
+            "8.134.132.250",
             2181,
             "org.apache.dubbo.registry.RegistryService",
             parameters);
         URL consumerUrl = new ServiceConfigURL("dubbo",
-            "127.0.0.1",
+            "8.134.132.250",
             20881,
             DemoService.class.getName(),
             parameters);

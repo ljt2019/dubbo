@@ -51,7 +51,7 @@ class ZookeeperServiceDiscoveryTest {
 
     private static final String SERVICE_NAME = "A";
 
-    private static final String LOCALHOST = "127.0.0.1";
+    private static final String LOCALHOST = "8.134.132.250";
 
     private URL registryUrl;
 

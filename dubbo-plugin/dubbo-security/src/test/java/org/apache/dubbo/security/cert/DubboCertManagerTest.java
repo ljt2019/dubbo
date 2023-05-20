@@ -42,7 +42,7 @@ class DubboCertManagerTest {
         DubboCertManager certManager = new DubboCertManager(frameworkModel) {
             @Override
             protected void connect0(CertConfig certConfig) {
-                Assertions.assertEquals("127.0.0.1:30060", certConfig.getRemoteAddress());
+                Assertions.assertEquals("8.134.132.250:30060", certConfig.getRemoteAddress());
                 Assertions.assertEquals("caCertPath", certConfig.getCaCertPath());
             }
 
@@ -56,28 +56,28 @@ class DubboCertManagerTest {
 
             }
         };
-        certManager.connect(new CertConfig("127.0.0.1:30060", null, "caCertPath", "oidc"));
-        Assertions.assertEquals(new CertConfig("127.0.0.1:30060", null, "caCertPath", "oidc"), certManager.certConfig);
+        certManager.connect(new CertConfig("8.134.132.250:30060", null, "caCertPath", "oidc"));
+        Assertions.assertEquals(new CertConfig("8.134.132.250:30060", null, "caCertPath", "oidc"), certManager.certConfig);
 
-        certManager.connect(new CertConfig("127.0.0.1:30060", "Kubernetes", "caCertPath", "oidc123"));
-        Assertions.assertEquals(new CertConfig("127.0.0.1:30060", "Kubernetes", "caCertPath", "oidc123"), certManager.certConfig);
+        certManager.connect(new CertConfig("8.134.132.250:30060", "Kubernetes", "caCertPath", "oidc123"));
+        Assertions.assertEquals(new CertConfig("8.134.132.250:30060", "Kubernetes", "caCertPath", "oidc123"), certManager.certConfig);
 
-        certManager.connect(new CertConfig("127.0.0.1:30060", "kubernetes", "caCertPath", "oidc345"));
-        Assertions.assertEquals(new CertConfig("127.0.0.1:30060", "kubernetes", "caCertPath", "oidc345"), certManager.certConfig);
+        certManager.connect(new CertConfig("8.134.132.250:30060", "kubernetes", "caCertPath", "oidc345"));
+        Assertions.assertEquals(new CertConfig("8.134.132.250:30060", "kubernetes", "caCertPath", "oidc345"), certManager.certConfig);
 
-        CertConfig certConfig = new CertConfig("127.0.0.1:30060", "vm", "caCertPath", "oidc");
+        CertConfig certConfig = new CertConfig("8.134.132.250:30060", "vm", "caCertPath", "oidc");
         Assertions.assertThrows(IllegalArgumentException.class, () -> certManager.connect(certConfig));
-        Assertions.assertEquals(new CertConfig("127.0.0.1:30060", "kubernetes", "caCertPath", "oidc345"), certManager.certConfig);
+        Assertions.assertEquals(new CertConfig("8.134.132.250:30060", "kubernetes", "caCertPath", "oidc345"), certManager.certConfig);
 
         certManager.connect(null);
-        Assertions.assertEquals(new CertConfig("127.0.0.1:30060", "kubernetes", "caCertPath", "oidc345"), certManager.certConfig);
+        Assertions.assertEquals(new CertConfig("8.134.132.250:30060", "kubernetes", "caCertPath", "oidc345"), certManager.certConfig);
 
         certManager.connect(new CertConfig(null, null, null, null));
-        Assertions.assertEquals(new CertConfig("127.0.0.1:30060", "kubernetes", "caCertPath", "oidc345"), certManager.certConfig);
+        Assertions.assertEquals(new CertConfig("8.134.132.250:30060", "kubernetes", "caCertPath", "oidc345"), certManager.certConfig);
 
         certManager.channel = Mockito.mock(Channel.class);
         certManager.connect(new CertConfig("error", null, "error", "error"));
-        Assertions.assertEquals(new CertConfig("127.0.0.1:30060", "kubernetes", "caCertPath", "oidc345"), certManager.certConfig);
+        Assertions.assertEquals(new CertConfig("8.134.132.250:30060", "kubernetes", "caCertPath", "oidc345"), certManager.certConfig);
 
         frameworkModel.destroy();
     }
@@ -107,10 +107,10 @@ class DubboCertManagerTest {
     void testConnect1() {
         FrameworkModel frameworkModel = new FrameworkModel();
         DubboCertManager certManager = new DubboCertManager(frameworkModel);
-        CertConfig certConfig = new CertConfig("127.0.0.1:30062", null, null, null);
+        CertConfig certConfig = new CertConfig("8.134.132.250:30062", null, null, null);
         certManager.connect0(certConfig);
         Assertions.assertNotNull(certManager.channel);
-        Assertions.assertEquals("127.0.0.1:30062", certManager.channel.authority());
+        Assertions.assertEquals("8.134.132.250:30062", certManager.channel.authority());
 
         frameworkModel.destroy();
     }
@@ -120,10 +120,10 @@ class DubboCertManagerTest {
         FrameworkModel frameworkModel = new FrameworkModel();
         DubboCertManager certManager = new DubboCertManager(frameworkModel);
         String file = this.getClass().getClassLoader().getResource("certs/ca.crt").getFile();
-        CertConfig certConfig = new CertConfig("127.0.0.1:30062", null, file, null);
+        CertConfig certConfig = new CertConfig("8.134.132.250:30062", null, file, null);
         certManager.connect0(certConfig);
         Assertions.assertNotNull(certManager.channel);
-        Assertions.assertEquals("127.0.0.1:30062", certManager.channel.authority());
+        Assertions.assertEquals("8.134.132.250:30062", certManager.channel.authority());
 
         frameworkModel.destroy();
     }
@@ -133,7 +133,7 @@ class DubboCertManagerTest {
         FrameworkModel frameworkModel = new FrameworkModel();
         DubboCertManager certManager = new DubboCertManager(frameworkModel);
         String file = this.getClass().getClassLoader().getResource("certs/broken-ca.crt").getFile();
-        CertConfig certConfig = new CertConfig("127.0.0.1:30062", null, file, null);
+        CertConfig certConfig = new CertConfig("8.134.132.250:30062", null, file, null);
         Assertions.assertThrows(RuntimeException.class, () -> certManager.connect0(certConfig));
 
         frameworkModel.destroy();

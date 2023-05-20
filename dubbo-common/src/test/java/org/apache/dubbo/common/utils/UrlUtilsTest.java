@@ -39,7 +39,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class UrlUtilsTest {
 
-    String localAddress = "127.0.0.1";
+    String localAddress = "8.134.132.250";
 
 
 
@@ -57,7 +57,7 @@ class UrlUtilsTest {
 
     @Test
     void testParseUrl() {
-        String address = "remote://root:alibaba@127.0.0.1:9090/dubbo.test.api";
+        String address = "remote://root:alibaba@8.134.132.250:9090/dubbo.test.api";
         URL url = UrlUtils.parseURL(address, null);
         assertEquals(localAddress + ":9090", url.getAddress());
         assertEquals("root", url.getUsername());
@@ -69,13 +69,13 @@ class UrlUtilsTest {
 
     @Test
     void testParseURLWithSpecial() {
-        String address = "127.0.0.1:2181?backup=127.0.0.1:2182,127.0.0.1:2183";
+        String address = "8.134.132.250:2181?backup=8.134.132.250:2182,8.134.132.250:2183";
         assertEquals("dubbo://" + address, UrlUtils.parseURL(address, null).toString());
     }
 
     @Test
     void testDefaultUrl() {
-        String address = "127.0.0.1";
+        String address = "8.134.132.250";
         URL url = UrlUtils.parseURL(address, null);
         assertEquals(localAddress + ":9090", url.getAddress());
         assertEquals(9090, url.getPort());
@@ -87,7 +87,7 @@ class UrlUtilsTest {
 
     @Test
     void testParseFromParameter() {
-        String address = "127.0.0.1";
+        String address = "8.134.132.250";
         Map<String, String> parameters = new HashMap<String, String>();
         parameters.put("username", "root");
         parameters.put("password", "alibaba");
@@ -164,11 +164,11 @@ class UrlUtilsTest {
         String key = "dubbo.test.api.HelloService";
         Map<String, Map<String, String>> register = new HashMap<String, Map<String, String>>();
         Map<String, String> service = new HashMap<String, String>();
-        service.put("dubbo://127.0.0.1:20880/com.xxx.XxxService", "version=1.0.0&group=test&dubbo.version=2.0.0");
+        service.put("dubbo://8.134.132.250:20880/com.xxx.XxxService", "version=1.0.0&group=test&dubbo.version=2.0.0");
         register.put(key, service);
         Map<String, Map<String, String>> newRegister = UrlUtils.convertRegister(register);
         Map<String, String> newService = new HashMap<String, String>();
-        newService.put("dubbo://127.0.0.1:20880/com.xxx.XxxService", "dubbo.version=2.0.0&group=test&version=1.0.0");
+        newService.put("dubbo://8.134.132.250:20880/com.xxx.XxxService", "dubbo.version=2.0.0&group=test&version=1.0.0");
         assertEquals(newService, newRegister.get("test/dubbo.test.api.HelloService:1.0.0"));
     }
 
@@ -195,11 +195,11 @@ class UrlUtilsTest {
         String key = "perf/dubbo.test.api.HelloService:1.0.0";
         Map<String, Map<String, String>> register = new HashMap<String, Map<String, String>>();
         Map<String, String> service = new HashMap<String, String>();
-        service.put("dubbo://127.0.0.1:20880/com.xxx.XxxService", null);
+        service.put("dubbo://8.134.132.250:20880/com.xxx.XxxService", null);
         register.put(key, service);
         Map<String, Map<String, String>> newRegister = UrlUtils.revertRegister(register);
         Map<String, Map<String, String>> expectedRegister = new HashMap<String, Map<String, String>>();
-        service.put("dubbo://127.0.0.1:20880/com.xxx.XxxService", "group=perf&version=1.0.0");
+        service.put("dubbo://8.134.132.250:20880/com.xxx.XxxService", "group=perf&version=1.0.0");
         expectedRegister.put("dubbo.test.api.HelloService", service);
         assertEquals(expectedRegister, newRegister);
     }
@@ -209,11 +209,11 @@ class UrlUtilsTest {
         String key = "dubbo.test.api.HelloService";
         Map<String, Map<String, String>> register = new HashMap<String, Map<String, String>>();
         Map<String, String> service = new HashMap<String, String>();
-        service.put("dubbo://127.0.0.1:20880/com.xxx.XxxService", null);
+        service.put("dubbo://8.134.132.250:20880/com.xxx.XxxService", null);
         register.put(key, service);
         Map<String, Map<String, String>> newRegister = UrlUtils.revertRegister(register);
         Map<String, Map<String, String>> expectedRegister = new HashMap<String, Map<String, String>>();
-        service.put("dubbo://127.0.0.1:20880/com.xxx.XxxService", null);
+        service.put("dubbo://8.134.132.250:20880/com.xxx.XxxService", null);
         expectedRegister.put("dubbo.test.api.HelloService", service);
         assertEquals(expectedRegister, newRegister);
     }
@@ -243,11 +243,11 @@ class UrlUtilsTest {
         String key = "dubbo.test.api.HelloService";
         Map<String, Map<String, String>> notify = new HashMap<String, Map<String, String>>();
         Map<String, String> service = new HashMap<String, String>();
-        service.put("dubbo://127.0.0.1:20880/com.xxx.XxxService", "group=perf&version=1.0.0");
+        service.put("dubbo://8.134.132.250:20880/com.xxx.XxxService", "group=perf&version=1.0.0");
         notify.put(key, service);
         Map<String, Map<String, String>> newRegister = UrlUtils.revertNotify(notify);
         Map<String, Map<String, String>> expectedRegister = new HashMap<String, Map<String, String>>();
-        service.put("dubbo://127.0.0.1:20880/com.xxx.XxxService", "group=perf&version=1.0.0");
+        service.put("dubbo://8.134.132.250:20880/com.xxx.XxxService", "group=perf&version=1.0.0");
         expectedRegister.put("perf/dubbo.test.api.HelloService:1.0.0", service);
         assertEquals(expectedRegister, newRegister);
     }
@@ -257,11 +257,11 @@ class UrlUtilsTest {
         String key = "perf/dubbo.test.api.HelloService:1.0.0";
         Map<String, Map<String, String>> notify = new HashMap<String, Map<String, String>>();
         Map<String, String> service = new HashMap<String, String>();
-        service.put("dubbo://127.0.0.1:20880/com.xxx.XxxService", "group=perf&version=1.0.0");
+        service.put("dubbo://8.134.132.250:20880/com.xxx.XxxService", "group=perf&version=1.0.0");
         notify.put(key, service);
         Map<String, Map<String, String>> newRegister = UrlUtils.revertNotify(notify);
         Map<String, Map<String, String>> expectedRegister = new HashMap<String, Map<String, String>>();
-        service.put("dubbo://127.0.0.1:20880/com.xxx.XxxService", "group=perf&version=1.0.0");
+        service.put("dubbo://8.134.132.250:20880/com.xxx.XxxService", "group=perf&version=1.0.0");
         expectedRegister.put("perf/dubbo.test.api.HelloService:1.0.0", service);
         assertEquals(expectedRegister, newRegister);
     }
@@ -273,7 +273,7 @@ class UrlUtilsTest {
         List<String> forbid = new ArrayList<String>();
         forbid.add(service);
         Set<URL> subscribed = new HashSet<URL>();
-        subscribed.add(URL.valueOf("dubbo://127.0.0.1:20880/" + service + "?group=perf&version=1.0.0"));
+        subscribed.add(URL.valueOf("dubbo://8.134.132.250:20880/" + service + "?group=perf&version=1.0.0"));
         List<String> newForbid = UrlUtils.revertForbid(forbid, subscribed);
         List<String> expectForbid = new ArrayList<String>();
         expectForbid.add("perf/" + service + ":1.0.0");
@@ -299,36 +299,36 @@ class UrlUtilsTest {
 
     @Test
     void testIsMatch() {
-        URL consumerUrl = URL.valueOf("dubbo://127.0.0.1:20880/com.xxx.XxxService?version=1.0.0&group=test");
-        URL providerUrl = URL.valueOf("http://127.0.0.1:8080/com.xxx.XxxService?version=1.0.0&group=test");
+        URL consumerUrl = URL.valueOf("dubbo://8.134.132.250:20880/com.xxx.XxxService?version=1.0.0&group=test");
+        URL providerUrl = URL.valueOf("http://8.134.132.250:8080/com.xxx.XxxService?version=1.0.0&group=test");
         assertTrue(UrlUtils.isMatch(consumerUrl, providerUrl));
     }
 
     @Test
     void testIsMatch2() {
-        URL consumerUrl = URL.valueOf("dubbo://127.0.0.1:20880/com.xxx.XxxService?version=2.0.0&group=test");
-        URL providerUrl = URL.valueOf("http://127.0.0.1:8080/com.xxx.XxxService?version=1.0.0&group=test");
+        URL consumerUrl = URL.valueOf("dubbo://8.134.132.250:20880/com.xxx.XxxService?version=2.0.0&group=test");
+        URL providerUrl = URL.valueOf("http://8.134.132.250:8080/com.xxx.XxxService?version=1.0.0&group=test");
         assertFalse(UrlUtils.isMatch(consumerUrl, providerUrl));
     }
 
     @Test
     void testIsMatch3() {
-        URL consumerUrl = URL.valueOf("dubbo://127.0.0.1:20880/com.xxx.XxxService?version=1.0.0&group=aa");
-        URL providerUrl = URL.valueOf("http://127.0.0.1:8080/com.xxx.XxxService?version=1.0.0&group=test");
+        URL consumerUrl = URL.valueOf("dubbo://8.134.132.250:20880/com.xxx.XxxService?version=1.0.0&group=aa");
+        URL providerUrl = URL.valueOf("http://8.134.132.250:8080/com.xxx.XxxService?version=1.0.0&group=test");
         assertFalse(UrlUtils.isMatch(consumerUrl, providerUrl));
     }
 
     @Test
     void testIsMatch4() {
-        URL consumerUrl = URL.valueOf("dubbo://127.0.0.1:20880/com.xxx.XxxService?version=1.0.0&group=*");
-        URL providerUrl = URL.valueOf("http://127.0.0.1:8080/com.xxx.XxxService?version=1.0.0&group=test");
+        URL consumerUrl = URL.valueOf("dubbo://8.134.132.250:20880/com.xxx.XxxService?version=1.0.0&group=*");
+        URL providerUrl = URL.valueOf("http://8.134.132.250:8080/com.xxx.XxxService?version=1.0.0&group=test");
         assertTrue(UrlUtils.isMatch(consumerUrl, providerUrl));
     }
 
     @Test
     void testIsMatch5() {
-        URL consumerUrl = URL.valueOf("dubbo://127.0.0.1:20880/com.xxx.XxxService?version=*&group=test");
-        URL providerUrl = URL.valueOf("http://127.0.0.1:8080/com.xxx.XxxService?version=1.0.0&group=test");
+        URL consumerUrl = URL.valueOf("dubbo://8.134.132.250:20880/com.xxx.XxxService?version=*&group=test");
+        URL providerUrl = URL.valueOf("http://8.134.132.250:8080/com.xxx.XxxService?version=1.0.0&group=test");
         assertTrue(UrlUtils.isMatch(consumerUrl, providerUrl));
     }
 
@@ -346,7 +346,7 @@ class UrlUtilsTest {
 
     @Test
     void testIsServiceKeyMatch() throws Exception {
-        URL url = URL.valueOf("test://127.0.0.1");
+        URL url = URL.valueOf("test://8.134.132.250");
         URL pattern = url.addParameter(GROUP_KEY, "test")
                 .addParameter(INTERFACE_KEY, "test")
                 .addParameter(VERSION_KEY, "test");
@@ -380,24 +380,24 @@ class UrlUtilsTest {
 
     @Test
     void testIsMatchUrlWithDefaultPrefix() {
-        URL url = URL.valueOf("dubbo://127.0.0.1:20880/com.xxx.XxxService?default.version=1.0.0&default.group=test");
+        URL url = URL.valueOf("dubbo://8.134.132.250:20880/com.xxx.XxxService?default.version=1.0.0&default.group=test");
         assertEquals("1.0.0", url.getVersion());
         assertEquals("1.0.0", url.getParameter("default.version"));
 
-        URL consumerUrl = URL.valueOf("consumer://127.0.0.1/com.xxx.XxxService?version=1.0.0&group=test");
+        URL consumerUrl = URL.valueOf("consumer://8.134.132.250/com.xxx.XxxService?version=1.0.0&group=test");
         assertTrue(UrlUtils.isMatch(consumerUrl, url));
 
-        URL consumerUrl1 = URL.valueOf("consumer://127.0.0.1/com.xxx.XxxService?default.version=1.0.0&default.group=test");
+        URL consumerUrl1 = URL.valueOf("consumer://8.134.132.250/com.xxx.XxxService?default.version=1.0.0&default.group=test");
         assertTrue(UrlUtils.isMatch(consumerUrl1, url));
     }
 
     @Test
     public void testIsConsumer() {
-        String address1 = "remote://root:alibaba@127.0.0.1:9090";
+        String address1 = "remote://root:alibaba@8.134.132.250:9090";
         URL url1 = UrlUtils.parseURL(address1, null);
-        String address2 = "consumer://root:alibaba@127.0.0.1:9090";
+        String address2 = "consumer://root:alibaba@8.134.132.250:9090";
         URL url2 = UrlUtils.parseURL(address2, null);
-        String address3 = "consumer://root:alibaba@127.0.0.1";
+        String address3 = "consumer://root:alibaba@8.134.132.250";
         URL url3 = UrlUtils.parseURL(address3, null);
 
         assertFalse(UrlUtils.isConsumer(url1));
@@ -420,13 +420,13 @@ class UrlUtilsTest {
     @Test
     public void testClassifyUrls() {
 
-        String address1 = "remote://root:alibaba@127.0.0.1:9090";
+        String address1 = "remote://root:alibaba@8.134.132.250:9090";
         URL url1 = UrlUtils.parseURL(address1, null);
-        String address2 = "consumer://root:alibaba@127.0.0.1:9090";
+        String address2 = "consumer://root:alibaba@8.134.132.250:9090";
         URL url2 = UrlUtils.parseURL(address2, null);
-        String address3 = "remote://root:alibaba@127.0.0.1";
+        String address3 = "remote://root:alibaba@8.134.132.250";
         URL url3 = UrlUtils.parseURL(address3, null);
-        String address4 = "consumer://root:alibaba@127.0.0.1";
+        String address4 = "consumer://root:alibaba@8.134.132.250";
         URL url4 = UrlUtils.parseURL(address4, null);
 
         List<URL> urls = new ArrayList<>();
@@ -448,9 +448,9 @@ class UrlUtilsTest {
 
     @Test
     public void testHasServiceDiscoveryRegistryProtocol() {
-        String address1 = "http://root:alibaba@127.0.0.1:9090/dubbo.test.api";
+        String address1 = "http://root:alibaba@8.134.132.250:9090/dubbo.test.api";
         URL url1 = UrlUtils.parseURL(address1, null);
-        String address2 = "service-discovery-registry://root:alibaba@127.0.0.1:9090/dubbo.test.api";
+        String address2 = "service-discovery-registry://root:alibaba@8.134.132.250:9090/dubbo.test.api";
         URL url2 = UrlUtils.parseURL(address2, null);
 
         assertFalse(UrlUtils.hasServiceDiscoveryRegistryProtocol(url1));

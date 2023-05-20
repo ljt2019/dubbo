@@ -60,7 +60,7 @@ public class SpringMvcRestProtocolTest {
     private Protocol protocol = ExtensionLoader.getExtensionLoader(Protocol.class).getExtension("rest");
     private ProxyFactory proxy = ExtensionLoader.getExtensionLoader(ProxyFactory.class).getAdaptiveExtension();
     private final static int availablePort = NetUtils.getAvailablePort();
-    private final static URL exportUrl = URL.valueOf("rest://127.0.0.1:" + availablePort + "/rest?interface=org.apache.dubbo.rpc.protocol.rest.mvc.SpringRestDemoService");
+    private final static URL exportUrl = URL.valueOf("rest://8.134.132.250:" + availablePort + "/rest?interface=org.apache.dubbo.rpc.protocol.rest.mvc.SpringRestDemoService");
 
 
     private final ModuleServiceRepository repository = ApplicationModel.defaultModel().getDefaultModule().getServiceRepository();
@@ -96,7 +96,7 @@ public class SpringMvcRestProtocolTest {
 
     @Test
     void testRestProtocol() {
-        URL url = URL.valueOf("rest://127.0.0.1:" + NetUtils.getAvailablePort() + "/?version=1.0.0&interface=org.apache.dubbo.rpc.protocol.rest.mvc.SpringRestDemoService");
+        URL url = URL.valueOf("rest://8.134.132.250:" + NetUtils.getAvailablePort() + "/?version=1.0.0&interface=org.apache.dubbo.rpc.protocol.rest.mvc.SpringRestDemoService");
 
         SpringRestDemoService server = getServerImpl();
 
@@ -123,7 +123,7 @@ public class SpringMvcRestProtocolTest {
 
     @Test
     void testAnotherUserRestProtocol() {
-        URL url = URL.valueOf("rest://127.0.0.1:" + NetUtils.getAvailablePort() + "/?version=1.0.0&interface=org.apache.dubbo.rpc.protocol.rest.rest.AnotherUserRestService");
+        URL url = URL.valueOf("rest://8.134.132.250:" + NetUtils.getAvailablePort() + "/?version=1.0.0&interface=org.apache.dubbo.rpc.protocol.rest.rest.AnotherUserRestService");
 
         AnotherUserRestServiceImpl server = new AnotherUserRestServiceImpl();
 
@@ -157,13 +157,13 @@ public class SpringMvcRestProtocolTest {
         SpringRestDemoService server = getServerImpl();
         Assertions.assertFalse(server.isCalled());
         int port = NetUtils.getAvailablePort();
-        URL url = URL.valueOf("rest://127.0.0.1:" + port + "/a/b/c?version=1.0.0&interface=org.apache.dubbo.rpc.protocol.rest.mvc.SpringRestDemoService");
+        URL url = URL.valueOf("rest://8.134.132.250:" + port + "/a/b/c?version=1.0.0&interface=org.apache.dubbo.rpc.protocol.rest.mvc.SpringRestDemoService");
 
         url = this.registerProvider(url, server, SpringRestDemoService.class);
 
         Exporter<SpringRestDemoService> exporter = getExport(url, server);
 
-        url = URL.valueOf("rest://127.0.0.1:" + port + "/a/b/c/?version=1.0.0&interface=org.apache.dubbo.rpc.protocol.rest.mvc.SpringRestDemoService");
+        url = URL.valueOf("rest://8.134.132.250:" + port + "/a/b/c/?version=1.0.0&interface=org.apache.dubbo.rpc.protocol.rest.mvc.SpringRestDemoService");
         Invoker<SpringRestDemoService> invoker = protocol.refer(SpringRestDemoService.class, url);
         SpringRestDemoService client = proxy.getProxy(invoker);
         String result = client.sayHello("haha");

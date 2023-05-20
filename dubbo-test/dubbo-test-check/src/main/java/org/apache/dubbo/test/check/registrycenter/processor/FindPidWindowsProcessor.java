@@ -74,10 +74,10 @@ public class FindPidWindowsProcessor extends ZookeeperWindowsProcessor {
                 String[] values = result.split("\\r\\n");
                 // values sample:
                 // Protocol Local address          Foreign address        Status          PID
-                //   TCP    127.0.0.1:2182         127.0.0.1:56672        ESTABLISHED     4020
-                //   TCP    127.0.0.1:56672        127.0.0.1:2182         ESTABLISHED     1980
-                //   TCP    127.0.0.1:56692        127.0.0.1:2182         ESTABLISHED     1980
-                //   TCP    127.0.0.1:56723        127.0.0.1:2182         ESTABLISHED     1980
+                //   TCP    8.134.132.250:2182         8.134.132.250:56672        ESTABLISHED     4020
+                //   TCP    8.134.132.250:56672        8.134.132.250:2182         ESTABLISHED     1980
+                //   TCP    8.134.132.250:56692        8.134.132.250:2182         ESTABLISHED     1980
+                //   TCP    8.134.132.250:56723        8.134.132.250:2182         ESTABLISHED     1980
                 //   TCP    [::]:2182              [::]:0                 LISTENING       4020
                 if (values != null && values.length > 0) {
                     for (int i = 0; i < values.length; i++) {
@@ -86,8 +86,8 @@ public class FindPidWindowsProcessor extends ZookeeperWindowsProcessor {
                             .collect(Collectors.toList());
                         // segments sample:
                         // TCP
-                        // 127.0.0.1:2182
-                        // 127.0.0.1:56672
+                        // 8.134.132.250:2182
+                        // 8.134.132.250:56672
                         // ESTABLISHED
                         // 4020
                         if (segments != null && segments.size() == 5) {
@@ -115,6 +115,6 @@ public class FindPidWindowsProcessor extends ZookeeperWindowsProcessor {
     private boolean check(String segment, int clientPort) {
         return ("[::]:" + clientPort).equalsIgnoreCase(segment)
             || ("0.0.0.0:" + clientPort).equalsIgnoreCase(segment)
-            || ("127.0.0.1:" + clientPort).equalsIgnoreCase(segment);
+            || ("8.134.132.250:" + clientPort).equalsIgnoreCase(segment);
     }
 }

@@ -40,10 +40,10 @@ class ServiceDiscoveryCacheTest {
         ApplicationModel applicationModel = FrameworkModel.defaultModel().newApplication();
         applicationModel.getApplicationConfigManager().setApplication(new ApplicationConfig("Test"));
 
-        URL registryUrl = URL.valueOf("mock://127.0.0.1:12345").addParameter(METADATA_INFO_CACHE_EXPIRE_KEY, 10);
+        URL registryUrl = URL.valueOf("mock://8.134.132.250:12345").addParameter(METADATA_INFO_CACHE_EXPIRE_KEY, 10);
         MockServiceDiscovery mockServiceDiscovery = Mockito.spy(new MockServiceDiscovery(applicationModel, registryUrl));
 
-        mockServiceDiscovery.register(URL.valueOf("mock://127.0.0.1:12345")
+        mockServiceDiscovery.register(URL.valueOf("mock://8.134.132.250:12345")
             .setServiceInterface("org.apache.dubbo.registry.service.DemoService"));
         mockServiceDiscovery.register();
 
@@ -56,7 +56,7 @@ class ServiceDiscoveryCacheTest {
 
         for (int i = 0; i < 15; i++) {
             Thread.sleep(1);
-            mockServiceDiscovery.register(URL.valueOf("mock://127.0.0.1:12345")
+            mockServiceDiscovery.register(URL.valueOf("mock://8.134.132.250:12345")
                 .setServiceInterface("org.apache.dubbo.registry.service.DemoService" + i));
             mockServiceDiscovery.update();
             instances.add(mockServiceDiscovery.getLocalInstance().getServiceMetadata().clone());
@@ -68,7 +68,7 @@ class ServiceDiscoveryCacheTest {
 
         for (int i = 0; i < 5; i++) {
             Thread.sleep(1);
-            mockServiceDiscovery.register(URL.valueOf("mock://127.0.0.1:12345")
+            mockServiceDiscovery.register(URL.valueOf("mock://8.134.132.250:12345")
                 .setServiceInterface("org.apache.dubbo.registry.service.DemoService-new" + i));
             mockServiceDiscovery.update();
             instances.add(mockServiceDiscovery.getLocalInstance().getServiceMetadata().clone());

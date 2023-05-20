@@ -28,7 +28,7 @@ import org.apache.dubbo.rpc.service.GenericService;
 
 public class Application {
 
-    private static final String REGISTRY_URL = "zookeeper://127.0.0.1:2181";
+    private static final String REGISTRY_URL = "zookeeper://8.134.132.250:2181";
 
 
 

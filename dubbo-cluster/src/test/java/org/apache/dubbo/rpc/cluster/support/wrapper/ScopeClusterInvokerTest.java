@@ -110,7 +110,7 @@ class ScopeClusterInvokerTest {
             URL.encode(PATH_KEY + "=" + DemoService.class.getName()));
         url = url.setScopeModel(ApplicationModel.defaultModel().getDefaultModule());
 
-        URL injvmUrl = URL.valueOf("injvm://127.0.0.1/TestService")
+        URL injvmUrl = URL.valueOf("injvm://8.134.132.250/TestService")
             .addParameter(INTERFACE_KEY, DemoService.class.getName()).setScopeModel(ApplicationModel.defaultModel().getDefaultModule());
         Exporter<?> exporter = protocol.export(proxy.getInvoker(new DemoServiceImpl(), DemoService.class, injvmUrl));
         exporters.add(exporter);
@@ -135,7 +135,7 @@ class ScopeClusterInvokerTest {
         url = url.addParameter(SCOPE_KEY, "remote");
         url = url.setScopeModel(ApplicationModel.defaultModel().getDefaultModule());
 
-        URL injvmUrl = URL.valueOf("injvm://127.0.0.1/TestService")
+        URL injvmUrl = URL.valueOf("injvm://8.134.132.250/TestService")
             .addParameter(INTERFACE_KEY, DemoService.class.getName()).setScopeModel(ApplicationModel.defaultModel().getDefaultModule());
         Exporter<?> exporter = protocol.export(proxy.getInvoker(new DemoServiceImpl(), DemoService.class, injvmUrl));
         exporters.add(exporter);
@@ -169,7 +169,7 @@ class ScopeClusterInvokerTest {
         RpcInvocation finalInvocation = invocation;
         Assertions.assertThrows(RpcException.class, () -> cluster.invoke(finalInvocation));
 
-        URL injvmUrl = URL.valueOf("injvm://127.0.0.1/TestService")
+        URL injvmUrl = URL.valueOf("injvm://8.134.132.250/TestService")
             .addParameter(INTERFACE_KEY, DemoService.class.getName());
         injvmUrl = injvmUrl.addParameter(EXPORTER_LISTENER_KEY, LOCAL_PROTOCOL).setScopeModel(ApplicationModel.defaultModel().getDefaultModule());
         Exporter<?> exporter = protocol.export(proxy.getInvoker(new DemoServiceImpl(), DemoService.class, injvmUrl));
@@ -191,7 +191,7 @@ class ScopeClusterInvokerTest {
             URL.encode(PATH_KEY + "=" + DemoService.class.getName()));
         url = url.setScopeModel(ApplicationModel.defaultModel().getDefaultModule());
 
-        URL injvmUrl = URL.valueOf("injvm://127.0.0.1/TestService")
+        URL injvmUrl = URL.valueOf("injvm://8.134.132.250/TestService")
             .addParameter(INTERFACE_KEY, DemoService.class.getName()).setScopeModel(ApplicationModel.defaultModel().getDefaultModule());
         Exporter<?> exporter = protocol.export(proxy.getInvoker(new DemoServiceImpl(), DemoService.class, injvmUrl));
         exporters.add(exporter);
@@ -215,7 +215,7 @@ class ScopeClusterInvokerTest {
         url = url.addParameter(SCOPE_KEY, "local");
         url = url.setScopeModel(ApplicationModel.defaultModel().getDefaultModule());
 
-        URL injvmUrl = URL.valueOf("injvm://127.0.0.1/TestService")
+        URL injvmUrl = URL.valueOf("injvm://8.134.132.250/TestService")
             .addParameter(INTERFACE_KEY, DemoService.class.getName()).setScopeModel(ApplicationModel.defaultModel().getDefaultModule());
         Exporter<?> exporter = protocol.export(proxy.getInvoker(new DemoServiceImpl(), DemoService.class, injvmUrl));
 
@@ -300,7 +300,7 @@ class ScopeClusterInvokerTest {
         RpcInvocation finalInvocation = invocation;
         Assertions.assertThrows(RpcException.class, () -> cluster.invoke(finalInvocation));
 
-        URL injvmUrl = URL.valueOf("injvm://127.0.0.1/TestService")
+        URL injvmUrl = URL.valueOf("injvm://8.134.132.250/TestService")
             .addParameter(INTERFACE_KEY, DemoService.class.getName()).setScopeModel(ApplicationModel.defaultModel().getDefaultModule());
         Exporter<?> exporter = protocol.export(proxy.getInvoker(new DemoServiceImpl(), DemoService.class, injvmUrl));
         exporters.add(exporter);

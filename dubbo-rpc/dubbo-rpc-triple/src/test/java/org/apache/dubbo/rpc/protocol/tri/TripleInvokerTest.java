@@ -46,7 +46,7 @@ class TripleInvokerTest {
 
     @Test
     void testNewCall() throws NoSuchMethodException {
-        URL url = URL.valueOf("tri://127.0.0.1:9103/" + IGreeter.class.getName());
+        URL url = URL.valueOf("tri://8.134.132.250:9103/" + IGreeter.class.getName());
         Channel channel = Mockito.mock(Channel.class);
         AbstractConnectionClient connectionClient = Mockito.mock(AbstractConnectionClient.class);
         ConnectionManager connectionManager = Mockito.mock(ConnectionManager.class);

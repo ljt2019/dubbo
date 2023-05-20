@@ -54,13 +54,13 @@ class TelnetCodecTest {
 
     protected AbstractMockChannel getServerSideChannel(URL url) {
         url = url.addParameter(AbstractMockChannel.LOCAL_ADDRESS, url.getAddress())
-                .addParameter(AbstractMockChannel.REMOTE_ADDRESS, "127.0.0.1:12345");
+                .addParameter(AbstractMockChannel.REMOTE_ADDRESS, "8.134.132.250:12345");
         AbstractMockChannel channel = new AbstractMockChannel(url);
         return channel;
     }
 
     protected AbstractMockChannel getClientSideChannel(URL url) {
-        url = url.addParameter(AbstractMockChannel.LOCAL_ADDRESS, "127.0.0.1:12345")
+        url = url.addParameter(AbstractMockChannel.LOCAL_ADDRESS, "8.134.132.250:12345")
                 .addParameter(AbstractMockChannel.REMOTE_ADDRESS, url.getAddress());
         AbstractMockChannel channel = new AbstractMockChannel(url);
         return channel;

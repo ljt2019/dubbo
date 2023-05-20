@@ -49,7 +49,7 @@ class ExceptionFilterTest {
     void testRpcException() {
         Logger failLogger = mock(Logger.class);
         FailsafeErrorTypeAwareLogger failsafeLogger = new FailsafeErrorTypeAwareLogger(failLogger);
-        RpcContext.getServiceContext().setRemoteAddress("127.0.0.1", 1234);
+        RpcContext.getServiceContext().setRemoteAddress("8.134.132.250", 1234);
         RpcException exception = new RpcException("TestRpcException");
 
         ExceptionFilter exceptionFilter = new ExceptionFilter();
@@ -66,7 +66,7 @@ class ExceptionFilterTest {
             exceptionFilter.onError(e, invoker, invocation);
         }
 
-        failsafeLogger.error(CONFIG_FILTER_VALIDATION_EXCEPTION, "", "", eq("Got unchecked and undeclared exception which called by 127.0.0.1. service: "
+        failsafeLogger.error(CONFIG_FILTER_VALIDATION_EXCEPTION, "", "", eq("Got unchecked and undeclared exception which called by 8.134.132.250. service: "
             + DemoService.class.getName() + ", method: sayHello, exception: "
             + RpcException.class.getName() + ": TestRpcException"), eq(exception));
         RpcContext.removeContext();

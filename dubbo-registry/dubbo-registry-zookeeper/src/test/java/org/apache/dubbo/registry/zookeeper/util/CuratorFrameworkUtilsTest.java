@@ -75,7 +75,7 @@ class CuratorFrameworkUtilsTest {
 
     @Test
     void testBuild() {
-        ServiceInstance dubboServiceInstance = new DefaultServiceInstance("A", "127.0.0.1", 8888, ApplicationModel.defaultModel());
+        ServiceInstance dubboServiceInstance = new DefaultServiceInstance("A", "8.134.132.250", 8888, ApplicationModel.defaultModel());
         Map<String, String> metadata = dubboServiceInstance.getMetadata();
         metadata.put(METADATA_STORAGE_TYPE_PROPERTY_NAME, "remote");
         metadata.put(EXPORTED_SERVICES_REVISION_PROPERTY_NAME, "111");

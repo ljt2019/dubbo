@@ -220,8 +220,8 @@ class ReferenceCountExchangeClientTest {
         String params = CONNECTIONS_KEY + "=" + connections
                 + "&" + SHARE_CONNECTIONS_KEY + "=" + shareConnections
                 + "&" + LAZY_REQUEST_WITH_WARNING_KEY + "=" + "true";
-        URL demoUrl = URL.valueOf("dubbo://127.0.0.1:" + port + "/demo?" + params);
-        URL helloUrl = URL.valueOf("dubbo://127.0.0.1:" + port + "/hello?" + params);
+        URL demoUrl = URL.valueOf("dubbo://8.134.132.250:" + port + "/demo?" + params);
+        URL helloUrl = URL.valueOf("dubbo://8.134.132.250:" + port + "/hello?" + params);
 
         demoExporter = export(new DemoServiceImpl(), IDemoService.class, demoUrl);
         helloExporter = export(new HelloServiceImpl(), IHelloService.class, helloUrl);

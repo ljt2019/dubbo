@@ -49,7 +49,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ServiceNameMappingTest {
 
-    private static final URL BASE_URL = URL.valueOf("dubbo://127.0.0.1:20880");
+    private static final URL BASE_URL = URL.valueOf("dubbo://8.134.132.250:20880");
 
     private FileSystemDynamicConfiguration configuration;
 

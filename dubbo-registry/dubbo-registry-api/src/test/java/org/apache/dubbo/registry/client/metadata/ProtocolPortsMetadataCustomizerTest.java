@@ -49,7 +49,7 @@ class ProtocolPortsMetadataCustomizerTest {
     private ScopeBeanFactory mockedBeanFactory;
 
     public static DefaultServiceInstance createInstance() {
-        return new DefaultServiceInstance("A", "127.0.0.1", 20880, ApplicationModel.defaultModel());
+        return new DefaultServiceInstance("A", "8.134.132.250", 20880, ApplicationModel.defaultModel());
     }
 
     @AfterAll

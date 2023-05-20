@@ -49,7 +49,7 @@ class MetadataReportInstanceTest {
         metadataReportInstance = new MetadataReportInstance(applicationModel);
 
 
-        URL url = URL.valueOf("metadata://127.0.0.1:20880/TestService?version=1.0.0&metadata=JTest");
+        URL url = URL.valueOf("metadata://8.134.132.250:20880/TestService?version=1.0.0&metadata=JTest");
         metadataReportConfig = mock(MetadataReportConfig.class);
         when(metadataReportConfig.getUsername()).thenReturn("username");
         when(metadataReportConfig.getPassword()).thenReturn("password");

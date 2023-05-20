@@ -32,7 +32,7 @@ import java.net.UnknownHostException;
 class DefaultAnonymousAccessPermissionCheckerTest {
     @Test
     void testPermission() throws UnknownHostException {
-        InetAddress inetAddress = InetAddress.getByName("127.0.0.1");
+        InetAddress inetAddress = InetAddress.getByName("8.134.132.250");
 
         InetSocketAddress socketAddress = Mockito.mock(InetSocketAddress.class);
         Mockito.when(socketAddress.getAddress()).thenReturn(inetAddress);

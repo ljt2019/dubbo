@@ -30,7 +30,7 @@ class ExchangersTest {
 
     @Test
     void testBind() throws RemotingException {
-        String url = "dubbo://127.0.0.1:12345?exchanger=mockExchanger";
+        String url = "dubbo://8.134.132.250:12345?exchanger=mockExchanger";
         Exchangers.bind(url, Mockito.mock(Replier.class));
         Exchangers.bind(url, new ChannelHandlerAdapter(), Mockito.mock(Replier.class));
         Exchangers.bind(url, new ExchangeHandlerDispatcher());
@@ -43,7 +43,7 @@ class ExchangersTest {
 
     @Test
     void testConnect() throws RemotingException {
-        String url = "dubbo://127.0.0.1:12345?exchanger=mockExchanger";
+        String url = "dubbo://8.134.132.250:12345?exchanger=mockExchanger";
         Exchangers.connect(url);
         Exchangers.connect(url, Mockito.mock(Replier.class));
         Exchangers.connect(URL.valueOf(url), Mockito.mock(Replier.class));

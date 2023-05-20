@@ -135,7 +135,7 @@ class BootstrapperTest {
 
     @Test
     void testUrl() {
-        URL url = URL.valueOf("dubbo://127.0.0.1:23456/TestService?useAgent=true");
+        URL url = URL.valueOf("dubbo://8.134.132.250:23456/TestService?useAgent=true");
         Assertions.assertTrue(url.getParameter("useAgent", false));
     }
 

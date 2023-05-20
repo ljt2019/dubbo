@@ -73,7 +73,7 @@ class CacheTest {
             ReferenceConfig<CacheService> reference = new ReferenceConfig<CacheService>();
             reference.setApplication(applicationConfig);
             reference.setInterface(CacheService.class);
-            reference.setUrl("injvm://127.0.0.1?scope=remote&cache=true");
+            reference.setUrl("injvm://8.134.132.250?scope=remote&cache=true");
 
             MethodConfig method = new MethodConfig();
             method.setName("findCache");
@@ -133,7 +133,7 @@ class CacheTest {
 
         Map<String, String> parameters = new HashMap<String, String>();
         parameters.put("findCache.cache", "threadlocal");
-        URL url = new ServiceConfigURL("dubbo", "127.0.0.1", 29582, "org.apache.dubbo.config.cache.CacheService", parameters);
+        URL url = new ServiceConfigURL("dubbo", "8.134.132.250", 29582, "org.apache.dubbo.config.cache.CacheService", parameters);
 
         Invocation invocation = new RpcInvocation("findCache", CacheService.class.getName(), "", new Class[]{String.class}, new String[]{"0"}, null, null, null);
 

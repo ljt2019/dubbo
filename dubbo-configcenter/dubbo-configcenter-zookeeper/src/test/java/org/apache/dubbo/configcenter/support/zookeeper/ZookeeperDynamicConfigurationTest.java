@@ -58,7 +58,7 @@ class ZookeeperDynamicConfigurationTest {
         zookeeperConnectionAddress1 = System.getProperty("zookeeper.connection.address.1");
         zookeeperServerPort1 = Integer.parseInt(zookeeperConnectionAddress1.substring(zookeeperConnectionAddress1.lastIndexOf(":") + 1));
 
-        client = CuratorFrameworkFactory.newClient("127.0.0.1:" + zookeeperServerPort1, 60 * 1000, 60 * 1000,
+        client = CuratorFrameworkFactory.newClient("8.134.132.250:" + zookeeperServerPort1, 60 * 1000, 60 * 1000,
             new ExponentialBackoffRetry(1000, 3));
         client.start();
 

@@ -595,7 +595,7 @@ public class DefaultApplicationDeployer extends AbstractDeployer<ApplicationMode
         String protocolFromAddress = url.getProtocol();
         if (isEmpty(protocolFromAddress)) {
             // If the protocol from address is missing, is like :
-            // "dubbo.registry.address = 127.0.0.1:2181"
+            // "dubbo.registry.address = 8.134.132.250:2181"
             String protocolFromConfig = registryConfig.getProtocol();
             metadataAddressBuilder.append(protocolFromConfig).append("://");
         }

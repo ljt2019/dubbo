@@ -37,7 +37,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 public class TestConsumerConfiguration {
 
-    private static final String remoteURL = "dubbo://127.0.0.1:12345?version=2.5.7";
+    private static final String remoteURL = "dubbo://8.134.132.250:12345?version=2.5.7";
 
     @Reference(id = "demoService",
             version = "2.5.7",

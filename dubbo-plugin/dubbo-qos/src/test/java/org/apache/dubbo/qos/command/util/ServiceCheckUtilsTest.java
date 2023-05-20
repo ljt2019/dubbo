@@ -57,7 +57,7 @@ class ServiceCheckUtilsTest {
 
         int availablePort = NetUtils.getAvailablePort();
 
-        URL url = URL.valueOf("tri://127.0.0.1:" + availablePort + "/" + DemoService.class.getName());
+        URL url = URL.valueOf("tri://8.134.132.250:" + availablePort + "/" + DemoService.class.getName());
 
         ServiceDescriptor serviceDescriptor = repository.registerService(DemoService.class);
 
@@ -68,8 +68,8 @@ class ServiceCheckUtilsTest {
             new ServiceMetadata(), ClassUtils.getClassLoader(DemoService.class));
         repository.registerProvider(providerModel);
 
-        String url1 = "service-discovery-registry://127.0.0.1:2181/org.apache.dubbo.registry.RegistryService?application=dubbo-demo-api-provider&dubbo=2.0.2&pid=66099&registry=zookeeper&timestamp=1654588337653";
-        String url2 = "zookeeper://127.0.0.1:2181/org.apache.dubbo.registry.RegistryService?application=dubbo-demo-api-provider&dubbo=2.0.2&pid=66099&timestamp=1654588337653";
+        String url1 = "service-discovery-registry://8.134.132.250:2181/org.apache.dubbo.registry.RegistryService?application=dubbo-demo-api-provider&dubbo=2.0.2&pid=66099&registry=zookeeper&timestamp=1654588337653";
+        String url2 = "zookeeper://8.134.132.250:2181/org.apache.dubbo.registry.RegistryService?application=dubbo-demo-api-provider&dubbo=2.0.2&pid=66099&timestamp=1654588337653";
         providerModel.getStatedUrl().add(new ProviderModel.RegisterStatedURL(url, URL.valueOf(url1), true));
         providerModel.getStatedUrl().add(new ProviderModel.RegisterStatedURL(url, URL.valueOf(url2), false));
 
@@ -81,9 +81,9 @@ class ServiceCheckUtilsTest {
         ConsumerModel consumerModel = Mockito.mock(ConsumerModel.class);
         ServiceMetadata serviceMetadata = Mockito.mock(ServiceMetadata.class);
         Mockito.when(consumerModel.getServiceMetadata()).thenReturn(serviceMetadata);
-        String registry1 = "service-discovery-registry://127.0.0.1:2181/org.apache.dubbo.registry.RegistryService?application=dubbo-demo-api-provider&dubbo=2.0.2&pid=66099&registry=zookeeper&timestamp=1654588337653";
-        String registry2 = "zookeeper://127.0.0.1:2181/org.apache.dubbo.registry.RegistryService?application=dubbo-demo-api-provider&dubbo=2.0.2&pid=66099&timestamp=1654588337653";
-        String registry3 = "nacos://127.0.0.1:8848/org.apache.dubbo.registry.RegistryService?application=dubbo-demo-api-provider&dubbo=2.0.2&pid=66099&timestamp=1654588337653";
+        String registry1 = "service-discovery-registry://8.134.132.250:2181/org.apache.dubbo.registry.RegistryService?application=dubbo-demo-api-provider&dubbo=2.0.2&pid=66099&registry=zookeeper&timestamp=1654588337653";
+        String registry2 = "zookeeper://8.134.132.250:2181/org.apache.dubbo.registry.RegistryService?application=dubbo-demo-api-provider&dubbo=2.0.2&pid=66099&timestamp=1654588337653";
+        String registry3 = "nacos://8.134.132.250:8848/org.apache.dubbo.registry.RegistryService?application=dubbo-demo-api-provider&dubbo=2.0.2&pid=66099&timestamp=1654588337653";
         Map<Registry, MigrationInvoker<?>> invokerMap = new LinkedHashMap<>();
         {
             Registry registry = Mockito.mock(Registry.class);

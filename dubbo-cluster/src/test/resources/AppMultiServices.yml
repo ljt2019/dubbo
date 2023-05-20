@@ -23,7 +23,7 @@ configVersion: v2.7
 scope: application
 key: demo-consumer
 configs:
-- addresses: [127.0.0.1, 0.0.0.0]
+- addresses: [8.134.132.250, 0.0.0.0]
   services: ['service1', 'service2']
   parameters:
     loadbalance: random

@@ -54,7 +54,7 @@ class DecodeableRpcInvocationTest {
     @Test
     void test() throws Exception {
         // Simulate the data called by the client(The called data is stored in invocation and written to the buffer)
-        URL url = new ServiceConfigURL("dubbo", "127.0.0.1", 9103, DemoService.class.getName(), VERSION_KEY, "1.0.0");
+        URL url = new ServiceConfigURL("dubbo", "8.134.132.250", 9103, DemoService.class.getName(), VERSION_KEY, "1.0.0");
         RpcInvocation inv = new RpcInvocation(null, "sayHello", DemoService.class.getName(), "", new Class<?>[]{String.class}, new String[]{"yug"});
         inv.setObjectAttachment(PATH_KEY, url.getPath());
         inv.setObjectAttachment(VERSION_KEY, url.getVersion());

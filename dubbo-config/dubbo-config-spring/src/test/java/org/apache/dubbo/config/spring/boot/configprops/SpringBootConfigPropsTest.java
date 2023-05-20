@@ -63,12 +63,12 @@ import static org.apache.dubbo.common.constants.MetricsConstants.PROTOCOL_PROMET
         "dubbo.metrics.aggregation.bucket-num=5",
         "dubbo.metrics.aggregation.time-window-seconds=120",
         "dubbo.metrics.histogram.enabled=true",
-        "dubbo.monitor.address=zookeeper://127.0.0.1:32770",
+        "dubbo.monitor.address=zookeeper://8.134.132.250:32770",
         "dubbo.Config-center.address=${zookeeper.connection.address.1}",
         "dubbo.config-Center.group=group1",
         "dubbo.metadata-report.address=${zookeeper.connection.address.2}",
         "dubbo.METADATA-REPORT.username=User",
-        "dubbo.provider.host=127.0.0.1",
+        "dubbo.provider.host=8.134.132.250",
         "dubbo.consumer.client=netty"
     },
     classes = {
@@ -103,7 +103,7 @@ class SpringBootConfigPropsTest {
         Assertions.assertEquals("dubbo-demo-application", applicationConfig.getName());
 
         MonitorConfig monitorConfig = configManager.getMonitor().get();
-        Assertions.assertEquals("zookeeper://127.0.0.1:32770", monitorConfig.getAddress());
+        Assertions.assertEquals("zookeeper://8.134.132.250:32770", monitorConfig.getAddress());
 
         MetricsConfig metricsConfig = configManager.getMetrics().get();
         Assertions.assertEquals(PROTOCOL_PROMETHEUS, metricsConfig.getProtocol());
@@ -144,7 +144,7 @@ class SpringBootConfigPropsTest {
         Assertions.assertEquals("dubbo-demo-module", moduleConfig.getName());
 
         ProviderConfig providerConfig = moduleConfigManager.getDefaultProvider().get();
-        Assertions.assertEquals("127.0.0.1", providerConfig.getHost());
+        Assertions.assertEquals("8.134.132.250", providerConfig.getHost());
 
         ConsumerConfig consumerConfig = moduleConfigManager.getDefaultConsumer().get();
         Assertions.assertEquals("netty", consumerConfig.getClient());

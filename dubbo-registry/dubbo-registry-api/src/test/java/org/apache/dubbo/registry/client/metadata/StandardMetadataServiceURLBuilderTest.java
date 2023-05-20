@@ -56,11 +56,11 @@ class StandardMetadataServiceURLBuilderTest {
         MetadataServiceURLBuilder builder = loader.getExtension(StandardMetadataServiceURLBuilder.NAME);
 
         // test generateUrlWithoutMetadata
-        List<URL> urls = builder.build(new DefaultServiceInstance("test", "127.0.0.1", 8080, ApplicationModel.defaultModel()));
+        List<URL> urls = builder.build(new DefaultServiceInstance("test", "8.134.132.250", 8080, ApplicationModel.defaultModel()));
         assertEquals(1, urls.size());
         URL url = urls.get(0);
         assertEquals("dubbo", url.getProtocol());
-        assertEquals("127.0.0.1", url.getHost());
+        assertEquals("8.134.132.250", url.getHost());
         assertEquals(7001, url.getPort());
         assertEquals(MetadataService.class.getName(), url.getServiceInterface());
         assertEquals("test", url.getGroup());
@@ -76,7 +76,7 @@ class StandardMetadataServiceURLBuilderTest {
         assertEquals(1, urls.size());
         url = urls.get(0);
         assertEquals("rest", url.getProtocol());
-        assertEquals("127.0.0.1", url.getHost());
+        assertEquals("8.134.132.250", url.getHost());
         assertEquals(20880, url.getPort());
         assertEquals(MetadataService.class.getName(), url.getServiceInterface());
         assertEquals("test", url.getGroup());

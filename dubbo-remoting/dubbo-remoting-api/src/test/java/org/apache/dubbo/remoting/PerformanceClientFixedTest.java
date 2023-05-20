@@ -40,10 +40,10 @@ class PerformanceClientFixedTest {
     void testClient() throws Exception {
         // read the parameters
         if (PerformanceUtils.getProperty("server", null) == null) {
-            logger.warn(CONFIG_UNDEFINED_ARGUMENT, "", "", "Please set -Dserver=127.0.0.1:9911");
+            logger.warn(CONFIG_UNDEFINED_ARGUMENT, "", "", "Please set -Dserver=8.134.132.250:9911");
             return;
         }
-        final String server = System.getProperty("server", "127.0.0.1:9911");
+        final String server = System.getProperty("server", "8.134.132.250:9911");
         final String transporter = PerformanceUtils.getProperty(Constants.TRANSPORTER_KEY, Constants.DEFAULT_TRANSPORTER);
         final String serialization = PerformanceUtils.getProperty(Constants.SERIALIZATION_KEY, DefaultSerializationSelector.getDefaultRemotingSerialization());
         final int timeout = PerformanceUtils.getIntProperty(TIMEOUT_KEY, DEFAULT_TIMEOUT);

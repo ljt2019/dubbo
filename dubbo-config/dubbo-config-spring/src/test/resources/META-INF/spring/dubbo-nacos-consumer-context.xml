@@ -7,7 +7,7 @@
     <dubbo:application name="dubbo-consumer-xml-demo"/>
 
     <!-- Nacos Registry -->
-    <dubbo:registry address="nacos://127.0.0.1:8848"/>
+    <dubbo:registry address="nacos://8.134.132.250:8848"/>
 
     <!-- Reference interface -->
     <dubbo:reference id="demoService1" interface="org.apache.dubbo.config.spring.api.DemoService" version="2.0.0"

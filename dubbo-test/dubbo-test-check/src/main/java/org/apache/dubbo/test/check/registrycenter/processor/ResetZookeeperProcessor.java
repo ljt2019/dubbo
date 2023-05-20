@@ -39,7 +39,7 @@ public class ResetZookeeperProcessor implements Processor {
             CuratorFramework client;
             try {
                 CuratorFrameworkFactory.Builder builder = CuratorFrameworkFactory.builder()
-                    .connectString("127.0.0.1:" + clientPort)
+                    .connectString("8.134.132.250:" + clientPort)
                     .retryPolicy(new RetryNTimes(1, 1000));
                 client = builder.build();
                 client.start();

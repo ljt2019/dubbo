@@ -41,14 +41,14 @@ class MockInvokersSelectorTest {
         Invoker<DemoService> invoker1 = Mockito.mock(Invoker.class);
         Invoker<DemoService> invoker2 = Mockito.mock(Invoker.class);
         Invoker<DemoService> invoker3 = Mockito.mock(Invoker.class);
-        Mockito.when(invoker1.getUrl()).thenReturn(URL.valueOf("mock://127.0.0.1/test"));
-        Mockito.when(invoker2.getUrl()).thenReturn(URL.valueOf("mock://127.0.0.1/test"));
-        Mockito.when(invoker3.getUrl()).thenReturn(URL.valueOf("dubbo://127.0.0.1/test"));
+        Mockito.when(invoker1.getUrl()).thenReturn(URL.valueOf("mock://8.134.132.250/test"));
+        Mockito.when(invoker2.getUrl()).thenReturn(URL.valueOf("mock://8.134.132.250/test"));
+        Mockito.when(invoker3.getUrl()).thenReturn(URL.valueOf("dubbo://8.134.132.250/test"));
         BitList<Invoker<DemoService>> providers = new BitList<>(Arrays.asList(invoker1, invoker2, invoker3));
 
         RpcInvocation rpcInvocation = Mockito.mock(RpcInvocation.class);
 
-        URL consumerURL = URL.valueOf("test://127.0.0.1");
+        URL consumerURL = URL.valueOf("test://8.134.132.250");
 
         selector.notify(providers);
         // rpcInvocation does not have an attached "invocation.need.mock" parameter, so normal invokers will be filtered out

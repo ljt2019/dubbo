@@ -52,7 +52,7 @@ class DubboLazyConnectTest {
     void testSticky1() {
         Assertions.assertThrows(RpcException.class, () -> {
             int port = NetUtils.getAvailablePort();
-            URL url = URL.valueOf("dubbo://127.0.0.1:" + port + "/org.apache.dubbo.rpc.protocol.dubbo.IDemoService");
+            URL url = URL.valueOf("dubbo://8.134.132.250:" + port + "/org.apache.dubbo.rpc.protocol.dubbo.IDemoService");
             ProtocolUtils.refer(IDemoService.class, url);
         });
     }
@@ -60,7 +60,7 @@ class DubboLazyConnectTest {
     @Test
     void testSticky2() {
         int port = NetUtils.getAvailablePort();
-        URL url = URL.valueOf("dubbo://127.0.0.1:" + port + "/org.apache.dubbo.rpc.protocol.dubbo.IDemoService?" + LAZY_CONNECT_KEY + "=true");
+        URL url = URL.valueOf("dubbo://8.134.132.250:" + port + "/org.apache.dubbo.rpc.protocol.dubbo.IDemoService?" + LAZY_CONNECT_KEY + "=true");
         ProtocolUtils.refer(IDemoService.class, url);
     }
 
@@ -68,7 +68,7 @@ class DubboLazyConnectTest {
     void testSticky3() {
         Assertions.assertThrows(IllegalStateException.class, () -> {
             int port = NetUtils.getAvailablePort();
-            URL url = URL.valueOf("dubbo://127.0.0.1:" + port + "/org.apache.dubbo.rpc.protocol.dubbo.IDemoService?" + LAZY_CONNECT_KEY + "=true");
+            URL url = URL.valueOf("dubbo://8.134.132.250:" + port + "/org.apache.dubbo.rpc.protocol.dubbo.IDemoService?" + LAZY_CONNECT_KEY + "=true");
             IDemoService service = ProtocolUtils.refer(IDemoService.class, url);
             service.get();
         });
@@ -77,7 +77,7 @@ class DubboLazyConnectTest {
     @Test
     void testSticky4() {
         int port = NetUtils.getAvailablePort();
-        URL url = URL.valueOf("dubbo://127.0.0.1:" + port + "/org.apache.dubbo.rpc.protocol.dubbo.IDemoService?" + LAZY_CONNECT_KEY + "=true&timeout=20000");
+        URL url = URL.valueOf("dubbo://8.134.132.250:" + port + "/org.apache.dubbo.rpc.protocol.dubbo.IDemoService?" + LAZY_CONNECT_KEY + "=true&timeout=20000");
 
         ProtocolUtils.export(new DemoServiceImpl(), IDemoService.class, url);
 

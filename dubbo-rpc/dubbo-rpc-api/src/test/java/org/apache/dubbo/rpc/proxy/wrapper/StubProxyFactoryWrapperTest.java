@@ -42,7 +42,7 @@ class StubProxyFactoryWrapperTest {
         StubProxyFactoryWrapper stubProxyFactoryWrapper = new StubProxyFactoryWrapper(proxyFactory);
         stubProxyFactoryWrapper.setProtocol(protocol);
 
-        URL url = URL.valueOf("test://127.0.0.1/test?stub=true");
+        URL url = URL.valueOf("test://8.134.132.250/test?stub=true");
         url = url.addParameter(STUB_KEY, "true");
         url = url.addParameter(STUB_EVENT_KEY, "true");
         Invoker<DemoService> invoker = Mockito.mock(Invoker.class);

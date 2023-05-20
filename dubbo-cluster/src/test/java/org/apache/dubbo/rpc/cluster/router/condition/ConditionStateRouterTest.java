@@ -38,7 +38,7 @@ import static org.apache.dubbo.rpc.cluster.Constants.FORCE_KEY;
 import static org.apache.dubbo.rpc.cluster.Constants.RULE_KEY;
 
 class ConditionStateRouterTest {
-    private static final String LOCAL_HOST = "127.0.0.1";
+    private static final String LOCAL_HOST = "8.134.132.250";
     private URL SCRIPT_URL = URL.valueOf("condition://0.0.0.0/com.foo.BarService");
 
     @BeforeAll

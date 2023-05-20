@@ -75,7 +75,7 @@ import static org.springframework.test.annotation.DirtiesContext.ClassMode.AFTER
 @DirtiesContext(classMode = AFTER_EACH_TEST_METHOD)
 @TestPropertySource(properties = {
         "consumer.version = ${demo.service.version}",
-        "consumer.url = dubbo://127.0.0.1:12345?version=2.5.7",
+        "consumer.url = dubbo://8.134.132.250:12345?version=2.5.7",
 })
 @EnableAspectJAutoProxy(proxyTargetClass = true, exposeProxy = true)
 class ReferenceAnnotationBeanPostProcessorTest {
@@ -125,23 +125,23 @@ class ReferenceAnnotationBeanPostProcessorTest {
     private HelloService helloService;
 
     // #6 ReferenceBean (Field Injection #4)
-    @DubboReference(version = "2", url = "dubbo://127.0.0.1:12345?version=2", tag = "demo_tag")
+    @DubboReference(version = "2", url = "dubbo://8.134.132.250:12345?version=2", tag = "demo_tag")
     private HelloService helloService2;
 
     // #7 ReferenceBean (Field Injection #5)
     // The HelloService is the same as above service(#6 ReferenceBean (Field Injection #4)), helloService3 will be registered as an alias of helloService2
-    @DubboReference(version = "2", url = "dubbo://127.0.0.1:12345?version=2", tag = "demo_tag")
+    @DubboReference(version = "2", url = "dubbo://8.134.132.250:12345?version=2", tag = "demo_tag")
     private HelloService helloService3;
 
     // #8 ReferenceBean (Method Injection #3)
-    @DubboReference(version = "3", url = "dubbo://127.0.0.1:12345?version=2", tag = "demo_tag")
+    @DubboReference(version = "3", url = "dubbo://8.134.132.250:12345?version=2", tag = "demo_tag")
     public void setHelloService2(HelloService helloService2) {
         // The helloService2 beanName is the same as above(#6 ReferenceBean (Field Injection #4)), and this will rename to helloService2#2
         renamedHelloService2 = helloService2;
     }
 
     // #9 ReferenceBean (Method Injection #4)
-    @DubboReference(version = "4", url = "dubbo://127.0.0.1:12345?version=2")
+    @DubboReference(version = "4", url = "dubbo://8.134.132.250:12345?version=2")
     public void setHelloService3(DemoService helloService3){
         // The helloService3 beanName is the same as above(#7 ReferenceBean (Field Injection #5) is an alias),
         // The current beanName(helloService3) is not registered in the beanDefinitionMap, but it is already an alias. so this will rename to helloService3#2
@@ -173,7 +173,7 @@ class ReferenceAnnotationBeanPostProcessorTest {
         Assertions.assertNotNull(context.getBean("demoServiceFromParent"));
 
         String callSuffix = AOP_SUFFIX + " from "+ InetSocketAddress.createUnresolved(NetUtils.getLocalHost(), 12345);
-        String localCallSuffix = AOP_SUFFIX + " from " + InetSocketAddress.createUnresolved("127.0.0.1", 0);
+        String localCallSuffix = AOP_SUFFIX + " from " + InetSocketAddress.createUnresolved("8.134.132.250", 0);
         String directInvokeSuffix = AOP_SUFFIX + " from null";
 
         String defaultHelloServiceResult = "Greeting, Mercy";
@@ -310,7 +310,7 @@ class ReferenceAnnotationBeanPostProcessorTest {
         }
 
         // #4 ReferenceBean (Method Injection #2)
-        @Reference(id = "myDemoService", version = "2.5.7", url = "dubbo://127.0.0.1:12345?version=2.5.7")
+        @Reference(id = "myDemoService", version = "2.5.7", url = "dubbo://8.134.132.250:12345?version=2.5.7")
         public void setDemoServiceFromAncestor(DemoService demoServiceFromAncestor) {
             this.demoServiceFromAncestor = demoServiceFromAncestor;
         }
@@ -348,7 +348,7 @@ class ReferenceAnnotationBeanPostProcessorTest {
         }
 
         // #3 ReferenceBean (Method Injection #1)
-        @Reference(version = "2.5.7", url = "dubbo://127.0.0.1:12345?version=2.5.7")
+        @Reference(version = "2.5.7", url = "dubbo://8.134.132.250:12345?version=2.5.7")
         public void setDemoService(DemoService demoService) {
             this.demoService = demoService;
         }

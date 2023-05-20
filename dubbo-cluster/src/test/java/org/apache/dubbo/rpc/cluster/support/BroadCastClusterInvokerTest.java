@@ -61,7 +61,7 @@ class BroadCastClusterInvokerTest {
         invoker3 = new MockInvoker();
         invoker4 = new MockInvoker();
 
-        url = URL.valueOf("test://127.0.0.1:8080/test");
+        url = URL.valueOf("test://8.134.132.250:8080/test");
         given(dic.getUrl()).willReturn(url);
         given(dic.getConsumerUrl()).willReturn(url);
         given(dic.getInterface()).willReturn(DemoService.class);
@@ -121,7 +121,7 @@ class BroadCastClusterInvokerTest {
 
 class MockInvoker implements Invoker<DemoService> {
     private static int count = 0;
-    private URL url = URL.valueOf("test://127.0.0.1:8080/test");
+    private URL url = URL.valueOf("test://8.134.132.250:8080/test");
     private boolean throwEx = false;
     private boolean invoked = false;
 

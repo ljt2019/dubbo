@@ -42,7 +42,7 @@ class EnvironmentTest {
         Environment environment = ApplicationModel.defaultModel().getModelEnvironment();
 
         Map<String, String> externalMap = new LinkedHashMap<>();
-        externalMap.put("zookeeper.address", "127.0.0.1");
+        externalMap.put("zookeeper.address", "8.134.132.250");
         externalMap.put("zookeeper.port", "2181");
         environment.updateAppExternalConfigMap(externalMap);
 
@@ -69,7 +69,7 @@ class EnvironmentTest {
 
         // test getPrefixedConfiguration
         RegistryConfig registryConfig = new RegistryConfig();
-        registryConfig.setAddress("127.0.0.1");
+        registryConfig.setAddress("8.134.132.250");
         registryConfig.setPort(2181);
         String prefix = "dubbo.registry";
         Configuration prefixedConfiguration = environment.getPrefixedConfiguration(registryConfig, prefix);

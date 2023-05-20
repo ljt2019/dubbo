@@ -28,7 +28,7 @@ public class ObservationConventionUtils {
 
 
     public static Invoker<?> getMockInvokerWithUrl(){
-        URL url = URL.valueOf("dubbo://127.0.0.1:12345/com.example.TestService?anyhost=true&application=test&category=providers&dubbo=2.0.2&generic=false&interface=com.example.TestService&methods=testMethod&pid=26716&side=provider&timestamp=1633863896653");
+        URL url = URL.valueOf("dubbo://8.134.132.250:12345/com.example.TestService?anyhost=true&application=test&category=providers&dubbo=2.0.2&generic=false&interface=com.example.TestService&methods=testMethod&pid=26716&side=provider&timestamp=1633863896653");
         Invoker<?> invoker = Mockito.mock(Invoker.class);
         Mockito.when(invoker.getUrl()).thenReturn(url);
         return invoker;

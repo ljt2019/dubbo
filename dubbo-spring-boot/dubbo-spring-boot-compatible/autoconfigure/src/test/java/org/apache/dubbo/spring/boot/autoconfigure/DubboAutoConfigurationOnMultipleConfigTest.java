@@ -59,8 +59,8 @@ import static org.springframework.beans.factory.BeanFactoryUtils.beansOfTypeIncl
                 "dubbo.registries.registry1.address = zookeeper://192.168.99.100:32770",
                 "dubbo.protocols.protocol1.name=dubbo",
                 "dubbo.protocols.protocol1.pORt=20880",
-                "dubbo.monitors.monitor1.Address=zookeeper://127.0.0.1:32770",
-                "dubbo.providers.provider1.host=127.0.0.1",
+                "dubbo.monitors.monitor1.Address=zookeeper://8.134.132.250:32770",
+                "dubbo.providers.provider1.host=8.134.132.250",
                 "dubbo.consumers.consumer1.client=netty",
                 "dubbo.config.multiple=true",
                 "dubbo.scan.basePackages=org.apache.dubbo.spring.boot.dubbo, org.apache.dubbo.spring.boot.condition"
@@ -258,7 +258,7 @@ public class DubboAutoConfigurationOnMultipleConfigTest {
     @Test
     public void testMonitorConfig() {
 
-        Assert.assertEquals("zookeeper://127.0.0.1:32770", monitor.getAddress());
+        Assert.assertEquals("zookeeper://8.134.132.250:32770", monitor.getAddress());
 
     }
 

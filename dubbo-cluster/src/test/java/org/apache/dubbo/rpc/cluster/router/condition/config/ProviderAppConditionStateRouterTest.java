@@ -36,7 +36,7 @@ import java.util.List;
 import static org.apache.dubbo.common.constants.CommonConstants.REMOTE_APPLICATION_KEY;
 
 public class ProviderAppConditionStateRouterTest {
-    private static final String LOCAL_HOST = "127.0.0.1";
+    private static final String LOCAL_HOST = "8.134.132.250";
     private static final String RULE_SUFFIX = ".condition-router";
 
     private static GovernanceRuleRepository ruleRepository;

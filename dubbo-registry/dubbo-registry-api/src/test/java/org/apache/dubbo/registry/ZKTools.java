@@ -46,7 +46,7 @@ public class ZKTools {
     private static ExecutorService executor = Executors.newFixedThreadPool(1, new NamedThreadFactory("ZKTools-test", true));
 
     public static void main(String[] args) throws Exception {
-        client = CuratorFrameworkFactory.newClient("127.0.0.1:2181", 60 * 1000, 60 * 1000,
+        client = CuratorFrameworkFactory.newClient("8.134.132.250:2181", 60 * 1000, 60 * 1000,
                 new ExponentialBackoffRetry(1000, 3));
         client.start();
 
@@ -108,9 +108,9 @@ public class ZKTools {
     }
 
     public static void testStartupConfig() {
-        String str = "dubbo.registry.address=zookeeper://127.0.0.1:2181\n" +
+        String str = "dubbo.registry.address=zookeeper://8.134.132.250:2181\n" +
                 "dubbo.registry.group=dubboregistrygroup1\n" +
-                "dubbo.metadata-report.address=zookeeper://127.0.0.1:2181\n" +
+                "dubbo.metadata-report.address=zookeeper://8.134.132.250:2181\n" +
                 "dubbo.protocol.port=20990\n" +
                 "dubbo.service.org.apache.dubbo.demo.DemoService.timeout=9999\n";
 
@@ -237,7 +237,7 @@ public class ZKTools {
     }
 
     public static void testPathCache() throws Exception {
-        CuratorFramework client = CuratorFrameworkFactory.newClient("127.0.0.1:2181", 60 * 1000, 60 * 1000,
+        CuratorFramework client = CuratorFrameworkFactory.newClient("8.134.132.250:2181", 60 * 1000, 60 * 1000,
                 new ExponentialBackoffRetry(1000, 3));
         client.start();
         PathChildrenCache pathChildrenCache = new PathChildrenCache(client, "/dubbo/config", true);
@@ -250,7 +250,7 @@ public class ZKTools {
     }
 
     public static void testTreeCache() throws Exception {
-        CuratorFramework client = CuratorFrameworkFactory.newClient("127.0.0.1:2181", 60 * 1000, 60 * 1000,
+        CuratorFramework client = CuratorFrameworkFactory.newClient("8.134.132.250:2181", 60 * 1000, 60 * 1000,
                 new ExponentialBackoffRetry(1000, 3));
         client.start();
 
@@ -319,7 +319,7 @@ public class ZKTools {
     }
 
     public static void testCuratorListener() throws Exception {
-        CuratorFramework client = CuratorFrameworkFactory.newClient("127.0.0.1:2181", 60 * 1000, 60 * 1000,
+        CuratorFramework client = CuratorFrameworkFactory.newClient("8.134.132.250:2181", 60 * 1000, 60 * 1000,
                 new ExponentialBackoffRetry(1000, 3));
         client.start();
 

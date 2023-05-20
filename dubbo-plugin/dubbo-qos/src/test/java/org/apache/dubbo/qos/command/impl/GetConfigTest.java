@@ -46,10 +46,10 @@ class GetConfigTest {
 
         applicationModel1.getApplicationConfigManager().setApplication(new ApplicationConfig("app1"));
         applicationModel1.getApplicationConfigManager().addProtocol(new ProtocolConfig("dubbo", 12345));
-        applicationModel1.getApplicationConfigManager().addRegistry(new RegistryConfig("zookeeper://127.0.0.1:2181"));
-        applicationModel1.getApplicationConfigManager().addMetadataReport(new MetadataReportConfig("zookeeper://127.0.0.1:2181"));
+        applicationModel1.getApplicationConfigManager().addRegistry(new RegistryConfig("zookeeper://8.134.132.250:2181"));
+        applicationModel1.getApplicationConfigManager().addMetadataReport(new MetadataReportConfig("zookeeper://8.134.132.250:2181"));
         ConfigCenterConfig configCenterConfig = new ConfigCenterConfig();
-        configCenterConfig.setAddress("zookeeper://127.0.0.1:2181");
+        configCenterConfig.setAddress("zookeeper://8.134.132.250:2181");
         applicationModel1.getApplicationConfigManager().addConfigCenter(configCenterConfig);
         applicationModel1.getApplicationConfigManager().setMetrics(new MetricsConfig());
         applicationModel1.getApplicationConfigManager().setMonitor(new MonitorConfig());
@@ -79,10 +79,10 @@ class GetConfigTest {
 
         applicationModel1.getApplicationConfigManager().setApplication(new ApplicationConfig("app1"));
         applicationModel1.getApplicationConfigManager().addProtocol(new ProtocolConfig("dubbo", 12345));
-        applicationModel1.getApplicationConfigManager().addRegistry(new RegistryConfig("zookeeper://127.0.0.1:2181"));
-        applicationModel1.getApplicationConfigManager().addMetadataReport(new MetadataReportConfig("zookeeper://127.0.0.1:2181"));
+        applicationModel1.getApplicationConfigManager().addRegistry(new RegistryConfig("zookeeper://8.134.132.250:2181"));
+        applicationModel1.getApplicationConfigManager().addMetadataReport(new MetadataReportConfig("zookeeper://8.134.132.250:2181"));
         ConfigCenterConfig configCenterConfig = new ConfigCenterConfig();
-        configCenterConfig.setAddress("zookeeper://127.0.0.1:2181");
+        configCenterConfig.setAddress("zookeeper://8.134.132.250:2181");
         applicationModel1.getApplicationConfigManager().addConfigCenter(configCenterConfig);
         applicationModel1.getApplicationConfigManager().setMetrics(new MetricsConfig());
         applicationModel1.getApplicationConfigManager().setMonitor(new MonitorConfig());
@@ -112,10 +112,10 @@ class GetConfigTest {
 
         applicationModel1.getApplicationConfigManager().setApplication(new ApplicationConfig("app1"));
         applicationModel1.getApplicationConfigManager().addProtocol(new ProtocolConfig("dubbo", 12345));
-        applicationModel1.getApplicationConfigManager().addRegistry(new RegistryConfig("zookeeper://127.0.0.1:2181"));
-        applicationModel1.getApplicationConfigManager().addMetadataReport(new MetadataReportConfig("zookeeper://127.0.0.1:2181"));
+        applicationModel1.getApplicationConfigManager().addRegistry(new RegistryConfig("zookeeper://8.134.132.250:2181"));
+        applicationModel1.getApplicationConfigManager().addMetadataReport(new MetadataReportConfig("zookeeper://8.134.132.250:2181"));
         ConfigCenterConfig configCenterConfig = new ConfigCenterConfig();
-        configCenterConfig.setAddress("zookeeper://127.0.0.1:2181");
+        configCenterConfig.setAddress("zookeeper://8.134.132.250:2181");
         applicationModel1.getApplicationConfigManager().addConfigCenter(configCenterConfig);
         applicationModel1.getApplicationConfigManager().setMetrics(new MetricsConfig());
         applicationModel1.getApplicationConfigManager().setMonitor(new MonitorConfig());

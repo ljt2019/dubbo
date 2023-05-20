@@ -29,7 +29,7 @@ class ConfigConditionRouterTest {
 
     @BeforeEach
     public void init() {
-        client = CuratorFrameworkFactory.newClient("127.0.0.1:2181", 60 * 1000, 60 * 1000,
+        client = CuratorFrameworkFactory.newClient("8.134.132.250:2181", 60 * 1000, 60 * 1000,
                 new ExponentialBackoffRetry(1000, 3));
         client.start();
     }

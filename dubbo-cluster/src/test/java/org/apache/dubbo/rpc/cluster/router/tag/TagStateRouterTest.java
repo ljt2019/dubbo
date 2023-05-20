@@ -76,9 +76,9 @@ class TagStateRouterTest {
 
         List<Invoker<String>> originInvokers = new ArrayList<>();
 
-        URL url1 = URL.valueOf("test://127.0.0.1:7777/DemoInterface?dubbo.tag=tag2").setScopeModel(moduleModel);
-        URL url2 = URL.valueOf("test://127.0.0.1:7778/DemoInterface").setScopeModel(moduleModel);
-        URL url3 = URL.valueOf("test://127.0.0.1:7779/DemoInterface").setScopeModel(moduleModel);
+        URL url1 = URL.valueOf("test://8.134.132.250:7777/DemoInterface?dubbo.tag=tag2").setScopeModel(moduleModel);
+        URL url2 = URL.valueOf("test://8.134.132.250:7778/DemoInterface").setScopeModel(moduleModel);
+        URL url3 = URL.valueOf("test://8.134.132.250:7779/DemoInterface").setScopeModel(moduleModel);
         Invoker<String> invoker1 = new MockInvoker<>(url1, true);
         Invoker<String> invoker2 = new MockInvoker<>(url2, true);
         Invoker<String> invoker3 = new MockInvoker<>(url3, true);
@@ -101,9 +101,9 @@ class TagStateRouterTest {
 
         List<Invoker<String>> originInvokers = new ArrayList<>();
 
-        URL url1 = URL.valueOf("test://127.0.0.1:7777/DemoInterface?application=foo&dubbo.tag=tag2&match_key=value").setScopeModel(moduleModel);
-        URL url2 = URL.valueOf("test://127.0.0.1:7778/DemoInterface?application=foo&match_key=value").setScopeModel(moduleModel);
-        URL url3 = URL.valueOf("test://127.0.0.1:7779/DemoInterface?application=foo").setScopeModel(moduleModel);
+        URL url1 = URL.valueOf("test://8.134.132.250:7777/DemoInterface?application=foo&dubbo.tag=tag2&match_key=value").setScopeModel(moduleModel);
+        URL url2 = URL.valueOf("test://8.134.132.250:7778/DemoInterface?application=foo&match_key=value").setScopeModel(moduleModel);
+        URL url3 = URL.valueOf("test://8.134.132.250:7779/DemoInterface?application=foo").setScopeModel(moduleModel);
         Invoker<String> invoker1 = new MockInvoker<>(url1, true);
         Invoker<String> invoker2 = new MockInvoker<>(url2, true);
         Invoker<String> invoker3 = new MockInvoker<>(url3, true);

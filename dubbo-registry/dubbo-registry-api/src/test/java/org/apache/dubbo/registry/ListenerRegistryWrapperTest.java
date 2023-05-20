@@ -50,7 +50,7 @@ class ListenerRegistryWrapperTest {
 
         Map<String, Object> attributes = new HashMap<>();
         ServiceConfigURL serviceConfigURL = new ServiceConfigURL("registry",
-            "127.0.0.1",
+            "8.134.132.250",
             2181,
             "org.apache.dubbo.registry.RegistryService",
             parameters);
@@ -70,7 +70,7 @@ class ListenerRegistryWrapperTest {
         Assertions.assertTrue(registryWrapper instanceof ListenerRegistryWrapper);
 
         URL subscribeUrl = new ServiceConfigURL("dubbo",
-            "127.0.0.1",
+            "8.134.132.250",
             20881,
             DemoService.class.getName(),
             parameters);
