@@ -35,14 +35,14 @@ import java.net.InetSocketAddress;
 
 class NettyChannelTest {
     private Channel channel = Mockito.mock(Channel.class);
-    private URL url = new ServiceConfigURL("dubbo", "8.134.132.250", 8080);
+    private URL url = new ServiceConfigURL("dubbo", "127.0.0.1", 8080);
     private ChannelHandler channelHandler = Mockito.mock(ChannelHandler.class);
 
     @Test
     void test() throws Exception {
         Channel channel = Mockito.mock(Channel.class);
         Mockito.when(channel.isActive()).thenReturn(true);
-        URL url = URL.valueOf("test://8.134.132.250/test");
+        URL url = URL.valueOf("test://127.0.0.1/test");
         ChannelHandler channelHandler = Mockito.mock(ChannelHandler.class);
         NettyChannel nettyChannel = NettyChannel.getOrAddChannel(channel, url, channelHandler);
 
@@ -69,8 +69,8 @@ class NettyChannelTest {
     @Test
     void testAddress() {
         NettyChannel nettyChannel = NettyChannel.getOrAddChannel(channel, url, channelHandler);
-        InetSocketAddress localAddress = InetSocketAddress.createUnresolved("8.134.132.250", 8888);
-        InetSocketAddress remoteAddress = InetSocketAddress.createUnresolved("8.134.132.250", 9999);
+        InetSocketAddress localAddress = InetSocketAddress.createUnresolved("127.0.0.1", 8888);
+        InetSocketAddress remoteAddress = InetSocketAddress.createUnresolved("127.0.0.1", 9999);
         Mockito.when(channel.localAddress()).thenReturn(localAddress);
         Mockito.when(channel.remoteAddress()).thenReturn(remoteAddress);
         Assertions.assertEquals(nettyChannel.getLocalAddress(), localAddress);

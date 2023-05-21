@@ -69,17 +69,17 @@ class InjvmProtocolTest {
     @Test
     void testLocalProtocol() throws Exception {
         DemoService service = new DemoServiceImpl();
-        Invoker<?> invoker = proxy.getInvoker(service, DemoService.class, URL.valueOf("injvm://8.134.132.250/TestService").addParameter(INTERFACE_KEY, DemoService.class.getName())
+        Invoker<?> invoker = proxy.getInvoker(service, DemoService.class, URL.valueOf("injvm://127.0.0.1/TestService").addParameter(INTERFACE_KEY, DemoService.class.getName())
             .setScopeModel(ApplicationModel.defaultModel().getDefaultModule()));
         assertTrue(invoker.isAvailable());
         Exporter<?> exporter = protocol.export(invoker);
         exporters.add(exporter);
-        service = proxy.getProxy(protocol.refer(DemoService.class, URL.valueOf("injvm://8.134.132.250/TestService").addParameter(INTERFACE_KEY, DemoService.class.getName())
+        service = proxy.getProxy(protocol.refer(DemoService.class, URL.valueOf("injvm://127.0.0.1/TestService").addParameter(INTERFACE_KEY, DemoService.class.getName())
             .setScopeModel(ApplicationModel.defaultModel().getDefaultModule())));
         assertEquals(service.getSize(new String[]{"", "", ""}), 3);
-        service.invoke("injvm://8.134.132.250/TestService", "invoke");
+        service.invoke("injvm://127.0.0.1/TestService", "invoke");
 
-        InjvmInvoker<?> injvmInvoker = new InjvmInvoker<>(DemoService.class, URL.valueOf("injvm://8.134.132.250/TestService"), null, new HashMap<>());
+        InjvmInvoker<?> injvmInvoker = new InjvmInvoker<>(DemoService.class, URL.valueOf("injvm://127.0.0.1/TestService"), null, new HashMap<>());
         assertFalse(injvmInvoker.isAvailable());
 
     }
@@ -87,12 +87,12 @@ class InjvmProtocolTest {
     @Test
     void testLocalProtocolWithToken() {
         DemoService service = new DemoServiceImpl();
-        Invoker<?> invoker = proxy.getInvoker(service, DemoService.class, URL.valueOf("injvm://8.134.132.250/TestService?token=abc").addParameter(INTERFACE_KEY, DemoService.class.getName())
+        Invoker<?> invoker = proxy.getInvoker(service, DemoService.class, URL.valueOf("injvm://127.0.0.1/TestService?token=abc").addParameter(INTERFACE_KEY, DemoService.class.getName())
             .setScopeModel(ApplicationModel.defaultModel().getDefaultModule()));
         assertTrue(invoker.isAvailable());
         Exporter<?> exporter = protocol.export(invoker);
         exporters.add(exporter);
-        service = proxy.getProxy(protocol.refer(DemoService.class, URL.valueOf("injvm://8.134.132.250/TestService").addParameter(INTERFACE_KEY, DemoService.class.getName())
+        service = proxy.getProxy(protocol.refer(DemoService.class, URL.valueOf("injvm://127.0.0.1/TestService").addParameter(INTERFACE_KEY, DemoService.class.getName())
             .setScopeModel(ApplicationModel.defaultModel().getDefaultModule())));
         assertEquals(service.getSize(new String[]{"", "", ""}), 3);
     }
@@ -100,7 +100,7 @@ class InjvmProtocolTest {
     @Test
     void testIsInjvmRefer() {
         DemoService service = new DemoServiceImpl();
-        URL url = URL.valueOf("injvm://8.134.132.250/TestService")
+        URL url = URL.valueOf("injvm://127.0.0.1/TestService")
             .addParameter(INTERFACE_KEY, DemoService.class.getName()).setScopeModel(ApplicationModel.defaultModel().getDefaultModule());
         Exporter<?> exporter = protocol.export(proxy.getInvoker(service, DemoService.class, url));
         exporters.add(exporter);
@@ -112,26 +112,26 @@ class InjvmProtocolTest {
             .addParameter(VERSION_KEY, "*");
         assertTrue(InjvmProtocol.getInjvmProtocol(FrameworkModel.defaultModel()).isInjvmRefer(url));
 
-        url = URL.valueOf("fake://8.134.132.250/TestService").addParameter(SCOPE_KEY, SCOPE_LOCAL);
+        url = URL.valueOf("fake://127.0.0.1/TestService").addParameter(SCOPE_KEY, SCOPE_LOCAL);
         assertTrue(InjvmProtocol.getInjvmProtocol(FrameworkModel.defaultModel()).isInjvmRefer(url));
 
-        url = URL.valueOf("fake://8.134.132.250/TestService").addParameter(LOCAL_PROTOCOL, true);
+        url = URL.valueOf("fake://127.0.0.1/TestService").addParameter(LOCAL_PROTOCOL, true);
         assertTrue(InjvmProtocol.getInjvmProtocol(FrameworkModel.defaultModel()).isInjvmRefer(url));
 
-        url = URL.valueOf("fake://8.134.132.250/TestService").addParameter(SCOPE_KEY, SCOPE_REMOTE);
+        url = URL.valueOf("fake://127.0.0.1/TestService").addParameter(SCOPE_KEY, SCOPE_REMOTE);
         assertFalse(InjvmProtocol.getInjvmProtocol(FrameworkModel.defaultModel()).isInjvmRefer(url));
 
-        url = URL.valueOf("fake://8.134.132.250/TestService").addParameter(GENERIC_KEY, true);
+        url = URL.valueOf("fake://127.0.0.1/TestService").addParameter(GENERIC_KEY, true);
         assertFalse(InjvmProtocol.getInjvmProtocol(FrameworkModel.defaultModel()).isInjvmRefer(url));
 
-        url = URL.valueOf("fake://8.134.132.250/TestService").addParameter("cluster", "broadcast");
+        url = URL.valueOf("fake://127.0.0.1/TestService").addParameter("cluster", "broadcast");
         assertFalse(InjvmProtocol.getInjvmProtocol(FrameworkModel.defaultModel()).isInjvmRefer(url));
     }
 
     @Test
     void testLocalProtocolAsync() {
         DemoService service = new DemoServiceImpl();
-        URL url = URL.valueOf("injvm://8.134.132.250/TestService")
+        URL url = URL.valueOf("injvm://127.0.0.1/TestService")
             .addParameter(ASYNC_KEY, true)
             .addParameter(INTERFACE_KEY, DemoService.class.getName()).addParameter("application", "consumer")
             .setScopeModel(ApplicationModel.defaultModel().getDefaultModule());

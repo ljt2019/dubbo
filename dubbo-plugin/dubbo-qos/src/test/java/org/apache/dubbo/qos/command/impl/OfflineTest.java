@@ -74,7 +74,7 @@ class OfflineTest {
         Assertions.assertFalse(registerStatedURL.isRegistered());
 
         registerStatedURL.setRegistered(true);
-        registerStatedURL.setRegistryUrl(URL.valueOf("test://8.134.132.250:2181/" + RegistryService.class.getName())
+        registerStatedURL.setRegistryUrl(URL.valueOf("test://127.0.0.1:2181/" + RegistryService.class.getName())
             .addParameter(REGISTRY_TYPE_KEY, SERVICE_REGISTRY_TYPE));
         OfflineApp offlineApp = new OfflineApp(frameworkModel);
         result = offlineApp.execute(mock(CommandContext.class), new String[]{DemoService.class.getName()});
@@ -93,8 +93,8 @@ class OfflineTest {
             serviceDescriptor,
             serviceMetadata, ClassUtils.getClassLoader(DemoService.class));
         registerStatedURL = new ProviderModel.RegisterStatedURL(
-            URL.valueOf("dubbo://8.134.132.250:20880/" + DemoService.class.getName()),
-            URL.valueOf("test://8.134.132.250:2181/" + RegistryService.class.getName()),
+            URL.valueOf("dubbo://127.0.0.1:20880/" + DemoService.class.getName()),
+            URL.valueOf("test://127.0.0.1:2181/" + RegistryService.class.getName()),
             true);
         providerModel.addStatedUrl(registerStatedURL
         );

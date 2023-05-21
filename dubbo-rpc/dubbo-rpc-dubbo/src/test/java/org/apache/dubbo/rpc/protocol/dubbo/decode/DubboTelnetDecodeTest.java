@@ -476,7 +476,7 @@ class DubboTelnetDecodeTest {
         // register
         // frameworkModel.getServiceRepository().registerProviderUrl();
         FrameworkModel.defaultModel().getBeanFactory().getBean(PermittedSerializationKeeper.class)
-            .registerService(URL.valueOf("dubbo://8.134.132.250:20880/" + DemoService.class.getName() + "?version=0.0.0"));
+            .registerService(URL.valueOf("dubbo://127.0.0.1:20880/" + DemoService.class.getName() + "?version=0.0.0"));
 
 
         return dubboByteBuf;

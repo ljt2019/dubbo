@@ -41,7 +41,7 @@ public class ApiConsumer {
 
         DubboBootstrap bootstrap = DubboBootstrap.getInstance();
         bootstrap.application(new ApplicationConfig("dubbo-demo-triple-api-consumer"))
-            .registry(new RegistryConfig("zookeeper://8.134.132.250:2181"))
+            .registry(new RegistryConfig("zookeeper://127.0.0.1:2181"))
             .protocol(new ProtocolConfig(CommonConstants.TRIPLE, -1))
             .reference(referenceConfig)
             .start();

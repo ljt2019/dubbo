@@ -33,7 +33,7 @@ import java.util.concurrent.CompletableFuture;
  */
 public abstract class ClientToServerTest  {
 
-    protected static final String LOCALHOST = "8.134.132.250";
+    protected static final String LOCALHOST = "127.0.0.1";
 
     protected ExchangeServer server;
 

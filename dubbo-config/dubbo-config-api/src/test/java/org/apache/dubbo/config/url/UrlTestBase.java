@@ -161,7 +161,7 @@ public class UrlTestBase {
         servConf.setInterfaceClass(DemoService.class);
 
         methodConfForService.setName("sayName");
-        regConfForService.setAddress("8.134.132.250:9090");
+        regConfForService.setAddress("127.0.0.1:9090");
         regConfForService.setProtocol("mockregistry");
         application.setName("ConfigTests");
     }

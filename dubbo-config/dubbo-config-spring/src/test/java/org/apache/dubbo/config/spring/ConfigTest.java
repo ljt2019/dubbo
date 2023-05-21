@@ -118,7 +118,7 @@ class ConfigTest {
         try {
             ctx.start();
 
-            DemoService demoService = refer("dubbo://8.134.132.250:20887");
+            DemoService demoService = refer("dubbo://127.0.0.1:20887");
             String hello = demoService.sayName("hello");
             assertEquals("welcome:hello", hello);
         } finally {
@@ -139,7 +139,7 @@ class ConfigTest {
             ReferenceConfig<HelloService> reference = new ReferenceConfig<HelloService>();
             reference.setRegistry(new RegistryConfig(RegistryConfig.NO_AVAILABLE));
             reference.setInterface(HelloService.class);
-            reference.setUrl("dubbo://8.134.132.250:12345");
+            reference.setUrl("dubbo://127.0.0.1:12345");
 
             consumerBootstrap = DubboBootstrap.newInstance()
                     .application(new ApplicationConfig("consumer"))
@@ -197,10 +197,10 @@ class ConfigTest {
         reference.setApplication(new ApplicationConfig("consumer"));
         reference.setRegistry(new RegistryConfig(RegistryConfig.NO_AVAILABLE));
         reference.setInterface(DemoService.class);
-        reference.setUrl("dubbo://8.134.132.250:20881");
+        reference.setUrl("dubbo://127.0.0.1:20881");
         String str = reference.toString();
         assertTrue(str.startsWith("<dubbo:reference "));
-        assertTrue(str.contains(" url=\"dubbo://8.134.132.250:20881\" "));
+        assertTrue(str.contains(" url=\"dubbo://127.0.0.1:20881\" "));
         assertTrue(str.contains(" interface=\"org.apache.dubbo.config.spring.api.DemoService\" "));
         assertTrue(str.endsWith(" />"));
     }
@@ -212,7 +212,7 @@ class ConfigTest {
         reference.setApplication(new ApplicationConfig("consumer"));
         reference.setRegistry(new RegistryConfig(RegistryConfig.NO_AVAILABLE));
         reference.setInterface(DemoService.class);
-        reference.setUrl("dubbo://8.134.132.250:20881");
+        reference.setUrl("dubbo://127.0.0.1:20881");
 
         int forks = 10;
         reference.setForks(forks);
@@ -227,7 +227,7 @@ class ConfigTest {
         try {
             ctx.start();
 
-            DemoService demoService = refer("dubbo://8.134.132.250:20881");
+            DemoService demoService = refer("dubbo://127.0.0.1:20881");
             String hello = demoService.sayName("hello");
             assertEquals("say:hello", hello);
         } finally {
@@ -242,7 +242,7 @@ class ConfigTest {
         ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext(resourcePath + "/multi-protocol-default.xml");
         try {
             ctx.start();
-            DemoService demoService = refer("rmi://8.134.132.250:10991");
+            DemoService demoService = refer("rmi://127.0.0.1:10991");
             String hello = demoService.sayName("hello");
             assertEquals("say:hello", hello);
         } finally {
@@ -683,7 +683,7 @@ class ConfigTest {
         ReferenceConfig<DemoService> reference = new ReferenceConfig<DemoService>();
         reference.setRegistry(new RegistryConfig(RegistryConfig.NO_AVAILABLE));
         reference.setInterface(DemoService.class);
-        reference.setUrl("dubbo://8.134.132.250:13123");
+        reference.setUrl("dubbo://127.0.0.1:13123");
 
         try {
             DubboBootstrap.getInstance()
@@ -875,7 +875,7 @@ class ConfigTest {
             application.setName("aaa");
 
             RegistryConfig registry = new RegistryConfig();
-            registry.setAddress("8.134.132.250");
+            registry.setAddress("127.0.0.1");
 
             ProtocolConfig protocol = new ProtocolConfig();
             protocol.setName("rmi");

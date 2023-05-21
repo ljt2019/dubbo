@@ -23,7 +23,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 class TransportersTest {
-    private String url = "dubbo://8.134.132.250:12345?transporter=mockTransporter";
+    private String url = "dubbo://127.0.0.1:12345?transporter=mockTransporter";
     private ChannelHandler channel = Mockito.mock(ChannelHandler.class);
 
     @Test

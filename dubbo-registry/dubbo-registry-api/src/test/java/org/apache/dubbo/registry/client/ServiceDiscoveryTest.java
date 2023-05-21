@@ -87,17 +87,17 @@
 //    public void testGetInstances() {
 //
 //        List<ServiceInstance> instances = asList(
-//                new DefaultServiceInstance("A", "8.134.132.250", 8080, ScopeModelUtil.getApplicationModel(serviceDiscovery.getUrl().getScopeModel())),
-//                new DefaultServiceInstance("A", "8.134.132.250", 8081, ScopeModelUtil.getApplicationModel(serviceDiscovery.getUrl().getScopeModel())),
-//                new DefaultServiceInstance("A", "8.134.132.250", 8082, ScopeModelUtil.getApplicationModel(serviceDiscovery.getUrl().getScopeModel()))
+//                new DefaultServiceInstance("A", "127.0.0.1", 8080, ScopeModelUtil.getApplicationModel(serviceDiscovery.getUrl().getScopeModel())),
+//                new DefaultServiceInstance("A", "127.0.0.1", 8081, ScopeModelUtil.getApplicationModel(serviceDiscovery.getUrl().getScopeModel())),
+//                new DefaultServiceInstance("A", "127.0.0.1", 8082, ScopeModelUtil.getApplicationModel(serviceDiscovery.getUrl().getScopeModel()))
 //        );
 //
 //        instances.forEach(serviceDiscovery::register);
 //
 //        // Duplicated
-//        serviceDiscovery.register(new DefaultServiceInstance("A", "8.134.132.250", 8080, ScopeModelUtil.getApplicationModel(serviceDiscovery.getUrl().getScopeModel())));
+//        serviceDiscovery.register(new DefaultServiceInstance("A", "127.0.0.1", 8080, ScopeModelUtil.getApplicationModel(serviceDiscovery.getUrl().getScopeModel())));
 //        // Duplicated
-//        serviceDiscovery.register(new DefaultServiceInstance("A", "8.134.132.250", 8081, ScopeModelUtil.getApplicationModel(serviceDiscovery.getUrl().getScopeModel())));
+//        serviceDiscovery.register(new DefaultServiceInstance("A", "127.0.0.1", 8081, ScopeModelUtil.getApplicationModel(serviceDiscovery.getUrl().getScopeModel())));
 //
 //        // offset starts 0
 //        int offset = 0;
@@ -170,12 +170,12 @@
 //    public void testGetInstancesWithHealthy() {
 //
 //        List<ServiceInstance> instances = new LinkedList<>(asList(
-//                new DefaultServiceInstance("A", "8.134.132.250", 8080, ScopeModelUtil.getApplicationModel(serviceDiscovery.getUrl().getScopeModel())),
-//                new DefaultServiceInstance("A", "8.134.132.250", 8081, ScopeModelUtil.getApplicationModel(serviceDiscovery.getUrl().getScopeModel()))
+//                new DefaultServiceInstance("A", "127.0.0.1", 8080, ScopeModelUtil.getApplicationModel(serviceDiscovery.getUrl().getScopeModel())),
+//                new DefaultServiceInstance("A", "127.0.0.1", 8081, ScopeModelUtil.getApplicationModel(serviceDiscovery.getUrl().getScopeModel()))
 //        ));
 //
 //
-//        DefaultServiceInstance serviceInstance = new DefaultServiceInstance("A", "8.134.132.250", 8082, ScopeModelUtil.getApplicationModel(serviceDiscovery.getUrl().getScopeModel()));
+//        DefaultServiceInstance serviceInstance = new DefaultServiceInstance("A", "127.0.0.1", 8082, ScopeModelUtil.getApplicationModel(serviceDiscovery.getUrl().getScopeModel()));
 //        serviceInstance.setHealthy(false);
 //        instances.add(serviceInstance);
 //

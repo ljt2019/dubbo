@@ -107,7 +107,7 @@ class ConfigCenterConfigTest {
     @Test
     void testOverrideConfig2() {
 
-        String zkAddr = "nacos://8.134.132.250:8848";
+        String zkAddr = "nacos://127.0.0.1:8848";
         // sysprops has no id
         SysProps.setProperty("dubbo.config-center.check", "false");
         SysProps.setProperty("dubbo.config-center.address", zkAddr);

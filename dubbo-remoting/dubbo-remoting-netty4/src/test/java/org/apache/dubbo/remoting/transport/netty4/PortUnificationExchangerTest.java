@@ -40,7 +40,7 @@ class PortUnificationExchangerTest {
     @BeforeAll
     public static void init() throws RemotingException {
         int port = NetUtils.getAvailablePort();
-        url = URL.valueOf("empty://8.134.132.250:" + port + "?foo=bar");
+        url = URL.valueOf("empty://127.0.0.1:" + port + "?foo=bar");
         ApplicationModel applicationModel = ApplicationModel.defaultModel();
         ApplicationConfig applicationConfig = new ApplicationConfig("provider-app");
         applicationConfig.setExecutorManagementMode(EXECUTOR_MANAGEMENT_MODE_DEFAULT);

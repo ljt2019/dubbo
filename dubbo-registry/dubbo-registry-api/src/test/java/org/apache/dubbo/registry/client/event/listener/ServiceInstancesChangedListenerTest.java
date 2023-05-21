@@ -107,13 +107,13 @@ class ServiceInstancesChangedListenerTest {
     static String service2 = "org.apache.dubbo.demo.DemoService2";
     static String service3 = "org.apache.dubbo.demo.DemoService3";
 
-    static URL consumerURL = URL.valueOf("dubbo://8.134.132.250/org.apache.dubbo.demo.DemoService?interface=org.apache.dubbo.demo.DemoService&protocol=dubbo&registry_cluster=default");
-    static URL consumerURL2 = URL.valueOf("dubbo://8.134.132.250/org.apache.dubbo.demo.DemoService2?interface=org.apache.dubbo.demo.DemoService2&protocol=dubbo&registry_cluster=default");
-    static URL consumerURL3 = URL.valueOf("dubbo://8.134.132.250/org.apache.dubbo.demo.DemoService3?interface=org.apache.dubbo.demo.DemoService3&protocol=dubbo&registry_cluster=default");
-    static URL multipleProtocolsConsumerURL = URL.valueOf("dubbo,tri://8.134.132.250/org.apache.dubbo.demo.DemoService?interface=org.apache.dubbo.demo.DemoService&protocol=dubbo,tri&registry_cluster=default");
-    static URL noProtocolConsumerURL = URL.valueOf("consumer://8.134.132.250/org.apache.dubbo.demo.DemoService?interface=org.apache.dubbo.demo.DemoService&registry_cluster=default");
-    static URL singleProtocolsConsumerURL = URL.valueOf("tri://8.134.132.250/org.apache.dubbo.demo.DemoService?interface=org.apache.dubbo.demo.DemoService&protocol=tri&registry_cluster=default");
-    static URL registryURL = URL.valueOf("dubbo://8.134.132.250:2181/org.apache.dubbo.demo.RegistryService?enable-empty-protection=true");
+    static URL consumerURL = URL.valueOf("dubbo://127.0.0.1/org.apache.dubbo.demo.DemoService?interface=org.apache.dubbo.demo.DemoService&protocol=dubbo&registry_cluster=default");
+    static URL consumerURL2 = URL.valueOf("dubbo://127.0.0.1/org.apache.dubbo.demo.DemoService2?interface=org.apache.dubbo.demo.DemoService2&protocol=dubbo&registry_cluster=default");
+    static URL consumerURL3 = URL.valueOf("dubbo://127.0.0.1/org.apache.dubbo.demo.DemoService3?interface=org.apache.dubbo.demo.DemoService3&protocol=dubbo&registry_cluster=default");
+    static URL multipleProtocolsConsumerURL = URL.valueOf("dubbo,tri://127.0.0.1/org.apache.dubbo.demo.DemoService?interface=org.apache.dubbo.demo.DemoService&protocol=dubbo,tri&registry_cluster=default");
+    static URL noProtocolConsumerURL = URL.valueOf("consumer://127.0.0.1/org.apache.dubbo.demo.DemoService?interface=org.apache.dubbo.demo.DemoService&registry_cluster=default");
+    static URL singleProtocolsConsumerURL = URL.valueOf("tri://127.0.0.1/org.apache.dubbo.demo.DemoService?interface=org.apache.dubbo.demo.DemoService&protocol=tri&registry_cluster=default");
+    static URL registryURL = URL.valueOf("dubbo://127.0.0.1:2181/org.apache.dubbo.demo.RegistryService?enable-empty-protection=true");
 
     static MetadataInfo metadataInfo_111;
     static MetadataInfo metadataInfo_222;
@@ -133,7 +133,7 @@ class ServiceInstancesChangedListenerTest {
         metadataService = Mockito.mock(MetadataService.class);
 
         List<Object> urlsSameRevision = new ArrayList<>();
-        urlsSameRevision.add("8.134.132.250:20880?revision=111");
+        urlsSameRevision.add("127.0.0.1:20880?revision=111");
         urlsSameRevision.add("127.0.0.2:20880?revision=111");
         urlsSameRevision.add("127.0.0.3:20880?revision=111");
 

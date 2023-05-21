@@ -69,7 +69,7 @@
 //
 //    @BeforeEach
 //    public void init() {
-//        serviceInstance = new DefaultServiceInstance("test", "8.134.132.250", 8080, ApplicationModel.defaultModel());
+//        serviceInstance = new DefaultServiceInstance("test", "127.0.0.1", 8080, ApplicationModel.defaultModel());
 //    }
 //
 //    @BeforeAll
@@ -186,7 +186,7 @@
 //        Field field = manager.getClass().getDeclaredField("registries");
 //        field.setAccessible(true);
 //        Map<String, Registry> registries = new ConcurrentHashMap<>();
-//        registries.put("8.134.132.250:2181", serviceDiscoveryRegistry);
+//        registries.put("127.0.0.1:2181", serviceDiscoveryRegistry);
 //        field.set(manager, registries);
 //        return inMemoryServiceDiscovery;
 //    }

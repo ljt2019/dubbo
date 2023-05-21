@@ -67,7 +67,7 @@ class RouterChainTest {
         parameters.put(INTERFACE_KEY, DemoService.class.getName());
         parameters.put("registry", "zookeeper");
         URL url = new ServiceConfigURL("dubbo",
-            "8.134.132.250",
+            "127.0.0.1",
             20881,
             DemoService.class.getName(),
             parameters);

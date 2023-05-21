@@ -68,11 +68,11 @@ public class DubboServiceProviderBootstrap {
         DubboBootstrap.getInstance()
                 .application(applicationConfig)
                 // Zookeeper in service registry type
-//                .registry("zookeeper", builder -> builder.address("zookeeper://8.134.132.250:2181?registry.type=service"))
+//                .registry("zookeeper", builder -> builder.address("zookeeper://127.0.0.1:2181?registry.type=service"))
                 // Nacos
-//                .registry("zookeeper", builder -> builder.address("nacos://8.134.132.250:8848?registry.type=service"))
+//                .registry("zookeeper", builder -> builder.address("nacos://127.0.0.1:8848?registry.type=service"))
                 .registries(Arrays.asList(interfaceRegistry, serviceRegistry))
-//                .registry(RegistryBuilder.newBuilder().address("consul://8.134.132.250:8500?registry.type=service").build())
+//                .registry(RegistryBuilder.newBuilder().address("consul://127.0.0.1:8500?registry.type=service").build())
                 .protocol(builder -> builder.port(-1).name("dubbo"))
                 .metadataReport(new MetadataReportConfig(ZookeeperRegistryCenterConfig.getConnectionAddress()))
                 .service(echoService)

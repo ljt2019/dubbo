@@ -26,7 +26,7 @@
 
     <!-- service reference configuration -->
     <dubbo:reference id="demoService" interface="org.apache.dubbo.config.spring.api.DemoService"
-                     url="dubbo://8.134.132.250:20813;dubbo://8.134.132.250:20814" init="true" timeout="100" scope="remote">
+                     url="dubbo://127.0.0.1:20813;dubbo://127.0.0.1:20814" init="true" timeout="100" scope="remote">
         <dubbo:parameter key="connec.timeout" value="1000"/>
         <dubbo:method name="sayName" retry="false"/>
     </dubbo:reference>

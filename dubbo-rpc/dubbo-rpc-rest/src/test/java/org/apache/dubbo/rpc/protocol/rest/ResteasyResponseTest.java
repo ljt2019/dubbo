@@ -37,7 +37,7 @@ public class ResteasyResponseTest {
     private Protocol protocol = ExtensionLoader.getExtensionLoader(Protocol.class).getExtension("rest");
     private ProxyFactory proxy = ExtensionLoader.getExtensionLoader(ProxyFactory.class).getAdaptiveExtension();
     private final int availablePort = NetUtils.getAvailablePort();
-    private final URL exportUrl = URL.valueOf("rest://8.134.132.250:" + availablePort + "/rest?interface=org.apache.dubbo.rpc.protocol.rest.rest.RestDemoService");
+    private final URL exportUrl = URL.valueOf("rest://127.0.0.1:" + availablePort + "/rest?interface=org.apache.dubbo.rpc.protocol.rest.rest.RestDemoService");
     private final ModuleServiceRepository repository = ApplicationModel.defaultModel().getDefaultModule().getServiceRepository();
 
     @AfterEach

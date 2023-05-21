@@ -36,7 +36,7 @@ class RpcStatusTest {
 
     @Test
     void testBeginCountEndCount() {
-        URL url = new ServiceConfigURL("dubbo", "8.134.132.250", 91031, DemoService.class.getName());
+        URL url = new ServiceConfigURL("dubbo", "127.0.0.1", 91031, DemoService.class.getName());
         String methodName = "testBeginCountEndCount";
         int max = 2;
         boolean flag = RpcStatus.beginCount(url, methodName, max);
@@ -64,7 +64,7 @@ class RpcStatusTest {
 
     @Test
     void testBeginCountEndCountInMultiThread() throws Exception {
-        URL url = new ServiceConfigURL("dubbo", "8.134.132.250", 91032, DemoService.class.getName());
+        URL url = new ServiceConfigURL("dubbo", "127.0.0.1", 91032, DemoService.class.getName());
         String methodName = "testBeginCountEndCountInMultiThread";
         int max = 50;
         int threadNum = 10;
@@ -98,7 +98,7 @@ class RpcStatusTest {
 
     @Test
     void testStatistics() {
-        URL url = new ServiceConfigURL("dubbo", "8.134.132.250", 91033, DemoService.class.getName());
+        URL url = new ServiceConfigURL("dubbo", "127.0.0.1", 91033, DemoService.class.getName());
         String methodName = "testStatistics";
         int max = 0;
         RpcStatus.beginCount(url, methodName, max);

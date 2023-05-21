@@ -218,7 +218,7 @@ class ConfigManagerTest {
     // Test ConfigCenterConfig correlative methods
     @Test
     void testConfigCenterConfig() {
-        String address = "zookeeper://8.134.132.250:2181";
+        String address = "zookeeper://127.0.0.1:2181";
         ConfigCenterConfig config = new ConfigCenterConfig();
         config.setAddress(address);
         configManager.addConfigCenters(asList(config, null));

@@ -165,7 +165,7 @@ class ReferenceConfigTest {
         applicationConfig.setLogger("log4j");
         applicationConfig.setDumpDirectory("/");
         applicationConfig.setQosEnable(false);
-        applicationConfig.setQosHost("8.134.132.250");
+        applicationConfig.setQosHost("127.0.0.1");
         applicationConfig.setQosPort(77777);
         applicationConfig.setQosAcceptForeignIp(false);
         Map<String, String> parameters = new HashMap<>();
@@ -515,7 +515,7 @@ class ReferenceConfigTest {
         referenceConfig.getInterfaceClass();
         referenceConfig.setCheck(false);
 
-        referenceConfig.setUrl("dubbo://8.134.132.250:20880");
+        referenceConfig.setUrl("dubbo://127.0.0.1:20880");
 
         dubboBootstrap
             .application(applicationConfig)
@@ -697,7 +697,7 @@ class ReferenceConfigTest {
             System.setProperty("java.net.preferIPv4Stack", "true");
             ProxyFactory proxy = ExtensionLoader.getExtensionLoader(ProxyFactory.class).getAdaptiveExtension();
             DemoService service = new DemoServiceImpl();
-            URL url = URL.valueOf("injvm://8.134.132.250/DemoService")
+            URL url = URL.valueOf("injvm://127.0.0.1/DemoService")
                 .addParameter(INTERFACE_KEY, DemoService.class.getName()).setScopeModel(ApplicationModel.defaultModel().getDefaultModule());
             url = url.addParameter(EXPORTER_LISTENER_KEY, LOCAL_PROTOCOL);
             Protocol protocolSPI = ApplicationModel.defaultModel().getExtensionLoader(Protocol.class).getAdaptiveExtension();

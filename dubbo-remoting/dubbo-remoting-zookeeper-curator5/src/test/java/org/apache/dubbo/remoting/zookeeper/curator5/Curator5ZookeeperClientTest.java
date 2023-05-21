@@ -56,7 +56,7 @@ class Curator5ZookeeperClientTest {
         zookeeperConnectionAddress1 = System.getProperty("zookeeper.connection.address.1");
         zookeeperServerPort1 = Integer.parseInt(zookeeperConnectionAddress1.substring(zookeeperConnectionAddress1.lastIndexOf(":") + 1));
         curatorClient = new Curator5ZookeeperClient(URL.valueOf(zookeeperConnectionAddress1 + "/org.apache.dubbo.registry.RegistryService"));
-        client = CuratorFrameworkFactory.newClient("8.134.132.250:" + zookeeperServerPort1, new ExponentialBackoffRetry(1000, 3));
+        client = CuratorFrameworkFactory.newClient("127.0.0.1:" + zookeeperServerPort1, new ExponentialBackoffRetry(1000, 3));
         client.start();
     }
 
@@ -100,7 +100,7 @@ class Curator5ZookeeperClientTest {
     @Test
     void testWithInvalidServer() {
         Assertions.assertThrows(IllegalStateException.class, () -> {
-            curatorClient = new Curator5ZookeeperClient(URL.valueOf("zookeeper://8.134.132.250:1/service?timeout=1000"));
+            curatorClient = new Curator5ZookeeperClient(URL.valueOf("zookeeper://127.0.0.1:1/service?timeout=1000"));
             curatorClient.create("/testPath", true, true);
         });
     }

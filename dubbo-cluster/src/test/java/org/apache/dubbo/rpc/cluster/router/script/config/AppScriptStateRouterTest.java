@@ -39,7 +39,7 @@ import static org.apache.dubbo.common.constants.CommonConstants.REMOTE_APPLICATI
 
 @DisabledForJreRange(min = JRE.JAVA_16)
 public class AppScriptStateRouterTest {
-    private static final String LOCAL_HOST = "8.134.132.250";
+    private static final String LOCAL_HOST = "127.0.0.1";
     private static final String RULE_SUFFIX = ".script-router";
 
     private static GovernanceRuleRepository ruleRepository;

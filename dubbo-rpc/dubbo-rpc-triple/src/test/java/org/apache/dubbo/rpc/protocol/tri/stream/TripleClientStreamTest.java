@@ -62,7 +62,7 @@ class TripleClientStreamTest {
 
     @Test
     void progress() {
-        final URL url = URL.valueOf("tri://8.134.132.250:8080/foo.bar.service");
+        final URL url = URL.valueOf("tri://127.0.0.1:8080/foo.bar.service");
         final ModuleServiceRepository repo = ApplicationModel.defaultModel().getDefaultModule()
             .getServiceRepository();
         repo.registerService(IGreeter.class);

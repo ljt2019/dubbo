@@ -69,7 +69,7 @@ class InstanceAddressURLTest {
         "&version=1.0.0&timeout=9000&a.timeout=8888&dubbo.tag=consumer&protocol=dubbo");
 
     private DefaultServiceInstance createInstance() {
-        DefaultServiceInstance instance = new DefaultServiceInstance("demo-provider", "8.134.132.250", 8080, ApplicationModel.defaultModel());
+        DefaultServiceInstance instance = new DefaultServiceInstance("demo-provider", "127.0.0.1", 8080, ApplicationModel.defaultModel());
         Map<String, String> metadata = instance.getMetadata();
         metadata.put("key1", "value1");
         metadata.put("key2", "value2");

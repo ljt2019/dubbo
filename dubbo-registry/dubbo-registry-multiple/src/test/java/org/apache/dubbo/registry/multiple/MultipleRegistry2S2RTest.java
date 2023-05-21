@@ -55,7 +55,7 @@ class MultipleRegistry2S2RTest {
         zookeeperConnectionAddress1 = System.getProperty("zookeeper.connection.address.1");
         zookeeperConnectionAddress2 = System.getProperty("zookeeper.connection.address.2");
 
-        URL url = URL.valueOf("multiple://8.134.132.250?application=vic&enable-empty-protection=false&" +
+        URL url = URL.valueOf("multiple://127.0.0.1?application=vic&enable-empty-protection=false&" +
             MultipleRegistry.REGISTRY_FOR_SERVICE + "=" + zookeeperConnectionAddress1 + "," + zookeeperConnectionAddress2 + "&"
             + MultipleRegistry.REGISTRY_FOR_REFERENCE + "=" + zookeeperConnectionAddress1 + "," + zookeeperConnectionAddress2);
         multipleRegistry = (MultipleRegistry) new MultipleRegistryFactory().createRegistry(url);
@@ -179,12 +179,12 @@ class MultipleRegistry2S2RTest {
     void testAggregation() {
         List<URL> result = new ArrayList<URL>();
         List<URL> listToAggregate = new ArrayList<URL>();
-        URL url1= URL.valueOf("dubbo://8.134.132.250:20880/service1");
-        URL url2= URL.valueOf("dubbo://8.134.132.250:20880/service1");
+        URL url1= URL.valueOf("dubbo://127.0.0.1:20880/service1");
+        URL url2= URL.valueOf("dubbo://127.0.0.1:20880/service1");
         listToAggregate.add(url1);
         listToAggregate.add(url2);
 
-        URL registryURL = URL.valueOf("mock://8.134.132.250/RegistryService?attachments=zone=hangzhou,tag=middleware&enable-empty-protection=false");
+        URL registryURL = URL.valueOf("mock://127.0.0.1/RegistryService?attachments=zone=hangzhou,tag=middleware&enable-empty-protection=false");
 
         MultipleRegistry.MultipleNotifyListenerWrapper.aggregateRegistryUrls(result, listToAggregate, registryURL);
 

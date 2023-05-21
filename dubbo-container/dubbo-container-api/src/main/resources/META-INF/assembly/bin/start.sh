@@ -31,7 +31,7 @@ VM_ARGS_METASPACE_SIZE='MetaspaceSize'
 JAVA_8_VERSION="180"
 
 if [ -z "$SERVER_HOST" ]; then
-    SERVER_HOST='8.134.132.250'
+    SERVER_HOST='127.0.0.1'
 fi
 
 if [ -z "$SERVER_NAME" ]; then

@@ -42,7 +42,7 @@ class DefaultServiceInstanceTest {
     public DefaultServiceInstance instance;
 
     public static DefaultServiceInstance createInstance() {
-        DefaultServiceInstance instance = new DefaultServiceInstance("A", "8.134.132.250", 20880, ApplicationModel.defaultModel());
+        DefaultServiceInstance instance = new DefaultServiceInstance("A", "127.0.0.1", 20880, ApplicationModel.defaultModel());
         Map<String, String> metadata = instance.getMetadata();
         metadata.put(METADATA_STORAGE_TYPE_PROPERTY_NAME, "remote");
         metadata.put(EXPORTED_SERVICES_REVISION_PROPERTY_NAME, "111");
@@ -66,7 +66,7 @@ class DefaultServiceInstanceTest {
         instance.setHealthy(false);
 
         assertEquals("A", instance.getServiceName());
-        assertEquals("8.134.132.250", instance.getHost());
+        assertEquals("127.0.0.1", instance.getHost());
         assertEquals(20880, instance.getPort());
         assertFalse(instance.isEnabled());
         assertFalse(instance.isHealthy());
@@ -94,7 +94,7 @@ class DefaultServiceInstanceTest {
         assertEquals("value", allParams2.get("key"));
 
         // test equals
-        DefaultServiceInstance instance2 = new DefaultServiceInstance("A", "8.134.132.250", 20880, ApplicationModel.defaultModel());
+        DefaultServiceInstance instance2 = new DefaultServiceInstance("A", "127.0.0.1", 20880, ApplicationModel.defaultModel());
         instance2.setMetadata(new HashMap<>(instance.getMetadata()));
         instance2.getMetadata().put(EXPORTED_SERVICES_REVISION_PROPERTY_NAME, "222");
         // assert instances with different revision and extend params are equal

@@ -38,7 +38,7 @@ class ProtocolListenerWrapperTest {
     @Test
     void testLoadingListenerForLocalReference() {
         // verify that no listener is loaded by default
-        URL urlWithoutListener = URL.valueOf("injvm://8.134.132.250/DemoService")
+        URL urlWithoutListener = URL.valueOf("injvm://127.0.0.1/DemoService")
             .addParameter(INTERFACE_KEY, DemoService.class.getName());
         AbstractInvoker<DemoService> invokerWithoutListener = new AbstractInvoker<DemoService>(DemoService.class, urlWithoutListener) {
             @Override
@@ -57,7 +57,7 @@ class ProtocolListenerWrapperTest {
         Assertions.assertEquals(0, ((ListenerInvokerWrapper<?>) invoker).getListeners().size());
 
         // verify that if the invoker.listener is configured, then load the specified listener
-        URL urlWithListener = URL.valueOf("injvm://8.134.132.250/DemoService")
+        URL urlWithListener = URL.valueOf("injvm://127.0.0.1/DemoService")
             .addParameter(INTERFACE_KEY, DemoService.class.getName())
             .addParameter(INVOKER_LISTENER_KEY, "count");
         AbstractInvoker<DemoService> invokerWithListener = new AbstractInvoker<DemoService>(DemoService.class, urlWithListener) {
@@ -80,7 +80,7 @@ class ProtocolListenerWrapperTest {
     @Test
     void testLoadingListenerForRemoteReference() {
         // verify that no listener is loaded by default
-        URL urlWithoutListener = URL.valueOf("dubbo://8.134.132.250:20880/DemoService")
+        URL urlWithoutListener = URL.valueOf("dubbo://127.0.0.1:20880/DemoService")
             .addParameter(INTERFACE_KEY, DemoService.class.getName());
         AbstractInvoker<DemoService> invokerWithoutListener = new AbstractInvoker<DemoService>(DemoService.class, urlWithoutListener) {
             @Override
@@ -99,7 +99,7 @@ class ProtocolListenerWrapperTest {
         Assertions.assertEquals(0, ((ListenerInvokerWrapper<?>) invoker).getListeners().size());
 
         // verify that if the invoker.listener is configured, then load the specified listener
-        URL urlWithListener = URL.valueOf("dubbo://8.134.132.250:20880/DemoService")
+        URL urlWithListener = URL.valueOf("dubbo://127.0.0.1:20880/DemoService")
             .addParameter(INTERFACE_KEY, DemoService.class.getName())
             .addParameter(INVOKER_LISTENER_KEY, "count");
         AbstractInvoker<DemoService> invokerWithListener = new AbstractInvoker<DemoService>(DemoService.class, urlWithListener) {

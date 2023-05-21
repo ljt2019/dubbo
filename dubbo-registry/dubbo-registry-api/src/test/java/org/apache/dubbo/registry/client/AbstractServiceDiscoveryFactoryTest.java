@@ -33,7 +33,7 @@ class AbstractServiceDiscoveryFactoryTest {
     @Test
     void testGetServiceDiscoveryWithCache() {
         ApplicationModel.defaultModel().getApplicationConfigManager().setApplication(new ApplicationConfig("AbstractServiceDiscoveryFactoryTest"));
-        URL url = URL.valueOf("mock://8.134.132.250:8888");
+        URL url = URL.valueOf("mock://127.0.0.1:8888");
         ServiceDiscoveryFactory factory = ServiceDiscoveryFactory.getExtension(url);
         ServiceDiscovery serviceDiscovery1 = factory.getServiceDiscovery(url);
         ServiceDiscovery serviceDiscovery2 = factory.getServiceDiscovery(url);

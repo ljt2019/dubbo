@@ -53,7 +53,7 @@ class TripleProtocolTest {
         ApplicationModel applicationModel = ApplicationModel.defaultModel();
 
         URL providerUrl = URL.valueOf(
-            "tri://8.134.132.250:" + availablePort + "/" + IGreeter.class.getName());
+            "tri://127.0.0.1:" + availablePort + "/" + IGreeter.class.getName());
 
         ModuleServiceRepository serviceRepository = applicationModel.getDefaultModule()
             .getServiceRepository();
@@ -74,7 +74,7 @@ class TripleProtocolTest {
         Exporter<IGreeter> export = protocol.export(invoker);
 
         URL consumerUrl = URL.valueOf(
-            "tri://8.134.132.250:" + availablePort + "/" + IGreeter.class.getName());
+            "tri://127.0.0.1:" + availablePort + "/" + IGreeter.class.getName());
 
         ConsumerModel consumerModel = new ConsumerModel(consumerUrl.getServiceKey(), null,
             serviceDescriptor, null,

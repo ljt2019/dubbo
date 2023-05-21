@@ -94,11 +94,11 @@ class LoadBalanceBaseTest {
         invoker4 = mock(Invoker.class);
         invoker5 = mock(Invoker.class);
 
-        URL url1 = URL.valueOf("test://8.134.132.250:1/DemoService");
-        URL url2 = URL.valueOf("test://8.134.132.250:2/DemoService");
-        URL url3 = URL.valueOf("test://8.134.132.250:3/DemoService");
-        URL url4 = URL.valueOf("test://8.134.132.250:4/DemoService");
-        URL url5 = URL.valueOf("test://8.134.132.250:5/DemoService");
+        URL url1 = URL.valueOf("test://127.0.0.1:1/DemoService");
+        URL url2 = URL.valueOf("test://127.0.0.1:2/DemoService");
+        URL url3 = URL.valueOf("test://127.0.0.1:3/DemoService");
+        URL url4 = URL.valueOf("test://127.0.0.1:4/DemoService");
+        URL url5 = URL.valueOf("test://127.0.0.1:5/DemoService");
 
         given(invoker1.isAvailable()).willReturn(true);
         given(invoker1.getInterface()).willReturn(LoadBalanceBaseTest.class);
@@ -248,11 +248,11 @@ class LoadBalanceBaseTest {
         weightTestInvocation = new RpcInvocation();
         weightTestInvocation.setMethodName("test");
 
-        URL url1 = URL.valueOf("test1://8.134.132.250:11/DemoService?weight=1&active=0");
-        URL url2 = URL.valueOf("test2://8.134.132.250:12/DemoService?weight=9&active=0");
-        URL url3 = URL.valueOf("test3://8.134.132.250:13/DemoService?weight=6&active=1");
-        URL urlTmp = URL.valueOf("test4://8.134.132.250:9999/DemoService?weight=11&active=0");
-        URL url5 = URL.valueOf("test5://8.134.132.250:15/DemoService?weight=15&active=0");
+        URL url1 = URL.valueOf("test1://127.0.0.1:11/DemoService?weight=1&active=0");
+        URL url2 = URL.valueOf("test2://127.0.0.1:12/DemoService?weight=9&active=0");
+        URL url3 = URL.valueOf("test3://127.0.0.1:13/DemoService?weight=6&active=1");
+        URL urlTmp = URL.valueOf("test4://127.0.0.1:9999/DemoService?weight=11&active=0");
+        URL url5 = URL.valueOf("test5://127.0.0.1:15/DemoService?weight=15&active=0");
 
         given(weightInvoker1.isAvailable()).willReturn(true);
         given(weightInvoker1.getInterface()).willReturn(LoadBalanceBaseTest.class);

@@ -96,7 +96,7 @@ class AbortPolicyWithReportTest {
     void test_dispatchThreadPoolExhaustedEvent() {
         URL url = URL.valueOf("dubbo://admin:hello1234@10.20.130.230:20880/context/path?dump.directory=/tmp&version=1.0.0&application=morgan&noValue=");
         AbortPolicyWithReport abortPolicyWithReport = new AbortPolicyWithReport("Test", url);
-        String msg = "Thread pool is EXHAUSTED! Thread Name: DubboServerHandler-8.134.132.250:12345, Pool Size: 1 (active: 0, core: 1, max: 1, largest: 1), Task: 6 (completed: 6), Executor status:(isShutdown:false, isTerminated:false, isTerminating:false), in dubbo://8.134.132.250:12345!, dubbo version: 2.7.3, current host: 8.134.132.250";
+        String msg = "Thread pool is EXHAUSTED! Thread Name: DubboServerHandler-127.0.0.1:12345, Pool Size: 1 (active: 0, core: 1, max: 1, largest: 1), Task: 6 (completed: 6), Executor status:(isShutdown:false, isTerminated:false, isTerminating:false), in dubbo://127.0.0.1:12345!, dubbo version: 2.7.3, current host: 127.0.0.1";
         MyListener listener = new MyListener();
         abortPolicyWithReport.addThreadPoolExhaustedEventListener(listener);
         abortPolicyWithReport.dispatchThreadPoolExhaustedEvent(msg);

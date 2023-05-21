@@ -25,9 +25,9 @@ import org.junit.jupiter.api.Test;
 class UrlUtilsTest {
     @Test
     void testGetIdleTimeout() {
-        URL url1 = URL.valueOf("dubbo://8.134.132.250:12345?heartbeat=10000");
-        URL url2 = URL.valueOf("dubbo://8.134.132.250:12345?heartbeat=10000&heartbeat.timeout=50000");
-        URL url3 = URL.valueOf("dubbo://8.134.132.250:12345?heartbeat=10000&heartbeat.timeout=10000");
+        URL url1 = URL.valueOf("dubbo://127.0.0.1:12345?heartbeat=10000");
+        URL url2 = URL.valueOf("dubbo://127.0.0.1:12345?heartbeat=10000&heartbeat.timeout=50000");
+        URL url3 = URL.valueOf("dubbo://127.0.0.1:12345?heartbeat=10000&heartbeat.timeout=10000");
         Assertions.assertEquals(UrlUtils.getIdleTimeout(url1), 30000);
         Assertions.assertEquals(UrlUtils.getIdleTimeout(url2), 50000);
         Assertions.assertThrows(RuntimeException.class, () -> UrlUtils.getIdleTimeout(url3));
@@ -35,14 +35,14 @@ class UrlUtilsTest {
 
     @Test
     void testGetHeartbeat() {
-        URL url = URL.valueOf("dubbo://8.134.132.250:12345?heartbeat=10000");
+        URL url = URL.valueOf("dubbo://127.0.0.1:12345?heartbeat=10000");
         Assertions.assertEquals(UrlUtils.getHeartbeat(url), 10000);
     }
 
     @Test
     void testConfiguredHeartbeat() {
         System.setProperty(Constants.HEARTBEAT_CONFIG_KEY, "200");
-        URL url = URL.valueOf("dubbo://8.134.132.250:12345");
+        URL url = URL.valueOf("dubbo://127.0.0.1:12345");
         Assertions.assertEquals(200, UrlUtils.getHeartbeat(url));
         System.clearProperty(Constants.HEARTBEAT_CONFIG_KEY);
     }

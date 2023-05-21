@@ -281,7 +281,7 @@ class ZookeeperMetadataReportTest {
     @Test
     void testMapping() throws InterruptedException {
         String serviceKey = ZookeeperMetadataReportTest.class.getName();
-        URL url = URL.valueOf("test://8.134.132.250:8888/" + serviceKey);
+        URL url = URL.valueOf("test://127.0.0.1:8888/" + serviceKey);
         String appNames = "demo1,demo2";
 
         CountDownLatch latch = new CountDownLatch(1);
@@ -311,7 +311,7 @@ class ZookeeperMetadataReportTest {
     void testAppMetadata() {
         String serviceKey = ZookeeperMetadataReportTest.class.getName();
         String appName = "demo";
-        URL url = URL.valueOf("test://8.134.132.250:8888/" + serviceKey);
+        URL url = URL.valueOf("test://127.0.0.1:8888/" + serviceKey);
         MetadataInfo metadataInfo = new MetadataInfo(appName);
         metadataInfo.addService(url);
 

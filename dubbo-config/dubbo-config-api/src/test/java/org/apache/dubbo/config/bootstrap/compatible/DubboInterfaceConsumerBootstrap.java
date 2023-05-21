@@ -39,7 +39,7 @@ public class DubboInterfaceConsumerBootstrap {
                 // Zookeeper
                 .registry(interfaceRegistry)
                 // Nacos
-//                .registry("consul", builder -> builder.address("consul://8.134.132.250:8500?registry.type=service&subscribed.services=dubbo-provider-demo"))
+//                .registry("consul", builder -> builder.address("consul://127.0.0.1:8500?registry.type=service&subscribed.services=dubbo-provider-demo"))
                 .reference("echo", builder -> builder.interfaceClass(EchoService.class).protocol("dubbo"))
                 .reference("user", builder -> builder.interfaceClass(UserService.class).protocol("rest"))
                 .start()

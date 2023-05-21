@@ -80,7 +80,7 @@ class ArgumentCallbackTest {
 
     public void initOrResetUrl(int callbacks, int timeout) {
         int port = NetUtils.getAvailablePort();
-        consumerUrl = serviceURL = URL.valueOf("dubbo://8.134.132.250:" + port + "/" + IDemoService.class.getName() + "?group=test"
+        consumerUrl = serviceURL = URL.valueOf("dubbo://127.0.0.1:" + port + "/" + IDemoService.class.getName() + "?group=test"
                 + "&xxx.0.callback=true"
                 + "&xxx2.0.callback=true"
                 + "&unxxx2.0.callback=false"

@@ -53,7 +53,7 @@ public class ServiceConfigTest {
     void testControllerService() throws Exception {
 
         int availablePort = NetUtils.getAvailablePort();
-        URL url = URL.valueOf("rest://8.134.132.250:" + availablePort + "/?version=1.0.0&interface=org.apache.dubbo.rpc.protocol.rest.mvc.SpringControllerService");
+        URL url = URL.valueOf("rest://127.0.0.1:" + availablePort + "/?version=1.0.0&interface=org.apache.dubbo.rpc.protocol.rest.mvc.SpringControllerService");
 
         SpringControllerService server = new SpringControllerService();
 
@@ -63,7 +63,7 @@ public class ServiceConfigTest {
 
         OKHttpRestClient okHttpRestClient = new OKHttpRestClient(new HttpClientConfig());
 
-        RequestTemplate requestTemplate = new RequestTemplate(null, "GET", "8.134.132.250:" + availablePort);
+        RequestTemplate requestTemplate = new RequestTemplate(null, "GET", "127.0.0.1:" + availablePort);
         requestTemplate.path("/controller/sayHello?say=dubbo");
         requestTemplate.addHeader(RestConstant.CONTENT_TYPE, "text/plain");
         requestTemplate.addHeader(RestConstant.ACCEPT, "text/plain");

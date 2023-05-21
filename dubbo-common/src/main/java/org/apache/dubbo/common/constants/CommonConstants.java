@@ -197,7 +197,7 @@ public interface CommonConstants {
 
     String LOCALHOST_KEY = "localhost";
 
-    String LOCALHOST_VALUE = "8.134.132.250";
+    String LOCALHOST_VALUE = "127.0.0.1";
 
     String METHODS_KEY = "methods";
 

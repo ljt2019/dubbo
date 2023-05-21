@@ -48,8 +48,8 @@ class ExecutorRepositoryTest {
 
     @Test
     void testGetExecutor() {
-        testGet(URL.valueOf("dubbo://8.134.132.250:23456/TestService"));
-        testGet(URL.valueOf("dubbo://8.134.132.250:23456/TestService?side=consumer"));
+        testGet(URL.valueOf("dubbo://127.0.0.1:23456/TestService"));
+        testGet(URL.valueOf("dubbo://127.0.0.1:23456/TestService?side=consumer"));
 
         Assertions.assertNotNull(executorRepository.getSharedExecutor());
         Assertions.assertNotNull(executorRepository.getServiceExportExecutor());
@@ -70,7 +70,7 @@ class ExecutorRepositoryTest {
 
     @Test
     void testUpdateExecutor() {
-        URL url = URL.valueOf("dubbo://8.134.132.250:23456/TestService?threads=5");
+        URL url = URL.valueOf("dubbo://127.0.0.1:23456/TestService?threads=5");
         ThreadPoolExecutor executorService = (ThreadPoolExecutor) executorRepository.createExecutorIfAbsent(url);
 
         executorService.setCorePoolSize(3);

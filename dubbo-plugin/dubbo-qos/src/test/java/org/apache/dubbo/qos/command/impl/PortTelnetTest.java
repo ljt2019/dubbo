@@ -55,7 +55,7 @@ class PortTelnetTest {
         mockCommandContext = mock(CommandContext.class);
         mockInvoker = mock(Invoker.class);
         given(mockInvoker.getInterface()).willReturn(DemoService.class);
-        given(mockInvoker.getUrl()).willReturn(URL.valueOf("dubbo://8.134.132.250:" + availablePort + "/demo"));
+        given(mockInvoker.getUrl()).willReturn(URL.valueOf("dubbo://127.0.0.1:" + availablePort + "/demo"));
 
         frameworkModel.getExtensionLoader(Protocol.class).getExtension(DubboProtocol.NAME).export(mockInvoker);
     }
@@ -72,8 +72,8 @@ class PortTelnetTest {
      */
     @Test
     void testListClient() throws Exception {
-        ExchangeClient client1 = Exchangers.connect("dubbo://8.134.132.250:" + availablePort + "/demo");
-        ExchangeClient client2 = Exchangers.connect("dubbo://8.134.132.250:" + availablePort + "/demo");
+        ExchangeClient client1 = Exchangers.connect("dubbo://127.0.0.1:" + availablePort + "/demo");
+        ExchangeClient client2 = Exchangers.connect("dubbo://127.0.0.1:" + availablePort + "/demo");
         Thread.sleep(100);
         String result = port.execute(mockCommandContext, new String[]{"-l", availablePort + ""});
         String client1Addr = client1.getLocalAddress().toString();
@@ -88,7 +88,7 @@ class PortTelnetTest {
     @Test
     void testListDetail() throws RemotingException {
         String result = port.execute(mockCommandContext, new String[]{"-l"});
-        assertEquals("dubbo://8.134.132.250:" + availablePort + "", result);
+        assertEquals("dubbo://127.0.0.1:" + availablePort + "", result);
     }
 
     @Test

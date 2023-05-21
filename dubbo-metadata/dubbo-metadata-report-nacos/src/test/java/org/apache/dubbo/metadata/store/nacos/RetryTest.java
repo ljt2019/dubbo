@@ -48,7 +48,7 @@ class RetryTest {
             nacosFactoryMockedStatic.when(() -> NacosFactory.createConfigService((Properties) any())).thenReturn(mock);
 
 
-            URL url = URL.valueOf("nacos://8.134.132.250:8848")
+            URL url = URL.valueOf("nacos://127.0.0.1:8848")
                 .addParameter("nacos.retry", 5)
                 .addParameter("nacos.retry-wait", 10);
             Assertions.assertThrows(IllegalStateException.class, () -> new NacosMetadataReport(url));
@@ -72,7 +72,7 @@ class RetryTest {
             nacosFactoryMockedStatic.when(() -> NacosFactory.createConfigService((Properties) any())).thenReturn(mock);
 
 
-            URL url = URL.valueOf("nacos://8.134.132.250:8848")
+            URL url = URL.valueOf("nacos://127.0.0.1:8848")
                 .addParameter("nacos.retry", 5)
                 .addParameter("nacos.retry-wait", 10)
                 .addParameter("nacos.check", "false");
@@ -106,7 +106,7 @@ class RetryTest {
             nacosFactoryMockedStatic.when(() -> NacosFactory.createConfigService((Properties) any())).thenReturn(mock);
 
 
-            URL url = URL.valueOf("nacos://8.134.132.250:8848")
+            URL url = URL.valueOf("nacos://127.0.0.1:8848")
                 .addParameter("nacos.retry", 5)
                 .addParameter("nacos.retry-wait", 10);
             Assertions.assertThrows(IllegalStateException.class, () -> new NacosMetadataReport(url));

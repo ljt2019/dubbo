@@ -44,7 +44,7 @@ class RpcFilterTest {
     void testRpcFilter() throws Exception {
         DemoService service = new DemoServiceImpl();
         int port = NetUtils.getAvailablePort();
-        URL url = URL.valueOf("dubbo://8.134.132.250:" + port + "/org.apache.dubbo.rpc.protocol.dubbo.support.DemoService?service.filter=echo");
+        URL url = URL.valueOf("dubbo://127.0.0.1:" + port + "/org.apache.dubbo.rpc.protocol.dubbo.support.DemoService?service.filter=echo");
         ApplicationModel.defaultModel().getDefaultModule().getServiceRepository().registerService(DemoService.class);
         url = url.setScopeModel(ApplicationModel.defaultModel().getDefaultModule());
         protocol.export(proxy.getInvoker(service, DemoService.class, url));

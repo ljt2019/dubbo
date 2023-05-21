@@ -174,7 +174,7 @@ class InvokerSideConfigUrlTest extends UrlTestBase {
         consumerConf = new ConsumerConfig();
 
         methodConfForReference.setName("sayName");
-        regConfForReference.setAddress("8.134.132.250:9090");
+        regConfForReference.setAddress("127.0.0.1:9090");
         regConfForReference.setProtocol("mockregistry");
         refConf.setInterface("org.apache.dubbo.config.api.DemoService");
 

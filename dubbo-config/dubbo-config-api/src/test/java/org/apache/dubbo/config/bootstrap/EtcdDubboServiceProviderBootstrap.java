@@ -44,11 +44,11 @@ public class EtcdDubboServiceProviderBootstrap {
 
         RegistryConfig interfaceRegistry = new RegistryConfig();
         interfaceRegistry.setId("interfaceRegistry");
-        interfaceRegistry.setAddress("etcd3://8.134.132.250:2379");
+        interfaceRegistry.setAddress("etcd3://127.0.0.1:2379");
 
         RegistryConfig serviceRegistry = new RegistryConfig();
         serviceRegistry.setId("serviceRegistry");
-        serviceRegistry.setAddress("etcd3://8.134.132.250:2379?registry-type=service");
+        serviceRegistry.setAddress("etcd3://127.0.0.1:2379?registry-type=service");
 
         ServiceConfig<EchoService> echoService = new ServiceConfig<>();
         echoService.setInterface(EchoService.class.getName());
@@ -66,13 +66,13 @@ public class EtcdDubboServiceProviderBootstrap {
         DubboBootstrap.getInstance()
                 .application(applicationConfig)
                 // Zookeeper in service registry type
-//                .registry("zookeeper", builder -> builder.address("zookeeper://8.134.132.250:2181?registry.type=service"))
+//                .registry("zookeeper", builder -> builder.address("zookeeper://127.0.0.1:2181?registry.type=service"))
                 // Nacos
-//                .registry("zookeeper", builder -> builder.address("nacos://8.134.132.250:8848?registry.type=service"))
+//                .registry("zookeeper", builder -> builder.address("nacos://127.0.0.1:8848?registry.type=service"))
                 .registries(Arrays.asList(interfaceRegistry, serviceRegistry))
-//                .registry(RegistryBuilder.newBuilder().address("consul://8.134.132.250:8500?registry.type=service").build())
+//                .registry(RegistryBuilder.newBuilder().address("consul://127.0.0.1:8500?registry.type=service").build())
                 .protocol(builder -> builder.port(-1).name("dubbo"))
-//                .metadataReport(new MetadataReportConfig("etcd://8.134.132.250:2379"))
+//                .metadataReport(new MetadataReportConfig("etcd://127.0.0.1:2379"))
                 .service(echoService)
                 .service(userService)
                 .start()

@@ -37,7 +37,7 @@ class PerformanceRegistryTest {
     void testRegistry() {
         // read server info from property
         if (PerformanceUtils.getProperty("server", null) == null) {
-            logger.warn(CONFIG_UNDEFINED_ARGUMENT, "", "", "Please set -Dserver=8.134.132.250:9090");
+            logger.warn(CONFIG_UNDEFINED_ARGUMENT, "", "", "Please set -Dserver=127.0.0.1:9090");
             return;
         }
         final int base = PerformanceUtils.getIntProperty("base", 0);

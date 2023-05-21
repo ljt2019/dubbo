@@ -38,7 +38,7 @@ class DefaultFilterChainBuilderTest {
         DefaultFilterChainBuilder defaultFilterChainBuilder = new DefaultFilterChainBuilder();
 
         // verify that no filter is built by default
-        URL urlWithoutFilter = URL.valueOf("injvm://8.134.132.250/DemoService")
+        URL urlWithoutFilter = URL.valueOf("injvm://127.0.0.1/DemoService")
             .addParameter(INTERFACE_KEY, DemoService.class.getName());
         urlWithoutFilter = urlWithoutFilter.setScopeModel(ApplicationModel.defaultModel());
         AbstractInvoker<DemoService> invokerWithoutFilter = new AbstractInvoker<DemoService>(DemoService.class, urlWithoutFilter) {
@@ -51,7 +51,7 @@ class DefaultFilterChainBuilderTest {
         Invoker<?> invokerAfterBuild = defaultFilterChainBuilder.buildInvokerChain(invokerWithoutFilter, REFERENCE_FILTER_KEY, CONSUMER);
 
         // verify that if LogFilter is configured, LogFilter should exist in the filter chain
-        URL urlWithFilter = URL.valueOf("injvm://8.134.132.250/DemoService")
+        URL urlWithFilter = URL.valueOf("injvm://127.0.0.1/DemoService")
             .addParameter(INTERFACE_KEY, DemoService.class.getName())
             .addParameter(REFERENCE_FILTER_KEY, "log");
         urlWithFilter = urlWithFilter.setScopeModel(ApplicationModel.defaultModel());
@@ -70,7 +70,7 @@ class DefaultFilterChainBuilderTest {
         DefaultFilterChainBuilder defaultFilterChainBuilder = new DefaultFilterChainBuilder();
 
         // verify that no filter is built by default
-        URL urlWithoutFilter = URL.valueOf("dubbo://8.134.132.250:20880/DemoService")
+        URL urlWithoutFilter = URL.valueOf("dubbo://127.0.0.1:20880/DemoService")
             .addParameter(INTERFACE_KEY, DemoService.class.getName());
         urlWithoutFilter = urlWithoutFilter.setScopeModel(ApplicationModel.defaultModel());
         AbstractInvoker<DemoService> invokerWithoutFilter = new AbstractInvoker<DemoService>(DemoService.class, urlWithoutFilter) {
@@ -84,7 +84,7 @@ class DefaultFilterChainBuilderTest {
 //        Assertions.assertTrue(invokerAfterBuild instanceof AbstractInvoker);
 
         // verify that if LogFilter is configured, LogFilter should exist in the filter chain
-        URL urlWithFilter = URL.valueOf("dubbo://8.134.132.250:20880/DemoService")
+        URL urlWithFilter = URL.valueOf("dubbo://127.0.0.1:20880/DemoService")
             .addParameter(INTERFACE_KEY, DemoService.class.getName())
             .addParameter(REFERENCE_FILTER_KEY, "log");
         urlWithFilter = urlWithFilter.setScopeModel(ApplicationModel.defaultModel());

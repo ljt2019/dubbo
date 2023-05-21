@@ -58,7 +58,7 @@ class DynamicDirectoryTest {
 
         Map<String, Object> attributes = new HashMap<>();
         ServiceConfigURL serviceConfigURLWithoutSimplified = new ServiceConfigURL("registry",
-            "8.134.132.250",
+            "127.0.0.1",
             2181,
             "org.apache.dubbo.registry.RegistryService",
             parameters);
@@ -71,7 +71,7 @@ class DynamicDirectoryTest {
             new DemoDynamicDirectory<>(DemoService.class, urlWithoutSimplified);
 
         URL registeredConsumerUrlWithoutSimplified = new ServiceConfigURL("dubbo",
-            "8.134.132.250",
+            "127.0.0.1",
             2181,
             DemoService.class.getName(),
             parameters);
@@ -86,7 +86,7 @@ class DynamicDirectoryTest {
         // verify simplified consumer url information that needs to be registered
         parameters.put(SIMPLIFIED_KEY, "true");
         ServiceConfigURL serviceConfigURLWithSimplified = new ServiceConfigURL("registry",
-            "8.134.132.250",
+            "127.0.0.1",
             2181,
             "org.apache.dubbo.registry.RegistryService",
             parameters);
@@ -94,7 +94,7 @@ class DynamicDirectoryTest {
         DemoDynamicDirectory<DemoService> dynamicDirectoryWithSimplified = new DemoDynamicDirectory<>(DemoService.class, urlWithSimplified);
 
         URL registeredConsumerUrlWithSimplified = new ServiceConfigURL("dubbo",
-            "8.134.132.250",
+            "127.0.0.1",
             2181,
             DemoService.class.getName(),
             parameters);
@@ -123,7 +123,7 @@ class DynamicDirectoryTest {
 
         Map<String, Object> attributes = new HashMap<>();
         ServiceConfigURL serviceConfigUrl = new ServiceConfigURL("registry",
-            "8.134.132.250",
+            "127.0.0.1",
             2181,
             "org.apache.dubbo.registry.RegistryService",
             parameters);
@@ -135,7 +135,7 @@ class DynamicDirectoryTest {
         DemoDynamicDirectory<DemoService> demoDynamicDirectory = new DemoDynamicDirectory<>(DemoService.class, url);
 
         URL subscribeUrl = new ServiceConfigURL("dubbo",
-            "8.134.132.250",
+            "127.0.0.1",
             20881,
             DemoService.class.getName(),
             parameters);

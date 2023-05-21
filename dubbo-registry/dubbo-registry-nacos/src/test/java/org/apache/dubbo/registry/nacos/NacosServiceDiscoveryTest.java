@@ -61,9 +61,9 @@ class NacosServiceDiscoveryTest {
 
     private static final String SERVICE_NAME = "NACOS_SERVICE";
 
-    private static final String LOCALHOST = "8.134.132.250";
+    private static final String LOCALHOST = "127.0.0.1";
 
-    protected URL registryUrl = URL.valueOf("nacos://8.134.132.250:" + NetUtils.getAvailablePort() + "?nacos.check=false");
+    protected URL registryUrl = URL.valueOf("nacos://127.0.0.1:" + NetUtils.getAvailablePort() + "?nacos.check=false");
 
     private NacosServiceDiscovery nacosServiceDiscovery;
 
@@ -79,7 +79,7 @@ class NacosServiceDiscoveryTest {
         public NacosServiceDiscoveryGroupTest1() {
             super();
             group = "test-group1";
-            registryUrl = URL.valueOf("nacos://8.134.132.250:" + NetUtils.getAvailablePort() + "?nacos.check=false").addParameter("group", group);
+            registryUrl = URL.valueOf("nacos://127.0.0.1:" + NetUtils.getAvailablePort() + "?nacos.check=false").addParameter("group", group);
         }
     }
 
@@ -87,7 +87,7 @@ class NacosServiceDiscoveryTest {
         public NacosServiceDiscoveryGroupTest2() {
             super();
             group = "test-group2";
-            registryUrl = URL.valueOf("nacos://8.134.132.250:" + NetUtils.getAvailablePort() + "?nacos.check=false").addParameter("group", group);
+            registryUrl = URL.valueOf("nacos://127.0.0.1:" + NetUtils.getAvailablePort() + "?nacos.check=false").addParameter("group", group);
         }
     }
 
@@ -97,7 +97,7 @@ class NacosServiceDiscoveryTest {
         public NacosServiceDiscoveryGroupTest3() {
             super();
             group = DEFAULT_GROUP;
-            registryUrl = URL.valueOf("nacos://8.134.132.250:" + NetUtils.getAvailablePort() + "?nacos.check=false").addParameter("group", "test-group3");
+            registryUrl = URL.valueOf("nacos://127.0.0.1:" + NetUtils.getAvailablePort() + "?nacos.check=false").addParameter("group", "test-group3");
         }
 
         @BeforeAll

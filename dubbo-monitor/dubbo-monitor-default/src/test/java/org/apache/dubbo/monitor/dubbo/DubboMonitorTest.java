@@ -76,7 +76,7 @@ class DubboMonitorTest {
         }
 
         public URL getUrl() {
-            return URL.valueOf("dubbo://8.134.132.250:7070?interval=1000");
+            return URL.valueOf("dubbo://127.0.0.1:7070?interval=1000");
         }
 
         @Override
@@ -160,12 +160,12 @@ class DubboMonitorTest {
         ProxyFactory proxyFactory = ExtensionLoader.getExtensionLoader(ProxyFactory.class).getAdaptiveExtension();
         MonitorFactory monitorFactory = ExtensionLoader.getExtensionLoader(MonitorFactory.class).getAdaptiveExtension();
 
-        Exporter<MonitorService> exporter = protocol.export(proxyFactory.getInvoker(monitorService, MonitorService.class, URL.valueOf("dubbo://8.134.132.250:17979/" + MonitorService.class.getName())));
+        Exporter<MonitorService> exporter = protocol.export(proxyFactory.getInvoker(monitorService, MonitorService.class, URL.valueOf("dubbo://127.0.0.1:17979/" + MonitorService.class.getName())));
         try {
             Monitor monitor = null;
             long start = System.currentTimeMillis();
             while (System.currentTimeMillis() - start < 60000) {
-                monitor = monitorFactory.getMonitor(URL.valueOf("dubbo://8.134.132.250:17979?interval=10"));
+                monitor = monitorFactory.getMonitor(URL.valueOf("dubbo://127.0.0.1:17979?interval=10"));
                 if (monitor == null) {
                     continue;
                 }
@@ -200,7 +200,7 @@ class DubboMonitorTest {
         MonitorService monitorService = mock(MonitorService.class);
 
         given(invoker.isAvailable()).willReturn(true);
-        given(invoker.getUrl()).willReturn(URL.valueOf("dubbo://8.134.132.250:7070?interval=20"));
+        given(invoker.getUrl()).willReturn(URL.valueOf("dubbo://127.0.0.1:7070?interval=20"));
         DubboMonitor dubboMonitor = new DubboMonitor(invoker, monitorService);
 
         assertThat(dubboMonitor.isAvailable(), is(true));
@@ -224,7 +224,7 @@ class DubboMonitorTest {
         Invoker invoker = mock(Invoker.class);
         MonitorService monitorService = mock(MonitorService.class);
 
-        given(invoker.getUrl()).willReturn(URL.valueOf("dubbo://8.134.132.250:7070?interval=20"));
+        given(invoker.getUrl()).willReturn(URL.valueOf("dubbo://127.0.0.1:7070?interval=20"));
         DubboMonitor dubboMonitor = new DubboMonitor(invoker, monitorService);
 
         dubboMonitor.collect(statistics.toSerializableURL());
@@ -254,7 +254,7 @@ class DubboMonitorTest {
         Invoker invoker = mock(Invoker.class);
         MonitorService monitorService = mock(MonitorService.class);
 
-        URL queryUrl = URL.valueOf("dubbo://8.134.132.250:7070?interval=20");
+        URL queryUrl = URL.valueOf("dubbo://127.0.0.1:7070?interval=20");
         given(invoker.getUrl()).willReturn(queryUrl);
         DubboMonitor dubboMonitor = new DubboMonitor(invoker, monitorService);
 

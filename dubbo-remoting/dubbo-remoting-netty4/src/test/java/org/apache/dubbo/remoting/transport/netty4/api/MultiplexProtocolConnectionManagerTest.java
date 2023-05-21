@@ -61,8 +61,8 @@ public class MultiplexProtocolConnectionManagerTest {
         configManager.setApplication(applicationConfig);
         configManager.getApplication();
         applicationModel.setConfigManager(configManager);
-        url1 = URL.valueOf("empty://8.134.132.250:8080?foo=bar");
-        url2 = URL.valueOf("tri://8.134.132.250:8081?foo=bar");
+        url1 = URL.valueOf("empty://127.0.0.1:8080?foo=bar");
+        url2 = URL.valueOf("tri://127.0.0.1:8081?foo=bar");
         url1 = url1.setScopeModel(applicationModel);
         ModuleModel moduleModel = applicationModel.getDefaultModule();
         url1 = url1.putAttribute(CommonConstants.SCOPE_MODEL, moduleModel);

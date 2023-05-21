@@ -79,7 +79,7 @@ class MultipleRegistryCenterServiceDiscoveryRegistryIntegrationTest implements I
     /**
      * The localhost.
      */
-    private static String HOST = "8.134.132.250";
+    private static String HOST = "127.0.0.1";
 
     /**
      * The port of register center.

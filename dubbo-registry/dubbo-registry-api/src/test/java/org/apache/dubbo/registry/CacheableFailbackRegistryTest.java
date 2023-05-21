@@ -55,7 +55,7 @@ class CacheableFailbackRegistryTest {
     @BeforeEach
     public void setUp() throws Exception {
         service = "org.apache.dubbo.test.DemoService";
-        serviceUrl = URL.valueOf("dubbo://8.134.132.250/org.apache.dubbo.test.DemoService?category=providers");
+        serviceUrl = URL.valueOf("dubbo://127.0.0.1/org.apache.dubbo.test.DemoService?category=providers");
         registryUrl = URL.valueOf("http://1.2.3.4:9090/registry?check=false&file=N/A");
         urlStr = "dubbo%3A%2F%2F172.19.4.113%3A20880%2Forg.apache.dubbo.demo.DemoService%3Fside%3Dprovider%26timeout%3D3000";
         urlStr2 = "dubbo%3A%2F%2F172.19.4.114%3A20880%2Forg.apache.dubbo.demo.DemoService%3Fside%3Dprovider%26timeout%3D3000";

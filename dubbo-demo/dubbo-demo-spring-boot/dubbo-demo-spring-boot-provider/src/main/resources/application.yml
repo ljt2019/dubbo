@@ -26,11 +26,11 @@ dubbo:
     port: -1
   registry:
     id: zk-registry
-    address: zookeeper://8.134.132.250:2181
+    address: zookeeper://127.0.0.1:2181
   config-center:
-    address: zookeeper://8.134.132.250:2181
+    address: zookeeper://127.0.0.1:2181
   metadata-report:
-    address: zookeeper://8.134.132.250:2181
+    address: zookeeper://127.0.0.1:2181
   metrics:
     protocol: prometheus
     enable-jvm: true

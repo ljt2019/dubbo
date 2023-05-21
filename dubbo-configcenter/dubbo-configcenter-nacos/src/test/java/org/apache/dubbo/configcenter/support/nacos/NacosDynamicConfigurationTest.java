@@ -128,7 +128,7 @@ class NacosDynamicConfigurationTest {
 
     @BeforeAll
     public static void setUp() {
-        String urlForDubbo = "nacos://" + "8.134.132.250:8848" + "/org.apache.dubbo.nacos.testService";
+        String urlForDubbo = "nacos://" + "127.0.0.1:8848" + "/org.apache.dubbo.nacos.testService";
         // timeout in 15 seconds.
         URL url = URL.valueOf(urlForDubbo)
                 .addParameter(SESSION_TIMEOUT_KEY, 15000);
@@ -136,7 +136,7 @@ class NacosDynamicConfigurationTest {
 
 
         try {
-            nacosClient = NacosFactory.createConfigService("8.134.132.250:8848");
+            nacosClient = NacosFactory.createConfigService("127.0.0.1:8848");
         } catch (NacosException e) {
             e.printStackTrace();
         }

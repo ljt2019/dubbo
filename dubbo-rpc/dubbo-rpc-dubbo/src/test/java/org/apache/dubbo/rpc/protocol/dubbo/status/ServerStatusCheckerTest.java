@@ -49,7 +49,7 @@ class ServerStatusCheckerTest {
         Mockito.when(dubboProtocol.getServers()).thenReturn(servers);
         Mockito.when(protocolServer.getRemotingServer()).thenReturn(remotingServer);
         Mockito.when(remotingServer.isBound()).thenReturn(true);
-        Mockito.when(remotingServer.getLocalAddress()).thenReturn(InetSocketAddress.createUnresolved("8.134.132.250", 9999));
+        Mockito.when(remotingServer.getLocalAddress()).thenReturn(InetSocketAddress.createUnresolved("127.0.0.1", 9999));
         Mockito.when(remotingServer.getChannels()).thenReturn(Arrays.asList(new MockChannel()));
 
 
@@ -57,15 +57,15 @@ class ServerStatusCheckerTest {
             mockDubboProtocol.when(() -> DubboProtocol.getDubboProtocol()).thenReturn(dubboProtocol);
             status = serverStatusChecker.check();
             Assertions.assertEquals(status.getLevel(), Status.Level.OK);
-            // In JDK 17 : 8.134.132.250/<unresolved>:9999(clients:1)
-            Assertions.assertTrue(status.getMessage().contains("8.134.132.250"));
+            // In JDK 17 : 127.0.0.1/<unresolved>:9999(clients:1)
+            Assertions.assertTrue(status.getMessage().contains("127.0.0.1"));
             Assertions.assertTrue(status.getMessage().contains("9999(clients:1)"));
 
             Mockito.when(remotingServer.isBound()).thenReturn(false);
             status = serverStatusChecker.check();
             Assertions.assertEquals(status.getLevel(), Status.Level.ERROR);
-            // In JDK 17 : 8.134.132.250/<unresolved>:9999
-            Assertions.assertTrue(status.getMessage().contains("8.134.132.250"));
+            // In JDK 17 : 127.0.0.1/<unresolved>:9999
+            Assertions.assertTrue(status.getMessage().contains("127.0.0.1"));
             Assertions.assertTrue(status.getMessage().contains("9999"));
         }
     }

@@ -52,7 +52,7 @@ class CountTelnetTest {
     private CommandContext mockCommandContext;
 
     private CountDownLatch latch;
-    private final URL url = URL.valueOf("dubbo://8.134.132.250:20884/demo");
+    private final URL url = URL.valueOf("dubbo://127.0.0.1:20884/demo");
 
     @BeforeEach
     public void setUp() {

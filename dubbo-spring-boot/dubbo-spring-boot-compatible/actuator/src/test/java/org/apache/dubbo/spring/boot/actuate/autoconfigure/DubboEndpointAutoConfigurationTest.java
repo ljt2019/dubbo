@@ -65,7 +65,7 @@ import java.util.function.Supplier;
                 "dubbo.protocol.name=dubbo",
                 "dubbo.protocol.port=20880",
                 "dubbo.provider.id=my-provider",
-                "dubbo.provider.host=8.134.132.250",
+                "dubbo.provider.host=127.0.0.1",
                 "dubbo.scan.basePackages=org.apache.dubbo.spring.boot.actuate.autoconfigure",
                 "endpoints.enabled = true",
                 "management.security.enabled = false",
@@ -105,7 +105,7 @@ public class DubboEndpointAutoConfigurationTest {
     @Autowired
     private ObjectMapper objectMapper;
 
-    @Value("http://8.134.132.250:${local.management.port}${management.contextPath:}")
+    @Value("http://127.0.0.1:${local.management.port}${management.contextPath:}")
     private String actuatorBaseURL;
 
     @Test
@@ -146,7 +146,7 @@ public class DubboEndpointAutoConfigurationTest {
         Assert.assertEquals("dubbo", beansMetadata.get("my-protocol").get("name"));
 
         beansMetadata = configsMap.get("ProviderConfig");
-        Assert.assertEquals("8.134.132.250", beansMetadata.get("my-provider").get("host"));
+        Assert.assertEquals("127.0.0.1", beansMetadata.get("my-provider").get("host"));
 
         beansMetadata = configsMap.get("ReferenceConfig");
         Assert.assertTrue(beansMetadata.isEmpty());
@@ -196,7 +196,7 @@ public class DubboEndpointAutoConfigurationTest {
         Assert.assertEquals("dubbo", properties.get("dubbo.protocol.name"));
         Assert.assertEquals("20880", properties.get("dubbo.protocol.port"));
         Assert.assertEquals("my-provider", properties.get("dubbo.provider.id"));
-        Assert.assertEquals("8.134.132.250", properties.get("dubbo.provider.host"));
+        Assert.assertEquals("127.0.0.1", properties.get("dubbo.provider.host"));
         Assert.assertEquals("org.apache.dubbo.spring.boot.actuate.autoconfigure", properties.get("dubbo.scan.basePackages"));
     }
 

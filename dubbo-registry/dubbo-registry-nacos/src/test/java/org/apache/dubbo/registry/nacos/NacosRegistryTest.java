@@ -55,7 +55,7 @@ class NacosRegistryTest {
 
     private static final String serviceInterface = "org.apache.dubbo.registry.nacos.NacosService";
 
-    private final URL serviceUrl = URL.valueOf("nacos://8.134.132.250:3333/" + serviceInterface + "?interface=" +
+    private final URL serviceUrl = URL.valueOf("nacos://127.0.0.1:3333/" + serviceInterface + "?interface=" +
         serviceInterface + "&notify=false&methods=test1,test2&category=providers&version=1.0.0&group=default&side=provider");
 
     private NacosRegistryFactory nacosRegistryFactory;
@@ -242,7 +242,7 @@ class NacosRegistryTest {
     @Test
     void testIsConformRules() {
         NamingService namingService = mock(NacosNamingService.class);
-        URL serviceUrlWithoutCategory = URL.valueOf("nacos://8.134.132.250:3333/" + serviceInterface + "?interface=" +
+        URL serviceUrlWithoutCategory = URL.valueOf("nacos://127.0.0.1:3333/" + serviceInterface + "?interface=" +
             serviceInterface + "&notify=false&methods=test1,test2&version=1.0.0&group=default");
         try {
             String serviceName = "providers:org.apache.dubbo.registry.nacos.NacosService:1.0.0:default";
@@ -287,12 +287,12 @@ class NacosRegistryTest {
         Assertions.assertTrue(registered.contains(serviceUrlWithoutCategory));
         Assertions.assertEquals(2, registered.size());
 
-        URL serviceUrlWithWildcard = URL.valueOf("nacos://8.134.132.250:3333/" +
+        URL serviceUrlWithWildcard = URL.valueOf("nacos://127.0.0.1:3333/" +
             serviceInterface +
             "?interface=org.apache.dubbo.registry.nacos.NacosService" +
             "&notify=false&methods=test1,test2&category=providers&version=*&group=default");
 
-        URL serviceUrlWithOutWildcard = URL.valueOf("nacos://8.134.132.250:3333/" +
+        URL serviceUrlWithOutWildcard = URL.valueOf("nacos://127.0.0.1:3333/" +
             serviceInterface +
             "?interface=org.apache.dubbo.registry.nacos.NacosService" +
             "&notify=false&methods=test1,test2&category=providers&version=1.0.0&group=default");

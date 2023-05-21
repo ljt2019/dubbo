@@ -46,7 +46,7 @@ class AbstractDynamicConfigurationFactoryTest {
 
     @Test
     void testGetDynamicConfiguration() {
-        URL url = URL.valueOf("nop://8.134.132.250");
+        URL url = URL.valueOf("nop://127.0.0.1");
         assertEquals(factory.getDynamicConfiguration(url), factory.getDynamicConfiguration(url));
     }
 }

@@ -58,7 +58,7 @@ class GenericServiceTest {
         DemoService server = new DemoServiceImpl();
         ProxyFactory proxyFactory = ExtensionLoader.getExtensionLoader(ProxyFactory.class).getAdaptiveExtension();
         Protocol protocol = ExtensionLoader.getExtensionLoader(Protocol.class).getAdaptiveExtension();
-        URL url = URL.valueOf("dubbo://8.134.132.250:5342/" + DemoService.class.getName() + "?version=1.0.0");
+        URL url = URL.valueOf("dubbo://127.0.0.1:5342/" + DemoService.class.getName() + "?version=1.0.0");
         Exporter<DemoService> exporter = protocol.export(proxyFactory.getInvoker(server, DemoService.class, url));
         Invoker<DemoService> invoker = protocol.refer(DemoService.class, url);
 
@@ -78,7 +78,7 @@ class GenericServiceTest {
         DemoService server = new DemoServiceImpl();
         ProxyFactory proxyFactory = ExtensionLoader.getExtensionLoader(ProxyFactory.class).getAdaptiveExtension();
         Protocol protocol = ExtensionLoader.getExtensionLoader(Protocol.class).getAdaptiveExtension();
-        URL url = URL.valueOf("dubbo://8.134.132.250:5342/" + DemoService.class.getName() + "?version=1.0.0&generic=true$timeout=3000");
+        URL url = URL.valueOf("dubbo://127.0.0.1:5342/" + DemoService.class.getName() + "?version=1.0.0&generic=true$timeout=3000");
         Exporter<DemoService> exporter = protocol.export(proxyFactory.getInvoker(server, DemoService.class, url));
         Invoker<GenericService> invoker = protocol.refer(GenericService.class, url);
 
@@ -105,7 +105,7 @@ class GenericServiceTest {
         DemoService server = new DemoServiceImpl();
         ProxyFactory proxyFactory = ExtensionLoader.getExtensionLoader(ProxyFactory.class).getAdaptiveExtension();
         Protocol protocol = ExtensionLoader.getExtensionLoader(Protocol.class).getAdaptiveExtension();
-        URL url = URL.valueOf("dubbo://8.134.132.250:5342/" + DemoService.class.getName() + "?version=1.0.0&generic=true$timeout=3000");
+        URL url = URL.valueOf("dubbo://127.0.0.1:5342/" + DemoService.class.getName() + "?version=1.0.0&generic=true$timeout=3000");
         Exporter<DemoService> exporter = protocol.export(proxyFactory.getInvoker(server, DemoService.class, url));
 
         // simulate normal invoke
@@ -128,7 +128,7 @@ class GenericServiceTest {
         DemoService server = new DemoServiceImpl();
         ProxyFactory proxyFactory = ExtensionLoader.getExtensionLoader(ProxyFactory.class).getAdaptiveExtension();
         Protocol protocol = ExtensionLoader.getExtensionLoader(Protocol.class).getAdaptiveExtension();
-        URL url = URL.valueOf("dubbo://8.134.132.250:5342/" + DemoService.class.getName() + "?version=1.0.0&generic=true$timeout=3000");
+        URL url = URL.valueOf("dubbo://127.0.0.1:5342/" + DemoService.class.getName() + "?version=1.0.0&generic=true$timeout=3000");
         Exporter<DemoService> exporter = protocol.export(proxyFactory.getInvoker(server, DemoService.class, url));
 
 
@@ -166,7 +166,7 @@ class GenericServiceTest {
         DemoService server = new DemoServiceImpl();
         ProxyFactory proxyFactory = ExtensionLoader.getExtensionLoader(ProxyFactory.class).getAdaptiveExtension();
         Protocol protocol = ExtensionLoader.getExtensionLoader(Protocol.class).getAdaptiveExtension();
-        URL url = URL.valueOf("dubbo://8.134.132.250:5342/" + DemoService.class.getName() + "?version=1.0.0&generic=true$timeout=3000");
+        URL url = URL.valueOf("dubbo://127.0.0.1:5342/" + DemoService.class.getName() + "?version=1.0.0&generic=true$timeout=3000");
         Exporter<DemoService> exporter = protocol.export(proxyFactory.getInvoker(server, DemoService.class, url));
 
 

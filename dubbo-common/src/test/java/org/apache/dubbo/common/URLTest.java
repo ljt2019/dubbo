@@ -61,11 +61,11 @@ class URLTest {
 
     @Test
     void testDefault() {
-        URL url1 = URL.valueOf("dubbo://8.134.132.250:12345?timeout=1234&default.timeout=5678");
+        URL url1 = URL.valueOf("dubbo://127.0.0.1:12345?timeout=1234&default.timeout=5678");
         assertEquals(1234, url1.getParameter("timeout", 0));
         assertEquals(5678, url1.getParameter("default.timeout", 0));
 
-        URL url2 = URL.valueOf("dubbo://8.134.132.250:12345?default.timeout=5678");
+        URL url2 = URL.valueOf("dubbo://127.0.0.1:12345?default.timeout=5678");
         assertEquals(5678, url2.getParameter("timeout", 0));
         assertEquals(5678, url2.getParameter("default.timeout", 0));
     }
@@ -751,10 +751,10 @@ class URLTest {
 
     @Test
     void test_Localhost() throws Exception {
-        URL url = URL.valueOf("dubbo://8.134.132.250:20880");
+        URL url = URL.valueOf("dubbo://127.0.0.1:20880");
         assertURLStrDecoder(url);
-        assertEquals("8.134.132.250", url.getHost());
-        assertEquals("8.134.132.250:20880", url.getAddress());
+        assertEquals("127.0.0.1", url.getHost());
+        assertEquals("127.0.0.1:20880", url.getAddress());
         assertTrue(url.isLocalHost());
 
         url = URL.valueOf("dubbo://127.0.1.1:20880");
@@ -779,7 +779,7 @@ class URLTest {
 
     @Test
     void testAddParameters() throws Exception {
-        URL url = URL.valueOf("dubbo://8.134.132.250:20880");
+        URL url = URL.valueOf("dubbo://127.0.0.1:20880");
         assertURLStrDecoder(url);
 
         Map<String, String> parameters = new HashMap<String, String>();
@@ -925,7 +925,7 @@ class URLTest {
 
     @Test
     void testGetParameter() {
-        URL url = URL.valueOf("http://8.134.132.250:8080/path?i=1&b=false");
+        URL url = URL.valueOf("http://127.0.0.1:8080/path?i=1&b=false");
         assertEquals(Integer.valueOf(1), url.getParameter("i", Integer.class));
         assertEquals(Boolean.FALSE, url.getParameter("b", Boolean.class));
     }

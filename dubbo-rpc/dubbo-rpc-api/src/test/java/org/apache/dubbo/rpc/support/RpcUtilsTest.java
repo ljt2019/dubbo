@@ -119,7 +119,7 @@ class RpcUtilsTest {
         String serviceName = demoServiceClass.getName();
         Invoker invoker = mock(Invoker.class);
         given(invoker.getUrl()).willReturn(URL.valueOf(
-                "test://8.134.132.250:1/org.apache.dubbo.rpc.support.DemoService?interface=org.apache.dubbo.rpc.support.DemoService"));
+                "test://127.0.0.1:1/org.apache.dubbo.rpc.support.DemoService?interface=org.apache.dubbo.rpc.support.DemoService"));
 
         // void sayHello(String name);
         RpcInvocation inv = new RpcInvocation("sayHello", serviceName, "", new Class<?>[] {String.class}, null, null, invoker, null);
@@ -159,7 +159,7 @@ class RpcUtilsTest {
         String serviceName = demoServiceClass.getName();
         Invoker invoker = mock(Invoker.class);
         given(invoker.getUrl()).willReturn(URL.valueOf(
-                "test://8.134.132.250:1/org.apache.dubbo.rpc.support.DemoService?interface=org.apache.dubbo.rpc.support.DemoService"));
+                "test://127.0.0.1:1/org.apache.dubbo.rpc.support.DemoService?interface=org.apache.dubbo.rpc.support.DemoService"));
 
         RpcInvocation inv = new RpcInvocation("testReturnType", serviceName, "", new Class<?>[] {String.class}, null, null, invoker, null);
         Type[] types = RpcUtils.getReturnTypes(inv);
@@ -223,7 +223,7 @@ class RpcUtilsTest {
         String serviceName = demoServiceClass.getName();
         Invoker invoker = mock(Invoker.class);
         given(invoker.getUrl()).willReturn(URL.valueOf(
-            "test://8.134.132.250:1/org.apache.dubbo.rpc.support.DemoService?interface=org.apache.dubbo.rpc.support.DemoService"));
+            "test://127.0.0.1:1/org.apache.dubbo.rpc.support.DemoService?interface=org.apache.dubbo.rpc.support.DemoService"));
 
         RpcInvocation inv = new RpcInvocation("testReturnType", serviceName, "", new Class<?>[] {String.class}, null, null, invoker, null);
         inv.setReturnTypes(null);
@@ -288,7 +288,7 @@ class RpcUtilsTest {
         String serviceName = demoServiceClass.getName();
         Invoker invoker = mock(Invoker.class);
         given(invoker.getUrl()).willReturn(URL.valueOf(
-            "test://8.134.132.250:1/org.apache.dubbo.rpc.support.DemoService?interface=org.apache.dubbo.rpc.support.DemoService"));
+            "test://127.0.0.1:1/org.apache.dubbo.rpc.support.DemoService?interface=org.apache.dubbo.rpc.support.DemoService"));
 
         RpcInvocation inv = new RpcInvocation("testReturnType", serviceName, "", new Class<?>[] {String.class}, null, null, invoker, null);
         inv.setMethodName($INVOKE);
@@ -441,7 +441,7 @@ class RpcUtilsTest {
         Invoker invoker = mock(Invoker.class);
 
         URL url = URL.valueOf(
-                "test://8.134.132.250:1/org.apache.dubbo.rpc.support.DemoService?interface=org.apache.dubbo.rpc.support.DemoService");
+                "test://127.0.0.1:1/org.apache.dubbo.rpc.support.DemoService?interface=org.apache.dubbo.rpc.support.DemoService");
 
         RpcInvocation inv = new RpcInvocation("test", serviceName, "",
                 new Class<?>[] {String.class, String[].class, Object[].class},
@@ -472,7 +472,7 @@ class RpcUtilsTest {
         String serviceName = demoServiceClass.getName();
         Invoker invoker = mock(Invoker.class);
         given(invoker.getUrl()).willReturn(URL.valueOf(
-                "test://8.134.132.250:1/org.apache.dubbo.rpc.support.DemoService?interface=org.apache.dubbo.rpc.support.DemoService"));
+                "test://127.0.0.1:1/org.apache.dubbo.rpc.support.DemoService?interface=org.apache.dubbo.rpc.support.DemoService"));
 
         RpcInvocation inv = new RpcInvocation("testReturnType", serviceName, "", new Class<?>[] {String.class}, null, null, invoker, null);
         Assertions.assertFalse(RpcUtils.isReturnTypeFuture(inv));

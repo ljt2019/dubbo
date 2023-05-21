@@ -41,7 +41,7 @@ public class EnumBak {
     @Test
     public void testNormal() {
         int port = NetUtils.getAvailablePort();
-        URL serviceurl = URL.valueOf("dubbo://8.134.132.250:" + port + "/test?proxy=jdk"
+        URL serviceurl = URL.valueOf("dubbo://127.0.0.1:" + port + "/test?proxy=jdk"
                 + "&interface=" + DemoService.class.getName()
                 + "&timeout=" + Integer.MAX_VALUE
         );
@@ -67,7 +67,7 @@ public class EnumBak {
     @Test
     public void testExportService() throws InterruptedException {
         int port = NetUtils.getAvailablePort();
-        URL serviceurl = URL.valueOf("dubbo://8.134.132.250:" + port + "/test?proxy=jdk&timeout=" + Integer.MAX_VALUE
+        URL serviceurl = URL.valueOf("dubbo://127.0.0.1:" + port + "/test?proxy=jdk&timeout=" + Integer.MAX_VALUE
         );
         DemoService demo = new DemoServiceImpl();
         Invoker<DemoService> invoker = proxy.getInvoker(demo, DemoService.class, serviceurl);
@@ -89,7 +89,7 @@ public class EnumBak {
     @Test
     public void testNormalEnum() {
         int port = NetUtils.getAvailablePort();
-        URL serviceurl = URL.valueOf("dubbo://8.134.132.250:" + port + "/test?timeout=" + Integer.MAX_VALUE
+        URL serviceurl = URL.valueOf("dubbo://127.0.0.1:" + port + "/test?timeout=" + Integer.MAX_VALUE
         );
         DemoService demo = new DemoServiceImpl();
 
@@ -114,7 +114,7 @@ public class EnumBak {
     @Test
     public void testEnumCompat() {
         int port = NetUtils.getAvailablePort();
-        URL consumerurl = URL.valueOf("dubbo://8.134.132.250:" + port + "/test?timeout=" + Integer.MAX_VALUE
+        URL consumerurl = URL.valueOf("dubbo://127.0.0.1:" + port + "/test?timeout=" + Integer.MAX_VALUE
         );
 
         ApplicationModel.defaultModel().getDefaultModule().getServiceRepository().registerService(DemoService.class);
@@ -132,7 +132,7 @@ public class EnumBak {
     @Test
     public void testGenricEnumCompat() {
         int port = NetUtils.getAvailablePort();
-        URL consumerurl = URL.valueOf("dubbo://8.134.132.250:" + port + "/test?timeout=" + Integer.MAX_VALUE
+        URL consumerurl = URL.valueOf("dubbo://127.0.0.1:" + port + "/test?timeout=" + Integer.MAX_VALUE
         );
         Invoker<GenericService> reference = protocol.refer(GenericService.class, consumerurl);
 
@@ -148,7 +148,7 @@ public class EnumBak {
     public void testGenricCustomArg() {
 
         int port = NetUtils.getAvailablePort();
-        URL consumerurl = URL.valueOf("dubbo://8.134.132.250:" + port + "/test?timeout=2000000"
+        URL consumerurl = URL.valueOf("dubbo://127.0.0.1:" + port + "/test?timeout=2000000"
         );
         Invoker<GenericService> reference = protocol.refer(GenericService.class, consumerurl);
 
@@ -167,7 +167,7 @@ public class EnumBak {
     public void testGenericExport() throws InterruptedException {
         int port = NetUtils.getAvailablePort();
         //port = 20880;
-        URL serviceurl = URL.valueOf("dubbo://8.134.132.250:" + port + "/test?timeout=" + Integer.MAX_VALUE
+        URL serviceurl = URL.valueOf("dubbo://127.0.0.1:" + port + "/test?timeout=" + Integer.MAX_VALUE
         );
         DemoService demo = new DemoServiceImpl();
         Invoker<DemoService> invoker = proxy.getInvoker(demo, DemoService.class, serviceurl);
@@ -181,7 +181,7 @@ public class EnumBak {
     @Test
     public void testGenericEnum() throws InterruptedException {
         int port = NetUtils.getAvailablePort();
-        URL serviceurl = URL.valueOf("dubbo://8.134.132.250:" + port + "/test?timeout=" + Integer.MAX_VALUE
+        URL serviceurl = URL.valueOf("dubbo://127.0.0.1:" + port + "/test?timeout=" + Integer.MAX_VALUE
         );
         DemoService demo = new DemoServiceImpl();
         Invoker<DemoService> invoker = proxy.getInvoker(demo, DemoService.class, serviceurl);

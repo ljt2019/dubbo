@@ -81,7 +81,7 @@ public class ZookeeperConfig implements Config {
     /**
      * The format for zookeeper connection address.
      */
-    private static final String CONNECTION_ADDRESS_FORMAT = "zookeeper://8.134.132.250:%d";
+    private static final String CONNECTION_ADDRESS_FORMAT = "zookeeper://127.0.0.1:%d";
 
     // initialize the client ports of zookeeper.
     static {

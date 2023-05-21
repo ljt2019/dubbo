@@ -50,7 +50,7 @@ class FailbackRegistryTest {
     @BeforeEach
     public void setUp() throws Exception {
         String failedPeriod = String.valueOf(FAILED_PERIOD);
-        serviceUrl = URL.valueOf("remote://8.134.132.250/demoservice?method=get").addParameter(REGISTRY_RETRY_PERIOD_KEY, failedPeriod);
+        serviceUrl = URL.valueOf("remote://127.0.0.1/demoservice?method=get").addParameter(REGISTRY_RETRY_PERIOD_KEY, failedPeriod);
         registryUrl = URL.valueOf("http://1.2.3.4:9090/registry?check=false&file=N/A").addParameter(REGISTRY_RETRY_PERIOD_KEY, failedPeriod);
     }
 

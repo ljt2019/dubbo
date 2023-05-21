@@ -38,7 +38,7 @@ class SpringCloudMetadataServiceURLBuilderTest {
 
     @Test
     void testBuild() {
-        List<URL> urls = builder.build(new DefaultServiceInstance("8.134.132.250", "test", 8080, ApplicationModel.defaultModel()));
+        List<URL> urls = builder.build(new DefaultServiceInstance("127.0.0.1", "test", 8080, ApplicationModel.defaultModel()));
         assertEquals(0, urls.size());
 
         urls = builder.build(serviceInstance);

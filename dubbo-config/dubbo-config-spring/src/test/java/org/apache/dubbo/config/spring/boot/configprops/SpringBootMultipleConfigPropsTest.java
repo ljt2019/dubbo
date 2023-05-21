@@ -64,12 +64,12 @@ import static org.apache.dubbo.common.constants.MetricsConstants.PROTOCOL_PROMET
         "dubbo.metricses.my-metrics.aggregation.bucket-num=5",
         "dubbo.metricses.my-metrics.aggregation.time-window-seconds=120",
         "dubbo.metricses.my-metrics.histogram.enabled=true",
-        "dubbo.monitors.my-monitor.address=zookeeper://8.134.132.250:32770",
+        "dubbo.monitors.my-monitor.address=zookeeper://127.0.0.1:32770",
         "dubbo.config-centers.my-configcenter.address=${zookeeper.connection.address.1}",
         "dubbo.config-centers.my-configcenter.group=group1",
         "dubbo.metadata-reports.my-metadata.address=${zookeeper.connection.address.2}",
         "dubbo.metadata-reports.my-metadata.username=User",
-        "dubbo.providers.my-provider.host=8.134.132.250",
+        "dubbo.providers.my-provider.host=127.0.0.1",
         "dubbo.consumers.my-consumer.client=netty"
     },
     classes = {
@@ -104,7 +104,7 @@ class SpringBootMultipleConfigPropsTest {
         Assertions.assertEquals("dubbo-demo-application", applicationConfig.getName());
 
         MonitorConfig monitorConfig = configManager.getMonitor().get();
-        Assertions.assertEquals("zookeeper://8.134.132.250:32770", monitorConfig.getAddress());
+        Assertions.assertEquals("zookeeper://127.0.0.1:32770", monitorConfig.getAddress());
 
         MetricsConfig metricsConfig = configManager.getMetrics().get();
         Assertions.assertEquals(PROTOCOL_PROMETHEUS, metricsConfig.getProtocol());
@@ -149,7 +149,7 @@ class SpringBootMultipleConfigPropsTest {
         Assertions.assertEquals("dubbo-demo-module", moduleConfig.getName());
 
         ProviderConfig providerConfig = moduleConfigManager.getDefaultProvider().get();
-        Assertions.assertEquals("8.134.132.250", providerConfig.getHost());
+        Assertions.assertEquals("127.0.0.1", providerConfig.getHost());
 
         ConsumerConfig consumerConfig = moduleConfigManager.getDefaultConsumer().get();
         Assertions.assertEquals("netty", consumerConfig.getClient());

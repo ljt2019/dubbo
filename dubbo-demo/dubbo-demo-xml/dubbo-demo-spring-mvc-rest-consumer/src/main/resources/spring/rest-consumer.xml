@@ -30,7 +30,7 @@
 
     <bean name="dubboConfig" class="org.apache.dubbo.demo.rest.api.config.DubboConfig"></bean>
 
-    <dubbo:registry address="zookeeper://${zookeeper.address:8.134.132.250}:2181"/>
+    <dubbo:registry address="zookeeper://${zookeeper.address:127.0.0.1}:2181"/>
 
 
 

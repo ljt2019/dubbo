@@ -33,7 +33,7 @@ class ChannelHandlersTest {
         Assertions.assertEquals(instance1, instance2);
 
         ChannelHandler channelHandler = Mockito.mock(ChannelHandler.class);
-        URL url = new ServiceConfigURL("dubbo", "8.134.132.250", 9999);
+        URL url = new ServiceConfigURL("dubbo", "127.0.0.1", 9999);
         ChannelHandler wrappedHandler = ChannelHandlers.wrap(channelHandler, url);
         Assertions.assertTrue(wrappedHandler instanceof MultiMessageHandler);
 

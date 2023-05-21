@@ -82,11 +82,11 @@ class EnableDubboConfigTest {
 
         // monitor
         MonitorConfig monitorConfig = context.getBean(MonitorConfig.class);
-        Assertions.assertEquals("zookeeper://8.134.132.250:32770", monitorConfig.getAddress());
+        Assertions.assertEquals("zookeeper://127.0.0.1:32770", monitorConfig.getAddress());
 
         // provider
         ProviderConfig providerConfig = context.getBean(ProviderConfig.class);
-        Assertions.assertEquals("8.134.132.250", providerConfig.getHost());
+        Assertions.assertEquals("127.0.0.1", providerConfig.getHost());
 
 
         // consumer

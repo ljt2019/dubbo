@@ -70,7 +70,7 @@ class ChangeTelnetTest {
         mockChannel.attr(ChangeTelnet.SERVICE_KEY).set("org.apache.dubbo.rpc.protocol.dubbo.support.DemoService");
         given(mockCommandContext.getRemote()).willReturn(mockChannel);
         given(mockInvoker.getInterface()).willReturn(DemoService.class);
-        given(mockInvoker.getUrl()).willReturn(URL.valueOf("dubbo://8.134.132.250:20884/demo"));
+        given(mockInvoker.getUrl()).willReturn(URL.valueOf("dubbo://127.0.0.1:20884/demo"));
     }
 
     @AfterEach

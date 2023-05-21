@@ -74,7 +74,7 @@ public class AnnotationIsolationTest extends BaseTest {
         @Bean
         public RegistryConfig registryConfig() {
             RegistryConfig registryConfig = new RegistryConfig();
-            registryConfig.setAddress("zookeeper://8.134.132.250:2181");
+            registryConfig.setAddress("zookeeper://127.0.0.1:2181");
             return registryConfig;
         }
 
@@ -92,7 +92,7 @@ public class AnnotationIsolationTest extends BaseTest {
         @Bean
         public RegistryConfig registryConfig() {
             RegistryConfig registryConfig = new RegistryConfig();
-            registryConfig.setAddress("zookeeper://8.134.132.250:2181");
+            registryConfig.setAddress("zookeeper://127.0.0.1:2181");
             return registryConfig;
         }
 
